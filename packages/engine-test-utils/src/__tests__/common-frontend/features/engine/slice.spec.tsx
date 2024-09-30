@@ -1,5 +1,5 @@
 import { APIUtils } from "@dendronhq/common-all";
-import { combinedStore, engineSlice } from "@dendronhq/common-frontend";
+import { combinedStore, engineSlice, Dispatch } from "@dendronhq/common-frontend";
 import { NoteTestUtilsV4 } from "@dendronhq/common-test-utils";
 import { createEngineFromServer, runEngineTestV5 } from "../../../../engine";
 import { ENGINE_HOOKS } from "../../../../presets";
@@ -31,9 +31,9 @@ describe("GIVEN syncNote", () => {
           // --- setup engineSlice
           // sync new note to redux engine
           const initNotesOpts = { ws: wsRoot, url };
-          await combinedStore.dispatch(engineSlice.initNotes(initNotesOpts));
+          await (combinedStore.dispatch as Dispatch)(engineSlice.initNotes(initNotesOpts) as any);
           await combinedStore.dispatch(
-            engineSlice.syncNote({ ...initNotesOpts, note: newNote })
+            engineSlice.syncNote({ ...initNotesOpts, note: newNote }) as any
           );
 
           // check results
@@ -64,9 +64,9 @@ describe("GIVEN syncNote", () => {
           const url = APIUtils.getLocalEndpoint(port!);
 
           const initNotesOpts = { ws: wsRoot, url };
-          await combinedStore.dispatch(engineSlice.initNotes(initNotesOpts));
+          await combinedStore.dispatch(engineSlice.initNotes(initNotesOpts) as any);
           await combinedStore.dispatch(
-            engineSlice.syncNote({ ...initNotesOpts, note })
+            engineSlice.syncNote({ ...initNotesOpts, note }) as any
           );
           const notesDict = combinedStore.getState().engine.notes;
           expect(notesDict["foo"]).toEqual(note);

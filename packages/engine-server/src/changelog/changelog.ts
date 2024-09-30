@@ -1,7 +1,7 @@
 import { asyncLoopOneAtATime, DEngineClient } from "@dendronhq/common-all";
 import { DConfig } from "@dendronhq/common-server";
 import * as Diff2Html from "diff2html";
-import execa from "execa";
+
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -31,7 +31,8 @@ export class ChangelogGenerator {
 
 async function getLastCommit(wsRoot: string) {
   // get last commit hash
-  const { stdout } = await execa(
+  const execa = await import("execa");
+  const { stdout } = await execa.execa(
     "git",
     [`log`, `--pretty=format:'%h'`, `-n`, `1`],
     { cwd: wsRoot }
@@ -112,13 +113,14 @@ async function getChanges(opts: { commitHash: string; engine: DEngineClient }) {
   const filesChanged: string[] = [];
 
   // get files changed/added
-  const { stdout } = await execa("git", ["show", "--name-status", commitHash], {
+  const execa = await import("execa");
+  const { stdout } = await execa.execa("git", ["show", "--name-status", commitHash], {
     cwd: wsRoot,
     shell: true,
   });
   const status = stdout.split("\n");
   await asyncLoopOneAtATime(status, async (result) => {
-    if (result.startsWith("M")) {
+    if (typeof result === "string" && result.startsWith("M")) {
       const filePath = result.split(" ")[0].substring(2);
       if (await canShowDiff({ filePath, engine })) {
         filesChanged.push(filePath);
@@ -127,7 +129,7 @@ async function getChanges(opts: { commitHash: string; engine: DEngineClient }) {
           fname: filePath,
         });
       }
-    } else if (result.startsWith("A")) {
+    } else if (typeof result === "string" && result.startsWith("A")) {
       const filePath = result.split(" ")[0].substring(2);
       if (await canShowDiff({ filePath, engine })) {
         filesChanged.push(filePath);
@@ -141,7 +143,8 @@ async function getChanges(opts: { commitHash: string; engine: DEngineClient }) {
 
   await Promise.all(
     changes.map(async (change) => {
-      const { stdout } = await execa(
+      const execa = await import("execa");
+      const { stdout } = await execa.execa(
         "git",
         ["show", commitHash, "--", change.fname],
         { cwd: wsRoot, shell: true }
@@ -152,19 +155,25 @@ async function getChanges(opts: { commitHash: string; engine: DEngineClient }) {
   );
 
   // get date of last commit
-  const { stdout: stdOut2 } = await execa(
-    "git",
-    ["log", commitHash, "--format=%cd"],
-    {
-      cwd: wsRoot,
-      shell: true,
-    }
-  );
-  const date = stdOut2.split(/\s+/).slice(1, 5);
-  const day = date[0];
-  const month = date[1];
-  const year = date[3];
-  commitDate = `${day} ${month} ${year}`;
+
+  async function getGitCommitDate() {
+    const execa = await import("execa");
+    const { stdout: stdOut2 } = await execa.execa(
+      "git",
+      ["log", commitHash, "--format=%cd"],
+      {
+        cwd: wsRoot,
+        shell: true,
+      }
+    );
+    const date = stdOut2.split(/\s+/).slice(1, 5);
+    const day = date[0];
+    const month = date[1];
+    const year = date[3];
+    commitDate = `${day} ${month} ${year}`;
+    return commitDate;
+  }
+  commitDate = await getGitCommitDate();
 
   return {
     commitDate,

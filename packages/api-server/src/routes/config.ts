@@ -5,7 +5,7 @@ import asyncHandler from "express-async-handler";
 import { getLogger } from "../core";
 import { ConfigController } from "../modules/config";
 
-const router = Router();
+const router: Router = Router();
 const L = getLogger();
 const ctx = "config";
 

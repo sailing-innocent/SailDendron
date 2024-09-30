@@ -28,7 +28,7 @@ import asyncHandler from "express-async-handler";
 import { NoteController } from "../modules/notes";
 import { getWSEngine } from "../utils";
 
-const router = Router();
+const router: Router = Router();
 
 router.get(
   "/get",

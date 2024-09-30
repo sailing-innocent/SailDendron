@@ -73,9 +73,9 @@ export class GitPunchCardExportPod extends ExportPod {
       ]);
       const cleanCommits = commits
         .split("commit")
-        .filter((ent) => !_.isEmpty(ent));
+        .filter((ent: any) => !_.isEmpty(ent));
       const data = cleanCommits
-        .map((chunk) => {
+        .map((chunk: string) => {
           const cleanChunk = chunk
             .split("\n")
             .filter((ent) => !_.isEmpty(ent))
@@ -86,7 +86,7 @@ export class GitPunchCardExportPod extends ExportPod {
           }
           return undefined;
         })
-        .filter((ent) => !_.isUndefined(ent));
+        .filter((ent: any) => !_.isUndefined(ent));
       return data;
     };
 

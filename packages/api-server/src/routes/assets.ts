@@ -6,7 +6,7 @@ import { getLogger } from "../core";
 import { AssetsController } from "../modules/assets";
 
 // Init router and path
-const router = Router();
+const router: Router = Router();
 
 const L = getLogger();
 const ctx = "assets";

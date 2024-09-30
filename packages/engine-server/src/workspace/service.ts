@@ -1417,7 +1417,7 @@ export class WorkspaceService implements Disposable, IWorkspaceService {
               stashed = await git.stashCreate();
               this.logger.info({ ctx, vaults, repo, stashed });
               // this shouldn't fail, but for safety's sake
-              if (_.isEmpty(stashed) || !git.isValidStashCommit(stashed)) {
+              if (!stashed || _.isEmpty(stashed) || !git.isValidStashCommit(stashed)) {
                 throw new DendronError({
                   message: "unable to stash changes",
                   payload: { stashed },

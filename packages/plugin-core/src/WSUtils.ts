@@ -72,6 +72,7 @@ export class WSUtils {
       return out;
     } catch (err) {
       Logger.error({ error: err as any });
+      return undefined; // Ensure a value is always returned
     }
   }
 

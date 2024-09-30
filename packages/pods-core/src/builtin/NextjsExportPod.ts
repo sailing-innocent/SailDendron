@@ -28,7 +28,8 @@ import {
   simpleGit,
   SimpleGitResetMode,
 } from "@dendronhq/common-server";
-import { execa, SiteUtils } from "@dendronhq/engine-server";
+import { SiteUtils } from "@dendronhq/engine-server";
+// import execa from "execa";
 import {
   getParsingDependencyDicts,
   getRefId,
@@ -48,8 +49,6 @@ const ID = "dendron.nextjs";
 const TEMPLATE_REMOTE = "origin";
 const TEMPLATE_REMOTE_URL = "https://github.com/dendronhq/nextjs-template.git";
 const TEMPLATE_BRANCH = "main";
-
-const $$ = execa.command;
 
 type NextjsExportPodCustomOpts = {
   overrides?: Partial<DendronPublishingConfig>;
@@ -121,7 +120,8 @@ export class NextjsExportPodUtils {
   static async buildSiteMap(opts: { nextPath: string }) {
     const { nextPath } = opts;
     const cmdDev = "npm run build:sitemap";
-    const out = $$(cmdDev, { cwd: nextPath });
+    const execa = await import("execa");
+    const out = execa.execaCommand(cmdDev, { cwd: nextPath });
     out.stdout?.pipe(process.stdout);
     return out.pid;
   }
@@ -149,7 +149,8 @@ export class NextjsExportPodUtils {
 
   static async installDependencies(opts: { nextPath: string }) {
     const { nextPath } = opts;
-    await $$("npm install", { cwd: nextPath });
+    const execa = await import("execa");
+    await execa.execaCommand("npm install", { cwd: nextPath });
   }
 
   static async cloneTemplate(opts: { nextPath: string }) {
@@ -214,10 +215,11 @@ export class NextjsExportPodUtils {
     const { nextPath, quiet } = opts;
     const cmd = quiet ? "npm run --silent export" : "npm run export";
     let out;
+    const execa = await import("execa");
     if (quiet) {
-      out = await $$(cmd, { cwd: nextPath });
+      out = await execa.execaCommand(cmd, { cwd: nextPath });
     } else {
-      out = $$(cmd, { cwd: nextPath });
+      out = execa.execaCommand(cmd, { cwd: nextPath });
       out.stdout?.pipe(process.stdout);
     }
     return out;
@@ -230,7 +232,8 @@ export class NextjsExportPodUtils {
   }) {
     const { nextPath, quiet, windowsHide } = opts;
     const cmdDev = quiet ? "npm run --silent dev" : "npm run dev";
-    const out = $$(cmdDev, { cwd: nextPath, windowsHide });
+    const execa = await import("execa");
+    const out = execa.execaCommand(cmdDev, { cwd: nextPath, windowsHide });
     out.stdout?.pipe(process.stdout);
     return out.pid;
   }

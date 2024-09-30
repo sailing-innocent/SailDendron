@@ -179,7 +179,7 @@ export class AirtableUtils {
             ) {
               payload = _.merge(payload, error.response.data);
               _error = new DendronError({
-                message: error.response.data.message,
+                message: (error.response.data as { message: string }).message,
                 payload,
                 severity: ERROR_SEVERITY.MINOR,
               });

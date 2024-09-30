@@ -1,6 +1,6 @@
 import _ from "lodash";
 import { z } from "../parse";
-import { DendronError } from "..";
+import { DendronError } from "../error";
 import { TAGS_HIERARCHY, TAGS_HIERARCHY_BASE } from "../constants";
 import { NotePropsByIdDict, NoteProps, RespV3 } from "../types";
 import { VaultUtils } from "../vault";

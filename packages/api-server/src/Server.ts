@@ -31,6 +31,8 @@ function getSentryRelease() {
   return `${AppNames.EXPRESS_SERVER}@${NodeJSUtils.getVersionFromPkg()}`;
 }
 
+import { Application } from "express";
+
 export function appModule({
   logPath,
   nextServerUrl,
@@ -43,7 +45,7 @@ export function appModule({
   nextStaticRoot?: string;
   googleOauthClientId?: string;
   googleOauthClientSecret: string;
-}) {
+}): Application {
   const ctx = "appModule:start";
   const logger = getLogger();
   const app = express();

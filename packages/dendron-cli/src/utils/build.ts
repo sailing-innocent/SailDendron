@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 import { DendronError, error2PlainObject } from "@dendronhq/common-all";
 import { createLogger, findUpTo } from "@dendronhq/common-server";
-import execa from "execa";
+// import execa from "execa";
+import { Result, SyncOptions, Options, ExecaError, Message } from "execa";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -44,14 +45,16 @@ export enum ExtensionType {
 const LOCAL_NPM_ENDPOINT = "http://localhost:4873";
 const REMOTE_NPM_ENDPOINT = "https://registry.npmjs.org";
 
-const $ = (cmd: string, opts?: execa.CommonOptions<any>) => {
-  return execa.commandSync(cmd, { shell: true, ...opts });
+const $ = async (cmd: string, opts?: SyncOptions) => {
+  const execa = await import("execa");
+  return execa.execaSync(cmd, { shell: true, ...opts });
 };
-const $$ = (
+const $$ = async (
   cmd: string,
-  opts?: execa.CommonOptions<any> & { quiet?: boolean }
+  opts?: Options & { quiet?: boolean }
 ) => {
-  const out = execa.command(cmd, { shell: true, ...opts });
+  const execa = await import("execa");
+  const out = execa.execaCommand(cmd, { shell: true, ...opts });
   if (!opts?.quiet) {
     out.stdout?.pipe(process.stdout);
   }
@@ -135,7 +138,7 @@ export class BuildUtils {
     $(`yarn build:prod`, { cwd: root });
   }
 
-  static installPluginDependencies() {
+  static async installPluginDependencies(): Promise<Result> {
     // remove root package.json before installing locally
     fs.removeSync(path.join(this.getLernaRoot(), "package.json"));
     return $(`yarn install --no-lockfile --update-checksums`, {
@@ -143,16 +146,14 @@ export class BuildUtils {
     });
   }
 
-  static installPluginLocally(version: string) {
-    return Promise.all([
-      $$(
-        `code-insiders --install-extension "dendron-${version}.vsix" --force`,
-        { cwd: this.getPluginRootPath() }
-      ),
-      $$(`codium --install-extension "dendron-${version}.vsix" --force`, {
-        cwd: this.getPluginRootPath(),
-      }),
-    ]);
+  static async installPluginLocally(version: string): Promise<Result> {
+    await $$(
+      `code-insiders --install-extension "dendron-${version}.vsix" --force`,
+      { cwd: this.getPluginRootPath() }
+    );
+    return $$(`codium --install-extension "dendron-${version}.vsix" --force`, {
+      cwd: this.getPluginRootPath(),
+    });
   }
 
   static async compilePlugin({
@@ -315,8 +316,9 @@ export class BuildUtils {
     });
   }
 
-  static startVerdaccio() {
-    const subprocess = execa("verdaccio");
+  static async startVerdaccio() {
+    const execa = await import("execa");
+    const subprocess = execa.execa("verdaccio");
     const logger = createLogger("verdaccio");
     subprocess.on("close", () => {
       logger.error({ state: "close" });
@@ -327,10 +329,10 @@ export class BuildUtils {
     subprocess.on("exit", () => {
       logger.error({ state: "exit" });
     });
-    subprocess.on("error", (err) => {
+    subprocess.on("error", (err: ExecaError) => {
       logger.error({ state: "error", payload: err });
     });
-    subprocess.on("message", (message) => {
+    subprocess.on("message", (message: Message) => {
       logger.info({ state: "message", message });
     });
     if (subprocess.stdout && subprocess.stderr) {
@@ -340,7 +342,7 @@ export class BuildUtils {
         // if (chunk.toString().match("http address")) {
         // }
       });
-      subprocess.stderr.on("data", (chunk) => {
+      subprocess.stderr.on("data", (chunk: any) => {
         process.stdout.write(chunk);
       });
     }
@@ -501,7 +503,7 @@ export class BuildUtils {
     fs.writeJSONSync(pkgPath, pkg, { spaces: 4 });
   }
 
-  static async publish({ cwd, osvxKey }: { cwd: string; osvxKey: string }) {
+  static async publish({ cwd, osvxKey }: { cwd: string; osvxKey: string }): Promise<[Result, Result]> {
     return Promise.all([
       $("vsce publish", { cwd }),
       $("ovsx publish", {

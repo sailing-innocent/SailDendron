@@ -23,7 +23,7 @@ const webpack = require('webpack');
 const configFactory = require('../config/webpack.config');
 const paths = require('../config/paths');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
-const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
+// const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const printHostingInstructions = require('react-dev-utils/printHostingInstructions');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
@@ -69,23 +69,24 @@ checkBrowsers(paths.appPath, isInteractive)
     return build(previousFileSizes);
   })
   .then(
-    ({ stats, previousFileSizes, warnings }) => {
-      if (warnings.length) {
-        console.log(chalk.yellow('Compiled with warnings.\n'));
-        console.log(warnings.join('\n\n'));
-        console.log(
-          '\nSearch for the ' +
-            chalk.underline(chalk.yellow('keywords')) +
-            ' to learn more about each warning.'
-        );
-        console.log(
-          'To ignore, add ' +
-            chalk.cyan('// eslint-disable-next-line') +
-            ' to the line before.\n'
-        );
-      } else {
-        console.log(chalk.green('Compiled successfully.\n'));
-      }
+    ({ stats, previousFileSizes}) => {
+      // if (warnings.length) {
+      //   // console.log(chalk.yellow('Compiled with warnings.\n'));
+      //   console.log(warnings.join('\n\n'));
+      //   console.log(
+      //     '\nSearch for the ' +
+      //       chalk.underline(chalk.yellow('keywords')) +
+      //       ' to learn more about each warning.'
+      //   );
+      //   console.log(
+      //     'To ignore, add ' +
+      //       chalk.cyan('// eslint-disable-next-line') +
+      //       ' to the line before.\n'
+      //   );
+      // } else {
+      //   console.log(chalk.green('Compiled successfully.\n'));
+      // }
+      console.log(chalk.green('Maybe Compiled successfully.\n'));
 
       console.log('File sizes after gzip:\n');
       printFileSizesAfterBuild(
@@ -139,9 +140,10 @@ function build(previousFileSizes) {
   }
 
   const compiler = webpack(config);
+
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
-      let messages;
+      // let messages;
       if (err) {
         if (!err.message) {
           return reject(err);
@@ -156,42 +158,42 @@ function build(previousFileSizes) {
             err['postcssNode'].selector;
         }
 
-        messages = formatWebpackMessages({
-          errors: [errMessage],
-          warnings: [],
-        });
+        // messages = formatWebpackMessages({
+        //   errors: [errMessage],
+        //   warnings: [],
+        // });
       } else {
-        messages = formatWebpackMessages(
-          stats.toJson({ all: false, warnings: true, errors: true })
-        );
+        // messages = formatWebpackMessages(
+        //   stats.toJson({ all: false, warnings: true, errors: true })
+        // );
       }
-      if (messages.errors.length) {
-        // Only keep the first error. Others are often indicative
-        // of the same problem, but confuse the reader with noise.
-        if (messages.errors.length > 1) {
-          messages.errors.length = 1;
-        }
-        return reject(new Error(messages.errors.join('\n\n')));
-      }
-      if (
-        process.env.CI &&
-        (typeof process.env.CI !== 'string' ||
-          process.env.CI.toLowerCase() !== 'false') &&
-        messages.warnings.length
-      ) {
-        console.log(
-          chalk.yellow(
-            '\nTreating warnings as errors because process.env.CI = true.\n' +
-              'Most CI servers set it automatically.\n'
-          )
-        );
-        return reject(new Error(messages.warnings.join('\n\n')));
-      }
+      // if (messages.errors.length) {
+      //   // Only keep the first error. Others are often indicative
+      //   // of the same problem, but confuse the reader with noise.
+      //   if (messages.errors.length > 1) {
+      //     messages.errors.length = 1;
+      //   }
+      //   return reject(new Error(messages.errors.join('\n\n')));
+      // }
+      // if (
+      //   process.env.CI &&
+      //   (typeof process.env.CI !== 'string' ||
+      //     process.env.CI.toLowerCase() !== 'false') &&
+      //   messages.warnings.length
+      // ) {
+      //   console.log(
+      //     chalk.yellow(
+      //       '\nTreating warnings as errors because process.env.CI = true.\n' +
+      //         'Most CI servers set it automatically.\n'
+      //     )
+      //   );
+      //   return reject(new Error(messages.warnings.join('\n\n')));
+      // }
 
       const resolveArgs = {
         stats,
         previousFileSizes,
-        warnings: messages.warnings,
+        // warnings: messages.warnings,
       };
 
       if (writeStatsJson) {

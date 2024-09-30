@@ -9,7 +9,8 @@ import {
   FOLDERS,
   DendronConfig,
 } from "@dendronhq/common-all";
-import execa from "execa";
+
+
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -18,7 +19,7 @@ import simpleGit, {
   ResetMode as SimpleGitResetMode,
 } from "simple-git";
 import { parse } from "url";
-import { readYAMLAsync } from ".";
+import { readYAMLAsync } from "./index.js";
 import { vault2Path } from "./filesv2";
 
 export { simpleGit, SimpleGit, SimpleGitResetMode };
@@ -305,7 +306,9 @@ export class GitUtils {
     uri: string
   ): Promise<{ stdout: string; stderr: string }> {
     const [git, ...args] = cmd.split(" ");
-    return execa(git, args, { cwd: uri });
+
+    const { default: execa } = await import("execa");
+    return execa.execa(git, args, { cwd: uri });
   }
 
   /** Add a file or folder to the gitignore, avoiding creating exact duplicate lines.

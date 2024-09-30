@@ -15,13 +15,14 @@ import { DConfig, readMD } from "@dendronhq/common-server";
 import {
   DEPRECATED_PATHS,
   DoctorActionsEnum,
-  execa,
   InactvieUserMsgStatusEnum,
   MetadataService,
   MigrationChangeSetStatus,
   MigrationUtils,
   WorkspaceService,
 } from "@dendronhq/engine-server";
+import execa from "execa";
+
 import _ from "lodash";
 import { Duration } from "luxon";
 import _md from "markdown-it";
@@ -545,7 +546,7 @@ export class StartupUtils {
   static async showWhitelistingLocalhostDocsIfNecessary() {
     const pingArgs =
       os.platform() === "win32" ? "ping -n 1 127.0.0.1" : "ping -c 1 127.0.0.1";
-    const { failed } = await execa.command(pingArgs);
+    const { failed } = await execa.execaCommand(pingArgs);
     if (failed) {
       AnalyticsUtils.track(ExtensionEvents.LocalhostBlockedNotified);
       vscode.window

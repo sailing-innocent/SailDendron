@@ -198,7 +198,7 @@ describe("GIVEN a SegmentClient", () => {
   }
 
   beforeEach(() => {
-    sinon.stub(instance, <any>"trackInternal").callsFake(mockedTrackInternal);
+    sinon.stub(instance, "trackInternal" as keyof SegmentClient).callsFake(mockedTrackInternal);
   });
 
   afterEach(() => {

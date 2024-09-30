@@ -9,7 +9,7 @@ import asyncHandler from "express-async-handler";
 import _ from "lodash";
 import { WorkspaceController } from "../modules/workspace";
 
-const router = Router();
+const router: Router = Router();
 
 router.post(
   "/initialize",

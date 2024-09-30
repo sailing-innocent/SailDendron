@@ -11,7 +11,7 @@ import {
 } from "@dendronhq/common-all";
 import { createLogger } from "@dendronhq/common-server";
 import axios from "axios";
-import execa from "execa";
+// import execa from "execa";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -91,6 +91,7 @@ export class HookUtils {
     logger.info({ ctx: "requireHook", msg: "using webpack require" });
     const req = require(`./webpack-require-hack.js`);
     logger.info({ ctx: "requireHook", fpath, wsRoot });
+    const execa = await import("execa");
     return await req(fpath)({
       wsRoot,
       note: { ...note },

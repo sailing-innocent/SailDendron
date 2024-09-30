@@ -6,8 +6,7 @@ import { schemaRouter } from "./schema";
 import { workspaceRouter } from "./workspace";
 
 // Init router and path
-const router = Router();
-
+const router: Router = Router();
 // Add sub-routes
 router.use("/workspace", workspaceRouter);
 router.use("/note", noteRouter);

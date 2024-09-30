@@ -8,7 +8,7 @@ import {
   CommentJSONValue,
   readJSONWithCommentsSync,
 } from "@dendronhq/common-server";
-import { CommentJSONArray, parse } from "comment-json";
+import { CommentArray, parse } from "comment-json";
 import _md from "markdown-it";
 import fs from "fs-extra";
 import _ from "lodash";
@@ -29,7 +29,8 @@ import {
 } from "./commands/CopyToClipboardCommand";
 import { AnalyticsUtils } from "./utils/analytics";
 
-type Keybindings = Record<string, string>;
+type Keybindings = Record<string, string> & CommentJSONValue;
+
 export class KeybindingUtils {
   static async openDefaultKeybindingFileAndGetJSON(opts: { close?: boolean }) {
     await vscode.commands.executeCommand(
@@ -41,7 +42,7 @@ export class KeybindingUtils {
       await VSCodeUtils.closeCurrentFileEditor();
     }
     const defaultKeybindingJSON = defaultKeybindingText
-      ? (parse(defaultKeybindingText) as CommentJSONArray<Keybindings>)
+      ? (parse(defaultKeybindingText) as CommentArray<Keybindings>)
       : undefined;
 
     return defaultKeybindingJSON;
@@ -57,7 +58,7 @@ export class KeybindingUtils {
       await VSCodeUtils.closeCurrentFileEditor();
     }
     const globalKeybindingJSON = globalKeybindingText
-      ? (parse(globalKeybindingText) as CommentJSONArray<Keybindings>)
+      ? (parse(globalKeybindingText) as CommentArray<Keybindings>)
       : undefined;
 
     return globalKeybindingJSON;
@@ -101,7 +102,7 @@ export class KeybindingUtils {
 
     const userKeybindingConfig = readJSONWithCommentsSync(
       keybindingConfigPath
-    ) as CommentJSONArray<Keybindings>;
+    ) as CommentArray<Keybindings>;
 
     const alreadyResolved: KeybindingConflict[] = [];
 
@@ -288,7 +289,7 @@ export class KeybindingUtils {
 
   static checkKeybindingsExist(
     val: CommentJSONValue
-  ): val is CommentJSONArray<Keybindings> {
+  ): val is CommentArray<Keybindings> {
     if (_.isNull(val)) {
       return false;
     }

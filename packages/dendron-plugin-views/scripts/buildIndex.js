@@ -6,6 +6,7 @@ const path = require("path");
 let theme = process.env.THEME || "light";
 let name = process.env.REACT_APP_VIEW_NAME;
 
+
 const out = WebViewCommonUtils.genVSCodeHTMLIndex({
   name,
   // dummy, not used. for browser mode, this is added by CRA app

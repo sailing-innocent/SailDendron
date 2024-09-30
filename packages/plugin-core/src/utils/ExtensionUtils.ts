@@ -18,7 +18,7 @@ import {
   SegmentClient,
 } from "@dendronhq/common-server";
 import { MetadataService, WorkspaceService } from "@dendronhq/engine-server";
-import { ExecaChildProcess } from "execa";
+import { Subprocess as ExecaChildProcess } from "execa";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -80,7 +80,7 @@ async function startServerProcess(): Promise<{
       googleOauthClientId: GOOGLE_OAUTH_ID,
       googleOauthClientSecret: GOOGLE_OAUTH_SECRET,
     });
-    return out;
+    return { port: out.port, subprocess: out.subprocess as ExecaChildProcess };
   } catch (err) {
     // TODO: change to error, wait for https://github.com/dendronhq/dendron/issues/3227 to be resolved first
     Logger.info({ msg: "failed to spawn a subshell" });

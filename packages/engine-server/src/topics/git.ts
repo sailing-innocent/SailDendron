@@ -1,4 +1,3 @@
-import execa from "execa";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -16,8 +15,9 @@ export class Git {
   ) {}
 
   async _execute(cmd: string) {
+    const execa = await import("execa");
     const [git, ...args] = cmd.split(" ");
-    return execa(git, args, { cwd: this.opts.localUrl });
+    return execa.execa(git, args, { cwd: this.opts.localUrl });
   }
 
   async isRepo(): Promise<boolean> {
@@ -25,15 +25,17 @@ export class Git {
   }
 
   async client(gitArgs: string[]) {
+    const execa = await import("execa");
     const { localUrl: cwd } = this.opts;
-    const { stdout } = await execa("git", gitArgs, { cwd });
+    const { stdout } = await execa.execa("git", gitArgs, { cwd });
     return stdout;
   }
 
   async commit(opts: { msg: string }) {
     const { msg } = opts;
     const { localUrl: cwd } = this.opts;
-    await execa("git", ["commit", "-m", msg], {
+    const execa = await import("execa");
+    await execa.execa("git", ["commit", "-m", msg], {
       cwd,
     });
   }
@@ -48,7 +50,8 @@ export class Git {
     if (destOverride) {
       cmdParts.push(destOverride);
     }
-    await execa.command(cmdParts.join(" "), {
+    const execa = await import("execa");
+    await execa.execaCommand(cmdParts.join(" "), {
       shell: true,
       cwd: localUrl,
     });
@@ -110,7 +113,8 @@ export class Git {
 
   async pull() {
     const { localUrl: cwd } = this.opts;
-    await execa.command([`git pull --rebase`].join(" "), {
+    const execa = await import("execa");
+    await execa.execaCommand([`git pull --rebase`].join(" "), {
       shell: true,
       cwd,
     });
@@ -129,7 +133,8 @@ export class Git {
     let setUpstremArg = "";
     if (setUpstream)
       setUpstremArg = ` --set-upstream ${setUpstream.remote} ${setUpstream.branch}`;
-    await execa.command([`git push${setUpstremArg}`].join(" "), {
+    const execa = await import("execa");
+    await execa.execaCommand([`git push${setUpstremArg}`].join(" "), {
       shell: true,
       cwd,
     });
@@ -145,7 +150,8 @@ export class Git {
   async isValidStashCommit(commit: string): Promise<boolean> {
     try {
       const { localUrl: cwd } = this.opts;
-      const { exitCode } = await execa.command(`git stash show ${commit}`, {
+      const execa = await import("execa");
+      const { exitCode } = await execa.execaCommand(`git stash show ${commit}`, {
         cwd,
       });
       return exitCode === 0;
@@ -181,7 +187,8 @@ export class Git {
   // === extra commands
 
   async addAll() {
-    await execa.command(["git add ."].join(" "), {
+    const execa = await import("execa");
+    await execa.execaCommand(["git add ."].join(" "), {
       shell: true,
       cwd: this.opts.localUrl,
     });
@@ -191,21 +198,23 @@ export class Git {
     const { localUrl: cwd } = this.opts;
     const suffix = commit ? [`${commit}..HEAD`] : [];
     console.log(suffix);
-    const { stdout } = await execa(
+    const execa = await import("execa");
+    const { stdout } = await execa.execa(
       "git",
       [`log`, `--pretty=format:'%H'`].concat(suffix),
       { cwd }
     );
     return stdout
       .split("\n")
-      .filter((ent) => !_.isEmpty(ent))
-      .map((ent) => _.trim(ent));
+      .filter((ent: any) => !_.isEmpty(ent))
+      .map((ent: any) => _.trim(ent));
   }
 
   async getCurrentBranch() {
     const { localUrl: cwd } = this.opts;
     try {
-      const { stdout } = await execa(
+      const execa = await import("execa");
+      const { stdout } = await execa.execa(
         "git",
         [`rev-parse`, `--abbrev-ref`, `HEAD`],
         {
@@ -215,7 +224,8 @@ export class Git {
       return stdout.trim();
     } catch (err) {
       // rev-parse fails if there are no commits, let's try a fallback in that case
-      const { stdout } = await execa(
+      const execa = await import("execa");
+      const { stdout } = await execa.execa(
         "git",
         ["symbolic-ref", "-q", "--short", "HEAD"],
         {
@@ -438,7 +448,7 @@ export class Git {
     // new vaults are already in .gitignore hence may not be tracked by git.
     args.push("--ignore-unmatch");
     args.push("--", opts.path);
-
-    return execa("git rm", args, { cwd: this.opts.localUrl });
+    const execa = await import("execa");
+    return execa.execa("git rm", args, { cwd: this.opts.localUrl });
   }
 }

@@ -1,5 +1,3 @@
-import execa from "execa";
-
 export * from "./changelog/changelog";
 export * from "./drivers/file/storev2";
 export * from "./engineClient";
@@ -15,7 +13,6 @@ export * from "./workspace";
 export * from "./seed";
 export * from "./migrations";
 export * from "./metadata";
-export { execa };
 export * from "./util/inMemoryNoteCache";
 export * from "./util/noteMetadataUtils";
 export * from "./drivers";
