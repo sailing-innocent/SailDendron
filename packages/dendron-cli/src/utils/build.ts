@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import { DendronError, error2PlainObject } from "@dendronhq/common-all";
 import { createLogger, findUpTo } from "@dendronhq/common-server";
-// import execa from "execa";
 import { Result, SyncOptions, Options, ExecaError, Message } from "execa";
 import fs from "fs-extra";
 import _ from "lodash";

@@ -30,7 +30,7 @@
       "@dendronhq/engine-server": [
         "packages/engine-server/src"
       ],
-      "@dendronhq/plugin-core": [
+      "sail-dendron": [
         "packages/plugin-core/src"
       ],
       "@dendronhq/pods-core": [

@@ -16,7 +16,7 @@
         "@dendronhq/engine-server",
         "@dendronhq/dendron-cli",
         "@dendronhq/pods-core",
-        "@dendronhq/plugin-core"
+        "sail-dendron"
       ]
     }
   ],
