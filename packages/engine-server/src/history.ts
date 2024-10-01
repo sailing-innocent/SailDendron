@@ -68,7 +68,6 @@ let _HISTORY_SERVICE: undefined | HistoryService = undefined;
 
 /**
  * Keeps of lifecycle events in Dendron.
- * You can find more details about it [here](https://wiki.dendron.so/notes/Rp1yFBOH6BletGam.html#summary)
  */
 export class HistoryService implements IHistoryService {
   public readonly events: HistoryEvent[];

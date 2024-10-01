@@ -90,7 +90,7 @@ export class Logger {
     Logger.logPath = logPath;
     this.logger = createLogger("dendron", logPath);
     this.level = level;
-    Logger.info({ ctx, msg: "exit", logLevel });
+    Logger.info({ ctx, msg: "logger config done", logLevel });
   }
 
   private static _level: TraceLevel = "debug";
@@ -204,9 +204,7 @@ export class Logger {
       }
       Logger.logger?.[lvl](payload);
       Logger.output?.appendLine(lvl + ": " + stringMsg);
-      // ^oy9q7tpy0v3t
-      // FIXME: disable for now
-      const shouldShow = false; // getStage() === "dev" && cleanOpts.show;
+      const shouldShow = true;
       if (shouldShow || Logger.cmpLevels(lvl, "error")) {
         const cleanMsg =
           (payload.error ? payload.error.message : payload.msg) || stringMsg;

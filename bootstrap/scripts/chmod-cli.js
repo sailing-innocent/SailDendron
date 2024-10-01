@@ -31,7 +31,7 @@ function main() {
     "dendron-cli.js"
   );
   fileCheck(cliPath);
-  fs.chmodSync(cliPath, 0700);
+  fs.chmodSync(cliPath, 0o0700);
   console.log("made ", cliPath, " executable");
 }
 

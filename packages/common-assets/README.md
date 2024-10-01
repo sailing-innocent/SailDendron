@@ -1,1 +1,7 @@
-This package contains javascript and css used in other Dendron projects
+# Common Assets
+
+This package contains 
+- javascript
+- css 
+
+used in other Dendron projects
