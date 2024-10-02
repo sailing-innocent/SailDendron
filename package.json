@@ -122,12 +122,6 @@
     "vendor/*"
   ],
   "useWorkspaces": false,
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn stash:unstaged && lint-staged && yarn hooks:pre-commit && yarn stash:pop",
-      "pre-push": "yarn hooks:pre-push"
-    }
-  },
   "lint-staged": {
     "*.{ts,tsx}": [
       "prettier --config prettier.config.js --loglevel debug --write",
