@@ -35,13 +35,7 @@
       "path": "packages/api-server"
     },
     {
-      "path": "packages/express-client"
-    },
-    {
       "path": "packages/common-test-utils"
-    },
-    {
-      "path": "packages/engine-test-utils"
     },
     {
       "path": "packages/nextjs-template"
@@ -54,9 +48,6 @@
     },
     {
       "path": "bootstrap"
-    },
-    {
-      "path": "fixtures"
     },
     {
       "path": "test-workspace"

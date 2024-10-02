@@ -48,13 +48,13 @@ function runDecorator(
     case DendronASTTypes.HASHTAG:
       return decorateHashTag(opts as DecoratorIn<HashTag>);
     case DendronASTTypes.FRONTMATTER:
-      return decorateFrontmatter(opts as DecoratorIn<FrontmatterContent>);
+      return decorateFrontmatter(opts as unknown as DecoratorIn<FrontmatterContent>);
     case DendronASTTypes.USERTAG:
       return decorateUserTag(opts as DecoratorIn<UserTag>);
     case DendronASTTypes.WIKI_LINK:
-      return decorateWikilink(opts as DecoratorIn<WikiLinkNoteV4>);
+      return decorateWikilink(opts as unknown as DecoratorIn<WikiLinkNoteV4>);
     case DendronASTTypes.REF_LINK_V2:
-      return decorateReference(opts as DecoratorIn<NoteRefNoteV4>);
+      return decorateReference(opts as unknown as DecoratorIn<NoteRefNoteV4>);
     default:
       return undefined;
   }

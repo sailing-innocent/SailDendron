@@ -213,7 +213,7 @@ export function makeColorTranslucent(color: string, translucency: number) {
  * is a cache miss.
  * @param maxCache The maximum number of items to cache.
  */
-export function memoize<Inputs extends any[], Key, Output>({
+export function memoize<Inputs extends any[], Key extends {}, Output extends {}>({
   fn,
   keyFn = (...args) => args[0].toString(),
   shouldUpdate = () => false,

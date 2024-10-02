@@ -25,9 +25,9 @@
         "schema"
     ],
     "activationEvents": [
-        "*"
+        "onStartupFinished"
     ],
-    "main": "out/src/extension.js",
+    "main": "dist/extension.js",
     "browser": "./dist/web/extension.js",
     "extensionPack": [
         "dendron.dendron-paste-image"
@@ -1509,9 +1509,9 @@
         "vscode:prepublish": "npm run build:prod",
         "compile-web": "webpack --config webpack.webext.js",
         "watch-web": "webpack --watch --config webpack.webext.js",
+        "package": "vsce package",
         "package-web": "webpack --mode production --devtool hidden-source-map --config webpack.webext.js",
         "open-in-browser": "vscode-test-web --extensionDevelopmentPath=. ~/dendron-20/",
-        "test-in-browser": "mkdir -p testOutput && vscode-test-web --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js --headless testOutput",
         "download-sqlite-binary": "node-pre-gyp install",
         "perf-test": "node ./out/src/test/runPerfTest.js"
     },

@@ -1,4 +1,4 @@
-import LRU from "lru-cache";
+import { LRUCache } from "lru-cache";
 import { Cache } from "./cache";
 import { DendronError } from "../../error";
 
@@ -11,8 +11,8 @@ export type LruCacheOpts = {
  *  Least recently used cache implementation. Deletes the least-recently-used
  *  items, when cache max items is reached.
  *  (get methods count toward recently used order) */
-export class LruCache<K, T> implements Cache<K, T> {
-  private cache: LRU<K, T>;
+export class DendronLruCache<K extends {}, T extends {}> implements Cache<K, T> {
+  private cache: LRUCache<K, T>;
 
   constructor(opts: LruCacheOpts) {
     if (opts.maxItems <= 0) {
@@ -21,7 +21,7 @@ export class LruCache<K, T> implements Cache<K, T> {
       });
     }
 
-    this.cache = new LRU<K, T>({
+    this.cache = new LRUCache<K, T>({
       max: opts.maxItems,
     });
   }
@@ -35,6 +35,6 @@ export class LruCache<K, T> implements Cache<K, T> {
   }
 
   drop(key: K): void {
-    this.cache.del(key);
+    this.cache.delete(key);
   }
 }

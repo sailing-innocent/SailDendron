@@ -1,4 +1,4 @@
-import chokidar from "chokidar";
+import chokidar, { ChokidarOptions, FSWatcher } from "chokidar";
 import { COMMON_FOLDER_IGNORES } from "@dendronhq/common-server";
 import path from "path";
 import type { Disposable } from "@dendronhq/common-all";
@@ -12,17 +12,17 @@ export type FileWatcherAdapter = {
 };
 
 export class EngineFileWatcher implements FileWatcherAdapter {
-  private watcher: chokidar.FSWatcher;
+  private watcher: FSWatcher;
   constructor(
     base: string,
     pattern: string,
-    chokidarOpts?: chokidar.WatchOptions,
+    chokidarOpts?: ChokidarOptions,
     onReady?: () => void
   ) {
     // Chokidar requires paths with globs to use POSIX `/` separators, even on Windows
     const patternWithBase = `${path.posix.normalize(base)}/${pattern}`;
     this.watcher = chokidar.watch(patternWithBase, {
-      disableGlobbing: false,
+
       ignoreInitial: true,
       ignored: COMMON_FOLDER_IGNORES,
       ...chokidarOpts,

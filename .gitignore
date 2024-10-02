@@ -15,6 +15,7 @@ packages/pods-core/lib/index.d.ts
 packages/common-server/src/proto.ts
 .dendron.*
 meta.json
+yarn.lock
 yarn-error.*
 proto.ts
 packages/common-server/proto/amplify.ts

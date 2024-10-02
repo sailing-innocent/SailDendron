@@ -1,2 +1,2 @@
 export * from "./cache";
-export * from "./lruCache";
+export { LruCacheOpts, DendronLruCache as LruCache } from "./lruCache";
