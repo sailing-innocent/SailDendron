@@ -360,11 +360,11 @@ export class BuildUtils {
     // destination for assets
     const pluginAssetPath = path.join(this.getPluginRootPath(), "assets");
     const pluginStaticPath = path.join(pluginAssetPath, "static");
-    // const pluginViewsRoot = path.join(
-    //   this.getLernaRoot(),
-    //   "packages",
-    //   "dendron-plugin-views"
-    // );
+    const pluginViewsRoot = path.join(
+      this.getLernaRoot(),
+      "packages",
+      "dendron-plugin-views"
+    );
 
     fs.ensureDirSync(pluginStaticPath);
     fs.emptyDirSync(pluginStaticPath);
@@ -396,10 +396,10 @@ export class BuildUtils {
     //   path.join(pluginViewsRoot, "build", "static", "css"),
     //   path.join(pluginStaticPath, "css")
     // );
-    // fs.copySync(
-    //   path.join(pluginViewsRoot, "build", "static", "js"),
-    //   path.join(pluginStaticPath, "js")
-    // );
+    fs.copySync(
+      path.join(pluginViewsRoot, "build", "static", "js"),
+      path.join(pluginStaticPath, "js")
+    );
     // fs.copySync(
     //   path.join(commonAssetsStylesRoot, "scss"),
     //   path.join(pluginViewsRoot, "src", "styles", "scss")
