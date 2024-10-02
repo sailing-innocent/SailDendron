@@ -26,8 +26,6 @@ async function run() {
   $(
     `npx lerna run build --parallel --scope "@dendronhq/{common-frontend,dendron-cli}"`
   );
-  $(`npx lerna run build --scope "@dendronhq/engine-test-utils"`);
-  $(`npx lerna run build --scope "@dendronhq/dendron-plugin-views"`);
   $(`npx lerna run build --scope "sail-dendron"`);
   $(`npx yarn dendron dev sync_assets --fast`);
   console.log("done");

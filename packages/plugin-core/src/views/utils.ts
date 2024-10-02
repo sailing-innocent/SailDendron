@@ -32,22 +32,7 @@ export class WebViewUtils {
     const assetUri = VSCodeUtils.getAssetUri(
       ExtensionProvider.getExtension().context
     );
-    const pkgRoot = findUpTo({
-      base: __dirname,
-      fname: "package.json",
-      maxLvl: 5,
-      returnDirPath: true,
-    });
-    if (!pkgRoot) {
-      throw new DendronError({
-        message: "Unable to find the folder where Dendron assets are stored",
-      });
-    }
-    return getStage() === "dev"
-      ? vscode.Uri.file(
-          path.join(pkgRoot, "..", "dendron-plugin-views", "build")
-        )
-      : assetUri;
+    return assetUri;
   }
 
   static getJsAndCss() {

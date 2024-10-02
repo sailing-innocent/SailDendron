@@ -8,19 +8,15 @@
 			"program": "${workspaceFolder:root}/node_modules/jest/bin/jest.js",
 			"sourceMaps": true,
 			"smartStep": true,
-			// "cwd": "${workspaceFolder:engine-test-utils}",
 			"env": {
 				"LOG_LEVEL": "info",
-				"LOG_DST": "${workspaceFolder}/engine-test-utils-debug.log",
+				"LOG_DST": "${workspaceFolder}/dst-debug.log",
 			},
 			"args": [
 				"--findRelatedTests",
 				"--runInBand",
 				"${relativeFile}",
 				"-u"
-			],
-			"outFiles": [
-				"${workspaceFolder:engine-test-utils}/lib/**/*.js"
 			]
 		}
 	]

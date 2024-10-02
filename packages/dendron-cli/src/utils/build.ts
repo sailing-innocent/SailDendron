@@ -48,10 +48,7 @@ const $ = async (cmd: string, opts?: SyncOptions) => {
   const execa = await import("execa");
   return execa.execaSync(cmd, { shell: true, ...opts });
 };
-const $$ = async (
-  cmd: string,
-  opts?: Options & { quiet?: boolean }
-) => {
+const $$ = async (cmd: string, opts?: Options & { quiet?: boolean }) => {
   const execa = await import("execa");
   const out = execa.execaCommand(cmd, { shell: true, ...opts });
   if (!opts?.quiet) {
@@ -102,9 +99,9 @@ export class BuildUtils {
     return path.join(this.getLernaRoot(), "packages", "plugin-core");
   }
 
-  static getPluginViewsRootPath() {
-    return path.join(this.getLernaRoot(), "packages", "dendron-plugin-views");
-  }
+  // static getPluginViewsRootPath() {
+  //   return path.join(this.getLernaRoot(), "packages", "dendron-plugin-views");
+  // }
 
   static getPkgMeta({ pkgPath }: { pkgPath: string }) {
     return fs.readJSONSync(pkgPath) as PkgJson;
@@ -132,10 +129,10 @@ export class BuildUtils {
     return semver.inc(opts.currentVersion, opts.upgradeType) as string;
   }
 
-  static buildPluginViews() {
-    const root = this.getPluginViewsRootPath();
-    $(`yarn build:prod`, { cwd: root });
-  }
+  // static buildPluginViews() {
+  //   const root = this.getPluginViewsRootPath();
+  //   $(`yarn build:prod`, { cwd: root });
+  // }
 
   static async installPluginDependencies(): Promise<Result> {
     // remove root package.json before installing locally
@@ -224,11 +221,7 @@ export class BuildUtils {
     });
     this.removeDevDepsFromPkgJson({
       pkgPath,
-      dependencies: [
-        "@dendronhq/common-test-utils",
-        "@dendronhq/engine-test-utils",
-        "vscode-test",
-      ],
+      dependencies: ["@dendronhq/common-test-utils", "vscode-test"],
     });
 
     await Promise.all(
@@ -398,7 +391,7 @@ export class BuildUtils {
 
     // copy assets from plugin view
 
-    // plugin view is not built yet 
+    // plugin view is not built yet
     // fs.copySync(
     //   path.join(pluginViewsRoot, "build", "static", "css"),
     //   path.join(pluginStaticPath, "css")
@@ -411,8 +404,6 @@ export class BuildUtils {
     //   path.join(commonAssetsStylesRoot, "scss"),
     //   path.join(pluginViewsRoot, "src", "styles", "scss")
     // );
-
-
 
     return { staticPath: pluginStaticPath };
   }
@@ -507,7 +498,13 @@ export class BuildUtils {
     fs.writeJSONSync(pkgPath, pkg, { spaces: 4 });
   }
 
-  static async publish({ cwd, osvxKey }: { cwd: string; osvxKey: string }): Promise<[Result, Result]> {
+  static async publish({
+    cwd,
+    osvxKey,
+  }: {
+    cwd: string;
+    osvxKey: string;
+  }): Promise<[Result, Result]> {
     return Promise.all([
       $("vsce publish", { cwd }),
       $("ovsx publish", {

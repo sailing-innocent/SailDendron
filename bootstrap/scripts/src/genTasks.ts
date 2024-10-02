@@ -10,7 +10,6 @@ const enum PACKAGE {
   "common-test-utils" = "common-test-utils",
   "dendron-cli" = "dendron-cli",
   "engine-server" = "engine-server",
-  "engine-test-utils" = "engine-test-utils",
   "generator-dendron" = "generator-dendron",
   "plugin-core" = "plugin-core",
   "pods-core" = "pods-core",

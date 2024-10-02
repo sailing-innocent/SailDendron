@@ -21,9 +21,6 @@
       "@dendronhq/common-test-utils": [
         "packages/common-test-utils/src"
       ],
-      "@dendronhq/engine-test-utils": [
-        "packages/engine-test-utils/src"
-      ],
       "@dendronhq/dendron-cli": [
         "packages/dendron-cli/src"
       ],

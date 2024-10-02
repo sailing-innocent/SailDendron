@@ -319,7 +319,7 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
           return { error: null };
         }
         case DevCommands.SYNC_ASSETS: {
-          await this.syncAssets(opts);
+          await this.syncAssets();
           return { error: null };
         }
         case DevCommands.SYNC_TUTORIAL: {
@@ -453,7 +453,7 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     await LernaUtils.publishVersion(opts.publishEndpoint);
 
     this.print("sync assets...");
-    await this.syncAssets(opts);
+    await this.syncAssets();
 
     this.print("prep repo...");
     await BuildUtils.prepPluginPkg(opts.extensionType);
@@ -498,11 +498,7 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
    * @param param0
    * @returns
    */
-  async syncAssets({ fast }: { fast?: boolean }) {
-    if (!fast) {
-      this.print("build plugin views for prod...");
-      BuildUtils.buildPluginViews();
-    }
+  async syncAssets() {
     this.print("sync static...");
     const { staticPath } = await BuildUtils.syncStaticAssets();
     await BuildUtils.syncStaticAssetsToNextjsTemplate();
