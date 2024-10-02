@@ -621,7 +621,7 @@ async function _setupCommands({
         )
       );
   });
-  // ---
+  // --- some special commands
   if (requireActiveWorkspace === true) {
     if (!existingCommands.includes(DENDRON_COMMANDS.GO_NEXT_HIERARCHY.key)) {
       context.subscriptions.push(
@@ -712,6 +712,7 @@ async function _setupCommands({
         )
       );
     }
+
     if (!existingCommands.includes(DENDRON_COMMANDS.TREEVIEW_GOTO_NOTE.key)) {
       context.subscriptions.push(
         vscode.commands.registerCommand(
@@ -725,6 +726,21 @@ async function _setupCommands({
             });
           })
         )
+      );
+    }
+
+    if (!existingCommands.includes(DENDRON_COMMANDS.GOTO_TODAY_NOTE.key)) {
+      vscode.commands.registerCommand(
+        DENDRON_COMMANDS.GOTO_TODAY_NOTE.key,
+        sentryReportingCallback(async () => {
+          // get today's date in yyyy.mm.dd.md
+          const today = new Date();
+          const todayStr = today.toISOString().split("T")[0].replace(/-/g, ".");
+          // file path: daily.journal.yyyy.mm.dd.md
+          const todayNote = `daily.journal.${todayStr}`;
+          // goto note
+          await new GotoNoteCommand(ext).run({ qs: todayNote });
+        })
       );
     }
   }

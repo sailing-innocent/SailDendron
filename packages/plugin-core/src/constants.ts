@@ -481,6 +481,11 @@ export const DENDRON_COMMANDS: { [key: string]: CommandEntry } = {
       when: "editorFocus",
     },
   },
+  GOTO_TODAY_NOTE: {
+    key: "dendron.gotoToday",
+    title: `${CMD_PREFIX} Go to Today`,
+    when: `${DendronContext.PLUGIN_ACTIVE} && shellExecutionSupported`,
+  },
   CREATE_SCHEMA_FROM_HIERARCHY: {
     key: "dendron.createSchemaFromHierarchy",
     title: `${CMD_PREFIX} Create Schema From Note Hierarchy`,
