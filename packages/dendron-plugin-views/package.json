@@ -10,6 +10,7 @@
     "@dendronhq/common-frontend": "^0.124.0",
     "@dendronhq/common-server": "^0.124.0",
     "antd": "^5.21.3",
+    "dayjs": "^1.11.13",
     "mermaid": "^11.2.1",
     "process": "^0.11.10",
     "react": "^18.3.1",

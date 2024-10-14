@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-
 import {
   CalendarViewMessageType,
   ConfigUtils,
@@ -8,76 +7,124 @@ import {
   Time,
   VaultUtils,
 } from "@dendronhq/common-all";
+import { createLogger, engineHooks } from "@dendronhq/common-frontend";
 import {
+  BadgeProps,
   Badge,
   Button,
-  CalendarProps as AntdCalendarProps,
-  ConfigProvider,
+  CalendarProps,
   Divider,
+  Calendar
 } from "antd";
 import _ from "lodash";
 import { DendronProps } from "../types";
 import { postVSCodeMessage } from "../utils/vscode";
+import generateCalendar, { SelectInfo } from "antd/lib/calendar/generateCalendar";
+import dayjs, { Dayjs } from "dayjs";
 
-type DateTime = InstanceType<typeof Time.DateTime>;
-type CalendarProps = AntdCalendarProps<DateTime>;
+const getListData = (value: Dayjs) => {
+  let listData: { type: string; content: string }[] = []; // Specify the type of listData
+  switch (value.date()) {
+    case 8:
+      listData = [
+        // { type: 'warning', content: 'This is warning event.' },
+        // { type: 'success', content: 'This is usual event.' },
+      ];
+      break;
+    case 10:
+      listData = [
+        // { type: 'warning', content: 'This is warning event.' },
+        // { type: 'success', content: 'This is usual event.' },
+        // { type: 'error', content: 'This is error event.' },
+      ];
+      break;
+    case 15:
+      listData = [
+        // { type: 'warning', content: 'This is warning event' },
+        // { type: 'success', content: 'This is very long usual event......' },
+        // { type: 'error', content: 'This is error event 1.' },
+        // { type: 'error', content: 'This is error event 2.' },
+        // { type: 'error', content: 'This is error event 3.' },
+        // { type: 'error', content: 'This is error event 4.' },
+      ];
+      break;
+    default:
+  }
+  return listData || [];
+};
 
-function getMaybeDatePortion({ fname }: NoteProps, journalName: string) {
-  const journalIndex = fname.indexOf(journalName);
-  return fname.slice(journalIndex + journalName.length + 1);
-}
-
+const getMonthData = (value: Dayjs) => {
+  if (value.date() === 8) {
+    return 1394;
+  }
+};
 
 export default function DendronCalendarPanel({}: DendronProps) {
   // -- init
   const ctx = "CalenderView";
-  
-  // logger
+  const logger = createLogger("calendarView");
   // logger info
-
-  const [activeMode, setActiveMode] = useState<CalendarProps["mode"]>("month");
   const defaultConfig = ConfigUtils.genDefaultConfig();
   const journalConfig = ConfigUtils.getJournal(defaultConfig);
   const journalDailyDomain = journalConfig.dailyDomain;
   const journalName = journalConfig.name;
-  let journalDateFormat = journalConfig.dateFormat;
-  const journalMonthDateFormat = "y.MM"; // TODO compute format for currentMode="year" from config
+  let journalDateFormat = "YYYY.MM.DD";
+  const journalMonthDateFormat = "YYYY.MM"; // TODO compute format for currentMode="year" from config
+
+  const monthCellRender = (value: Dayjs) => {
+    const num = getMonthData(value);
+    return num ? (
+      <div className="notes-month">
+        <section>{num}</section>
+        <span>Backlog number</span>
+      </div>
+    ) : null;
+  };
+
+
+  const dateCellRender = (value: Dayjs) => {
+    const listData = getListData(value);
+    return (
+      <ul className="events">
+        {listData.map((item) => (
+          <li key={item.content}>
+            <Badge status={item.type as BadgeProps['status']} text={item.content} />
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
+  const cellRender: CalendarProps<Dayjs>['cellRender'] = (current, info) => {
+    if (info.type === 'date') return dateCellRender(current);
+    if (info.type === 'month') return monthCellRender(current);
+    return info.originNode;
+  };
 
   const getDateKey = useCallback<
-    (date: DateTime, mode?: CalendarProps["mode"]) => string | undefined
+    (date: Dayjs, mode: string) => string | undefined
   >(
     (date, mode) => {
       const format =
-        (mode || activeMode) === "month"
+        mode === "date"
           ? journalDateFormat
           : journalMonthDateFormat;
-      return format ? date.toFormat(format) : undefined;
+      return format ? date.format(format) : undefined;
     },
-    [activeMode, journalDateFormat]
+    [journalDateFormat]
   );
+  
+  const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
+    // console.log(value.format('YYYY-MM-DD'), mode);
+  };
 
-  // const groupedDailyNotes = useMemo(() => {
-  //   const vaultNotes = _.values(notes).filter((notes) => {
-  //     if (currentVault) {
-  //       return VaultUtils.isEqualV2(notes.vault, currentVault);
-  //     }
-  //     return true;
-  //   });
-
-  //   const dailyNotes = vaultNotes.filter((note) =>
-  //     note.fname.startsWith(`${journalDailyDomain}.${journalName}`)
-  //   );
-  //   const result = _.groupBy(dailyNotes, (note) => {
-  //     return journalName ? getMaybeDatePortion(note, journalName) : undefined;
-  //   });
-  //   return result;
-  // }, [notes, journalName, journalDailyDomain, currentVault?.fsPath]);
-
+  // mode?: CalendarProps["mode"]
   const onSelect = useCallback<
-    (date: DateTime, mode?: CalendarProps["mode"]) => void
+    (date: Dayjs, info: SelectInfo) => void
   >(
-    (date, mode) => {
-      const dateKey = getDateKey(date, mode);
+    (date, info) => {
+      const dateKey = getDateKey(date, info.source);
+      console.log(dateKey)
       postVSCodeMessage({
         type: CalendarViewMessageType.onSelect,
         data: {
@@ -87,17 +134,25 @@ export default function DendronCalendarPanel({}: DendronProps) {
         source: DMessageSource.webClient,
       });
     },
-    []
+    [getDateKey, journalDailyDomain, journalName]
   );
 
   const onClickToday = useCallback(() => {
-    const mode = "month";
-    setActiveMode(mode);
-    onSelect(Time.now(), mode);
+    const mode = "date";
+    onSelect( dayjs(), { source: mode });
   }, [onSelect]);
 
   return (
     <>
+      <div className="calendar">
+        <Calendar
+          onSelect={onSelect}
+          onPanelChange={onPanelChange}
+          cellRender={cellRender}
+          // dateFullCellRender={dateFullCellRender} // TODO: customize render
+          fullscreen={false}
+        />
+      </div>
       <Divider plain style={{ marginTop: 0 }}>
         <Button type="primary" onClick={onClickToday}>
           Today

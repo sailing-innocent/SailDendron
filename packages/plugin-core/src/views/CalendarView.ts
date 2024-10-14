@@ -7,12 +7,15 @@ import {
   NoteProps,
   NoteUtils,
   ConfigUtils,
+  VaultUtils,
   OnDidChangeActiveTextEditorMsg,
 } from "@dendronhq/common-all";
 import { WorkspaceUtils } from "@dendronhq/engine-server";
 import _ from "lodash";
 import * as vscode from "vscode";
+
 import { CreateDailyJournalCommand } from "../commands/CreateDailyJournal";
+
 import { GotoNoteCommand } from "../commands/GotoNote";
 import { IDendronExtension } from "../dendronExtensionInterface";
 import { Logger } from "../logger";
@@ -60,12 +63,19 @@ export class CalendarView implements vscode.WebviewViewProvider {
           data: msg.data,
         });
         const { id, fname } = msg.data;
+        // make sure ext type DendronExtension
+
         const ext = this._extension;
         const config = ext.workspaceService!.config;
         const journalConfig = ConfigUtils.getJournal(config);
         const maybeDailyVault = journalConfig.dailyVault;
-        const vault = maybeDailyVault ? ext.workspaceService!.vaults.find((
-          v: { name: string; }) => v.name === maybeDailyVault) : undefined;
+        const vault = maybeDailyVault
+        ? VaultUtils.getVaultByName({
+            vaults: this._extension.getEngine().vaults,
+            vname: maybeDailyVault,
+          })
+        : undefined;
+
         await new GotoNoteCommand(this._extension).execute({
           qs: fname,
           vault: vault,
