@@ -13,6 +13,7 @@ import {
   isDisposable,
   VSCodeEvents,
   WorkspaceEvents,
+  ConfigUtils,
 } from "@dendronhq/common-all";
 import {
   getDurationMilliseconds,
@@ -738,8 +739,13 @@ async function _setupCommands({
           const todayStr = today.toISOString().split("T")[0].replace(/-/g, ".");
           // file path: daily.journal.yyyy.mm.dd.md
           const todayNote = `daily.journal.${todayStr}`;
+          // get maybe daily journal vault
+          const config = ext.workspaceService!.config;
+          const journalConfig = ConfigUtils.getJournal(config);
+          const maybeDailyVault = journalConfig.dailyVault;
           // goto note
-          await new GotoNoteCommand(ext).run({ qs: todayNote });
+          const vault = maybeDailyVault ? ext.workspaceService!.vaults.find(v => v.name === maybeDailyVault) : undefined;
+          await new GotoNoteCommand(ext).run({ qs: todayNote, vault });
         })
       );
     }

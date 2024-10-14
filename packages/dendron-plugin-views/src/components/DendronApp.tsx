@@ -1,9 +1,44 @@
 import React from "react";
 import { DendronComponent } from "../types";
+import {
+  DMessageEnum,
+  DMessageSource,
+  GraphThemeEnum,
+  GraphViewMessageEnum,
+  LookupViewMessageEnum,
+  NoteViewMessageEnum,
+  NoteUtils,
+  OnDidChangeActiveTextEditorMsg,
+  SeedBrowserMessageType,
+  OnUpdatePreviewHTMLMsg,
+} from "@dendronhq/common-all";
+import {
+  combinedStore,
+  createLogger,
+  engineHooks,
+  engineSlice,
+  ideHooks,
+  ideSlice,
+  LOG_LEVEL,
+  Provider,
+  setLogLevel,
+} from "@dendronhq/common-frontend";
+import { useWorkspaceProps } from "../hooks";
+
+const { useEngineAppSelector } = engineHooks;
+import { postVSCodeMessage, useVSCodeMessage } from "../utils/vscode";
+
 function DendronVSCodeApp({ Component }: { Component: DendronComponent }) {
+  const ctx = "DendronVSCodeApp";
+  // const ideDispatch = ideHooks.useIDEAppDispatch();
+  // const [workspace] = useWorkspaceProps();
+  // const logger = createLogger("DendronApp");
+  // logger.info({ ctx, msg: "enter", workspace });
   const props = {
-    name: "dummy"
   };
+
+  // TODO: register a listener for vscode messages
+
   return <Component {...props} />;
 }
 
@@ -14,9 +49,7 @@ export type DendronAppProps = {
 
 function DendronApp(props: DendronAppProps) {
   return (
-    <div style={{ padding: props.opts.padding }}>
-      <DendronVSCodeApp Component={props.Component} />
-    </div>
+    <DendronVSCodeApp {...props} />
   );
 }
 

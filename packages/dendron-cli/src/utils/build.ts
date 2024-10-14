@@ -391,7 +391,7 @@ export class BuildUtils {
 
     // copy assets from plugin view
 
-    // plugin view is not built yet
+    // plugin view css is not built yet
     // fs.copySync(
     //   path.join(pluginViewsRoot, "build", "static", "css"),
     //   path.join(pluginStaticPath, "css")
@@ -416,32 +416,8 @@ export class BuildUtils {
       "packages",
       "common-assets"
     );
-
+    // deprecated
     // destination for assets
-    const templatePath = path.join(
-      this.getLernaRoot(),
-      "packages",
-      "nextjs-template"
-    );
-
-    const templatePublicPath = path.join(templatePath, "public");
-    const templateAssetPath = path.join(templatePublicPath, "assets-dendron");
-
-    // copy files
-    fs.ensureDirSync(templateAssetPath);
-    fs.emptyDirSync(templateAssetPath);
-    fs.copySync(
-      path.join(commonAssetsRoot, "build", "assets"),
-      templateAssetPath
-    );
-    fs.copySync(
-      path.join(commonAssetsRoot, "build", "top"),
-      templatePublicPath
-    );
-    fs.copySync(
-      path.join(commonAssetsRoot, "styles", "scss"),
-      path.join(templatePath, "styles", "scss")
-    );
   }
 
   static removeDevDepsFromPkgJson({

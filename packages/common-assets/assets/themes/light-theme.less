@@ -1,9 +1,3 @@
-// light-theme.less
-
-@import '~antd/lib/style/color/colorPalette.less';
-@import '~antd/dist/antd.less';
-@import '~antd/lib/style/themes/default.less';
-
 // These are shared variables that can be extracted to their own file
 @primary-color: #43B02A;
 @body-background: #ffffff;
@@ -30,14 +24,4 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
-}
-
-/* Tints the background of the selected item in the navigation sidebar with the primary color. */
-.ant-menu-item-selected,
-.dendron-ant-menu-submenu-selected > .ant-menu-submenu-title {
-    background-color: fade(@primary-color, 5%);
-}
-
-a.private {
-    color: brown;
 }

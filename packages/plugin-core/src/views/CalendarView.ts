@@ -6,6 +6,7 @@ import {
   DMessageEnum,
   NoteProps,
   NoteUtils,
+  ConfigUtils,
   OnDidChangeActiveTextEditorMsg,
 } from "@dendronhq/common-all";
 import { WorkspaceUtils } from "@dendronhq/engine-server";
@@ -59,20 +60,17 @@ export class CalendarView implements vscode.WebviewViewProvider {
           data: msg.data,
         });
         const { id, fname } = msg.data;
-        // eslint-disable-next-line no-cond-assign
-        if (id) {
-          const note = (await this._extension.getEngine().getNoteMeta(id)).data;
-          if (note) {
-            await new GotoNoteCommand(this._extension).execute({
-              qs: note.fname,
-              vault: note.vault,
-            });
-          }
-        } else if (fname) {
-          await new CreateDailyJournalCommand(this._extension).execute({
-            fname,
-          });
-        }
+        const ext = this._extension;
+        const config = ext.workspaceService!.config;
+        const journalConfig = ConfigUtils.getJournal(config);
+        const maybeDailyVault = journalConfig.dailyVault;
+        const vault = maybeDailyVault ? ext.workspaceService!.vaults.find((
+          v: { name: string; }) => v.name === maybeDailyVault) : undefined;
+        await new GotoNoteCommand(this._extension).execute({
+          qs: fname,
+          vault: vault,
+        });
+    
         break;
       }
       case CalendarViewMessageType.onGetActiveEditor: {

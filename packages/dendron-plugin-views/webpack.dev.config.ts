@@ -67,7 +67,7 @@ const config: Configuration = {
     new HtmlWebpackPlugin({
       template: "public/index.html",
     }),
-    new HotModuleReplacementPlugin(),
+    new HotModuleReplacementPlugin()
   ],
   devtool: "inline-source-map",
   devServer: {

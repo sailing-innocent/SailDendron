@@ -12,5 +12,5 @@ The Frontend UI for Dendron Plugin
 - yarn add -D webpack webpack-cli webpack-dev-server @types/webpack-dev-server
 - yarn add -D babel-loader html-webpack-plugin
 - yarn add -D ts-node
-- yarn add process 
+- yarn add -D process
   - fuck webpack 5

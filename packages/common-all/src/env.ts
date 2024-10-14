@@ -12,7 +12,8 @@ let overrideStage: string | undefined;
  * `const {stage} = process.env;`.
  */
 function getProcEnvs() {
-  const _env = process?.env || ({} as any);
+  // const _env = process?.env || ({} as any);
+  const _env = ({} as any);
   const stage = _env["stage"];
   const NODE_ENV = _env["NODE_ENV"];
   const STAGE = _env["STAGE"];
