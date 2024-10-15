@@ -46,7 +46,18 @@ export async function decorateTaskNote({
 
   const { due, owner, priority } = note.custom;
   const decorationString: string[] = [];
-  if (due) decorationString.push(`due:${due}`);
+  if (due) {
+    decorationString.push(`due:${due}`);
+    let due_day = new Date(due).getDate();
+    let today = new Date().getDate();
+    if (due_day < today) {
+      decorationString.push(`overdue`);
+    }
+    else {
+      let days_left = due_day - today;
+      decorationString.push(`${days_left} days left`);
+    }
+  }
   if (owner) decorationString.push(`@${owner}`);
   if (priority) {
     const prioritySymbol = TaskNoteUtils.getPrioritySymbol({
