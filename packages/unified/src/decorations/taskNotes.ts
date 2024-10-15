@@ -48,13 +48,13 @@ export async function decorateTaskNote({
   const decorationString: string[] = [];
   if (due) {
     decorationString.push(`due:${due}`);
-    let due_day = new Date(due).getDate();
-    let today = new Date().getDate();
+    let due_day = new Date(due).getTime();
+    let today = Date.now();
     if (due_day < today) {
       decorationString.push(`overdue`);
     }
     else {
-      let days_left = due_day - today;
+      let days_left = Math.floor((due_day - today) / (1000 * 60 * 60 * 24));
       decorationString.push(`${days_left} days left`);
     }
   }
