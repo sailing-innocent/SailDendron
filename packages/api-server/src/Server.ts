@@ -49,7 +49,13 @@ export function appModule({
   const ctx = "appModule:start";
   const logger = getLogger();
   const app = express();
-  app.use(cors());
+  const corsOptions = {
+    origin: '*', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // If you need to send cookies or auth headers
+  };
+  app.use(cors(corsOptions));
   app.use(express.json({ limit: "500mb" }));
   app.use(express.urlencoded({ extended: true }));
   if (logPath !== "stdout") {

@@ -268,6 +268,7 @@ export type DEngineInitPayload = {
   vaults: DVault[];
   config: DendronConfig;
 };
+
 export type RenameNoteOpts = {
   oldLoc: DNoteLoc;
   newLoc: DNoteLoc;
