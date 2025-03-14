@@ -48,9 +48,6 @@
     },
     {
       "path": "test-workspace"
-    },
-    {
-      "path": "packages/dendron-plugin-views-bk"
     }
   ],
   "settings": {
