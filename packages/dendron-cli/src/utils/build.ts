@@ -37,7 +37,7 @@ export enum PublishEndpoint {
 }
 
 export enum ExtensionType {
-  DENDRON = "dendron",
+  DENDRON = "sail-dendron",
   NIGHTLY = "nightly",
 }
 

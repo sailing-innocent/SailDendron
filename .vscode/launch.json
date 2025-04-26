@@ -5,7 +5,7 @@
 			"type": "node",
 			"request": "launch",
 			"name": "debug one test",
-			"program": "${workspaceFolder:root}/node_modules/jest/bin/jest.js",
+			"program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
 			"sourceMaps": true,
 			"smartStep": true,
 			"env": {

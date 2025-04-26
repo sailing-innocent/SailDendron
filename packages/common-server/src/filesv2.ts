@@ -563,7 +563,7 @@ class FileUtils {
         )
         // we got to the end without a match
         .on("end", () => resolve({ data: false }))
-        .on("data", (chunk: Buffer) => {
+        .on("data", (chunk: any) => {
           // eslint-disable-next-line no-plusplus
           for (let i = 0; i < chunk.length; i++) {
             const a = String.fromCharCode(chunk[i]);

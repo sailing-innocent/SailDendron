@@ -7,7 +7,7 @@ export * from "./hashTags";
 export * from "./references";
 
 export * from "./taskNotes";
-export * from "./dataNotes";
+// export * from "./dataNotes";
 
 export * from "./userTags";
 export * from "./wikilinks";
