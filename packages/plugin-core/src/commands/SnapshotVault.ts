@@ -2,7 +2,7 @@ import {
   PodItemV4,
   SnapshotExportPod,
   SnapshotExportPodResp,
-} from "@dendronhq/pods-core";
+} from "@saili/pods-core";
 import { window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { IDendronExtension } from "../dendronExtensionInterface";

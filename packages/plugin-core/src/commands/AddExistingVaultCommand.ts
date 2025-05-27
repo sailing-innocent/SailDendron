@@ -11,18 +11,18 @@ import {
   VaultUtils,
   WorkspaceEvents,
   DendronConfig,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   DConfig,
   GitUtils,
   pathForVaultRoot,
   simpleGit,
-} from "@dendronhq/common-server";
+} from "@saili/common-server";
 import {
   Git,
   WorkspaceService,
   WorkspaceUtils,
-} from "@dendronhq/engine-server";
+} from "@saili/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

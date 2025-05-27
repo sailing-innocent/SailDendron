@@ -1,5 +1,5 @@
 {
-    "name": "@dendronhq/<%= name %>",
+    "name": "@saili/<%= name %>",
     "description": "",
     "license": "Apache 2.0",
     "repository": {

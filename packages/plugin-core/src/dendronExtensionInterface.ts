@@ -3,8 +3,8 @@ import {
   DWorkspaceV2,
   WorkspaceSettings,
   WorkspaceType,
-} from "@dendronhq/common-all";
-import { IWorkspaceService } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { IWorkspaceService } from "@saili/engine-server";
 import { Subprocess } from "execa";
 import vscode, { CommentController } from "vscode";
 import { ILookupControllerV3Factory } from "./components/lookup/LookupControllerV3Interface";

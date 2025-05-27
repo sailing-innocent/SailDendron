@@ -16,7 +16,7 @@ import {
   AnyJson,
   fromThrowable,
   Result,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 
 /**
  *

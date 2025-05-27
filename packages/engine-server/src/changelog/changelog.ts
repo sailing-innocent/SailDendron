@@ -1,5 +1,5 @@
-import { asyncLoopOneAtATime, DEngineClient } from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
+import { asyncLoopOneAtATime, DEngineClient } from "@saili/common-all";
+import { DConfig } from "@saili/common-server";
 import * as Diff2Html from "diff2html";
 
 import fs from "fs-extra";

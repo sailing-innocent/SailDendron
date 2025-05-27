@@ -1,4 +1,4 @@
-import { TreeViewItemLabelTypeEnum } from "@dendronhq/common-all";
+import { TreeViewItemLabelTypeEnum } from "@saili/common-all";
 import { ITreeViewConfig } from "./ITreeViewConfig";
 
 /**

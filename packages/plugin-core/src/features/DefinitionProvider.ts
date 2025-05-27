@@ -4,8 +4,8 @@ import {
   DVault,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { DConfig, findNonNoteFile } from "@dendronhq/common-server";
+} from "@saili/common-all";
+import { DConfig, findNonNoteFile } from "@saili/common-server";
 import * as Sentry from "@sentry/node";
 import vscode, { Location, Position, Uri } from "vscode";
 import { findAnchorPos, GotoNoteCommand } from "../commands/GotoNote";

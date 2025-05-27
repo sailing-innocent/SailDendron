@@ -1,7 +1,7 @@
 import {
   DendronEditorViewKey,
   getWebEditorViewEntry,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import * as vscode from "vscode";
 import { DENDRON_COMMANDS } from "../constants";
 import { ExtensionProvider } from "../ExtensionProvider";

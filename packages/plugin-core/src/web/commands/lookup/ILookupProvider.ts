@@ -2,7 +2,7 @@ import {
   DVault,
   NoteQuickInputV2,
   SchemaModuleDict,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import { CancellationToken } from "vscode";
 
 export type provideItemsProps = {

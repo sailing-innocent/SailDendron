@@ -1561,11 +1561,11 @@
         "webpack-merge": "^5.8.0"
     },
     "dependencies": {
-        "@dendronhq/api-server": "^0.124.1",
-        "@dendronhq/common-all": "^0.124.1",
-        "@dendronhq/common-server": "^0.124.1",
-        "@dendronhq/engine-server": "^0.124.1",
-        "@dendronhq/pods-core": "^0.124.1",
+        "@saili/api-server": "^0.124.1",
+        "@saili/common-all": "^0.124.1",
+        "@saili/common-server": "^0.124.1",
+        "@saili/engine-server": "^0.124.1",
+        "@saili/pods-core": "^0.124.1",
         "@sentry/integrations": "7.11.1",
         "@sentry/node": "7.11.1",
         "@types/vscode": "1.77.0",

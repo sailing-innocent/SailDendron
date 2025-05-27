@@ -1,4 +1,4 @@
-import { ErrorFactory, ResponseUtil } from "@dendronhq/common-all";
+import { ErrorFactory, ResponseUtil } from "@saili/common-all";
 import {
   ConfigFileUtils,
   createRunnableJSONV2PodConfigSchema,
@@ -11,7 +11,7 @@ import {
   PodUtils,
   PodV2Types,
   RunnableJSONV2PodConfig,
-} from "@dendronhq/pods-core";
+} from "@saili/pods-core";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { QuickPickHierarchySelector } from "../../components/lookup/HierarchySelector";

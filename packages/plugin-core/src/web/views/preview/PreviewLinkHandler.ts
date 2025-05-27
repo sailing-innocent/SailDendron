@@ -8,9 +8,9 @@ import {
   NoteViewMessage,
   ReducedDEngine,
   URI,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import * as vscode from "vscode";
-import { AnchorUtils } from "@dendronhq/unified";
+import { AnchorUtils } from "@saili/unified";
 import _ from "lodash";
 import {
   IPreviewLinkHandler,

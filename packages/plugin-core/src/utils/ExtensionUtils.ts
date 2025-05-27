@@ -1,4 +1,4 @@
-import { launchv2, ServerUtils } from "@dendronhq/api-server";
+import { launchv2, ServerUtils } from "@saili/api-server";
 import {
   ConfigEvents,
   ConfigUtils,
@@ -11,13 +11,13 @@ import {
   Time,
   VaultUtils,
   VSCodeEvents,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   DConfig,
   getDurationMilliseconds,
   SegmentClient,
-} from "@dendronhq/common-server";
-import { MetadataService, WorkspaceService } from "@dendronhq/engine-server";
+} from "@saili/common-server";
+import { MetadataService, WorkspaceService } from "@saili/engine-server";
 import { Subprocess as ExecaChildProcess } from "execa";
 import fs from "fs-extra";
 import _ from "lodash";

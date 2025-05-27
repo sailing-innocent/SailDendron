@@ -1,4 +1,4 @@
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@saili/common-all";
 
 /**
  * Proxy for the Preview Panel. This proxy should be used when trying to access

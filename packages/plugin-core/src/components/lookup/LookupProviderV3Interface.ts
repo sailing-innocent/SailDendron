@@ -6,7 +6,7 @@ import {
   NoteQuickInput,
   RespV2,
   SchemaQuickInput,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 
 export type ILookupProviderV3 = {
   id: string;

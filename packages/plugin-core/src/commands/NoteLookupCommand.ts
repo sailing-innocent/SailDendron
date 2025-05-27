@@ -15,12 +15,12 @@ import {
   NoteQuickInput,
   NoteUtils,
   VSCodeEvents,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   getDurationMilliseconds,
   TemplateUtils,
-} from "@dendronhq/common-server";
-import { HistoryService, MetadataService } from "@dendronhq/engine-server";
+} from "@saili/common-server";
+import { HistoryService, MetadataService } from "@saili/engine-server";
 import _ from "lodash";
 import { Uri, window } from "vscode";
 import {

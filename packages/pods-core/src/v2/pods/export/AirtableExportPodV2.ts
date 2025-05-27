@@ -10,8 +10,8 @@ import {
   RespV2,
   RespV3,
   StatusCodes,
-} from "@dendronhq/common-all";
-import { createLogger } from "@dendronhq/common-server";
+} from "@saili/common-all";
+import { createLogger } from "@saili/common-server";
 import { JSONSchemaType } from "ajv";
 import { RateLimiter } from "limiter";
 import _ from "lodash";

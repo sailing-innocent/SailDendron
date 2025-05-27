@@ -11,11 +11,11 @@
       "description": "scope",
       "type": "pickString",
       "options": [
-        "@dendronhq/common-all",
-        "@dendronhq/common-server",
-        "@dendronhq/engine-server",
-        "@dendronhq/dendron-cli",
-        "@dendronhq/pods-core",
+        "@saili/common-all",
+        "@saili/common-server",
+        "@saili/engine-server",
+        "@saili/dendron-cli",
+        "@saili/pods-core",
         "sail-dendron"
       ]
     }

@@ -6,9 +6,9 @@ import {
   NotePropsMeta,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { findNonNoteFile, vault2Path } from "@dendronhq/common-server";
-import { AnchorUtils, DendronASTDest, ProcFlavor } from "@dendronhq/unified";
+} from "@saili/common-all";
+import { findNonNoteFile, vault2Path } from "@saili/common-server";
+import { AnchorUtils, DendronASTDest, ProcFlavor } from "@saili/unified";
 import * as Sentry from "@sentry/node";
 import fs from "fs-extra";
 import _ from "lodash";

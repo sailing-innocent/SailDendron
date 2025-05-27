@@ -2,7 +2,7 @@ import {
   engineSlice,
   ideSlice,
   WorkspaceProps,
-} from "@dendronhq/common-frontend";
+} from "@saili/common-frontend";
 export type { WorkspaceProps };
 export type DendronComponent = React.FunctionComponent<DendronProps>;
 

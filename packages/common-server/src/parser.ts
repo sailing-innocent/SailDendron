@@ -14,7 +14,7 @@ import {
   SchemaPropsDict,
   SchemaRaw,
   SchemaUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import _ from "lodash";
 import path from "path";
 import { file2Schema, vault2Path } from "./filesv2";

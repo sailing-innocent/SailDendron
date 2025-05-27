@@ -1,4 +1,4 @@
-import { ConfigUtils, NotePropsMeta, NoteUtils } from "@dendronhq/common-all";
+import { ConfigUtils, NotePropsMeta, NoteUtils } from "@saili/common-all";
 import _ from "lodash";
 import { Uri, window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";

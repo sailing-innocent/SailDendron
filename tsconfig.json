@@ -5,32 +5,32 @@
     "strict": true,
     "noImplicitAny": true,
     "paths": {
-      //"@dendronhq/*": ["packages/*/src"],
-      "@dendronhq/api-server": [
+      //"@saili/*": ["packages/*/src"],
+      "@saili/api-server": [
         "packages/api-server/src"
       ],
-      "@dendronhq/common-all": [
+      "@saili/common-all": [
         "packages/common-all/src"
       ],
-      "@dendronhq/unified": [
+      "@saili/unified": [
         "packages/unified/src"
       ],
-      "@dendronhq/common-server": [
+      "@saili/common-server": [
         "packages/common-server/src"
       ],
-      "@dendronhq/common-test-utils": [
+      "@saili/common-test-utils": [
         "packages/common-test-utils/src"
       ],
-      "@dendronhq/dendron-cli": [
+      "@saili/dendron-cli": [
         "packages/dendron-cli/src"
       ],
-      "@dendronhq/engine-server": [
+      "@saili/engine-server": [
         "packages/engine-server/src"
       ],
       "sail-dendron": [
         "packages/plugin-core/src"
       ],
-      "@dendronhq/pods-core": [
+      "@saili/pods-core": [
         "packages/pods-core/src"
       ]
     }

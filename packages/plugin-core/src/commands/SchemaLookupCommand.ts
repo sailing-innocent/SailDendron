@@ -7,9 +7,9 @@ import {
   SchemaQuickInput,
   SchemaUtils,
   VSCodeEvents,
-} from "@dendronhq/common-all";
-import { getDurationMilliseconds, vault2Path } from "@dendronhq/common-server";
-import { HistoryService } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { getDurationMilliseconds, vault2Path } from "@saili/common-server";
+import { HistoryService } from "@saili/engine-server";
 import _ from "lodash";
 import { Uri } from "vscode";
 import { DendronQuickPickerV2 } from "../components/lookup/types";

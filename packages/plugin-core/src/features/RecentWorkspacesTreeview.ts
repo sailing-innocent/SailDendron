@@ -1,5 +1,5 @@
-import { DendronTreeViewKey, VSCodeEvents } from "@dendronhq/common-all";
-import { MetadataService } from "@dendronhq/engine-server";
+import { DendronTreeViewKey, VSCodeEvents } from "@saili/common-all";
+import { MetadataService } from "@saili/engine-server";
 import * as vscode from "vscode";
 import {
   ProviderResult,

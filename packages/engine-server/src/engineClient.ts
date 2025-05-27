@@ -49,8 +49,8 @@ import {
   WriteNoteResp,
   WriteSchemaResp,
   QueryNotesResp,
-} from "@dendronhq/common-all";
-import { createLogger, DConfig, DLogger } from "@dendronhq/common-server";
+} from "@saili/common-all";
+import { createLogger, DConfig, DLogger } from "@saili/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import {

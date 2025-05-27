@@ -1,14 +1,14 @@
-import { WorkspaceService } from "@dendronhq/engine-server";
+import { WorkspaceService } from "@saili/engine-server";
 import {
   DendronError,
   DVault,
   SelfContainedVault,
   VaultRemoteSource,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import yargs from "yargs";
 import { CLICommand, CommandCommonProps } from "./base";
 import { setupEngine, setupEngineArgs, SetupEngineResp } from "./utils";
-import { DConfig } from "@dendronhq/common-server";
+import { DConfig } from "@saili/common-server";
 
 type CommandCLIOpts = {
   wsRoot: string;

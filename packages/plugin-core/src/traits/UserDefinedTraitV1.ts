@@ -3,7 +3,7 @@ import {
   NoteTrait,
   onCreateProps,
   onWillCreateProps,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 
 /**
  * A Note Trait that will execute end-user defined javascript code.

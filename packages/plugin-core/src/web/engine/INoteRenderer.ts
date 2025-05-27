@@ -1,4 +1,4 @@
-import { RenderNoteOpts, RenderNoteResp } from "@dendronhq/common-all";
+import { RenderNoteOpts, RenderNoteResp } from "@saili/common-all";
 
 /**
  * Extracted from DEngine

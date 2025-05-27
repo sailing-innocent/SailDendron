@@ -1,5 +1,5 @@
-import { Cache, FileSystemCache } from "@dendronhq/common-all";
-import { DLogger } from "@dendronhq/common-server";
+import { Cache, FileSystemCache } from "@saili/common-all";
+import { DLogger } from "@saili/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 

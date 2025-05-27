@@ -11,8 +11,8 @@ import {
   string2Note,
   URI,
   VaultUtilsV2,
-} from "@dendronhq/common-all";
-import { MDUtilsV5 } from "@dendronhq/unified";
+} from "@saili/common-all";
+import { MDUtilsV5 } from "@saili/unified";
 import _ from "lodash";
 import { inject, injectable } from "tsyringe";
 import visit from "unist-util-visit";

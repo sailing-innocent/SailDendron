@@ -1,5 +1,5 @@
 {
-  "name": "@dendronhq/pods-core",
+  "name": "@saili/pods-core",
   "version": "0.124.1",
   "description": "pods-core",
   "license": "Apache 2.0",
@@ -52,10 +52,10 @@
   },
   "dependencies": {
     "@dendronhq/airtable": "^0.11.1",
-    "@dendronhq/common-all": "^0.124.1",
-    "@dendronhq/common-server": "^0.124.1",
-    "@dendronhq/engine-server": "^0.124.1",
-    "@dendronhq/unified": "^0.124.1",
+    "@saili/common-all": "^0.124.1",
+    "@saili/common-server": "^0.124.1",
+    "@saili/engine-server": "^0.124.1",
+    "@saili/unified": "^0.124.1",
     "@instantish/martian": "1.0.3",
     "@notionhq/client": "^0.1.9",
     "@octokit/graphql": "^4.6.4",

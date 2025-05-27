@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { CONSTANTS, DendronConfig } from "@dendronhq/common-all";
+import { CONSTANTS, DendronConfig } from "@saili/common-all";
 import YAML from "js-yaml";
 import * as vscode from "vscode";
 import { Uri } from "vscode";

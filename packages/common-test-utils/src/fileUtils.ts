@@ -1,5 +1,5 @@
-import { DVault } from "@dendronhq/common-all";
-import { DirResult, tmp, vault2Path } from "@dendronhq/common-server";
+import { DVault } from "@saili/common-all";
+import { DirResult, tmp, vault2Path } from "@saili/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

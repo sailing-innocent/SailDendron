@@ -44,7 +44,7 @@ Dendron sends out a weekly newsletter highlighting:
 There are a variety of ways to connect with Dendron devs, contributors, and other members of the Dendron community:
 
 - Join the [Dendron on Discord](https://link.dendron.so/discord)
-- Follow [Dendron on Twitter (`@dendronhq`)](https://link.dendron.so/twitter)
+- Follow [Dendron on Twitter (`@saili`)](https://link.dendron.so/twitter)
 - Checkout [Dendron on GitHub](https://link.dendron.so/github)
 - Read the [Dendron Blog](https://blog.dendron.so/)
 - Subscribe to the [Dendron Newsletter](https://link.dendron.so/newsletter)

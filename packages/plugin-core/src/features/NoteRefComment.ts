@@ -1,4 +1,4 @@
-import { RenderNoteResp } from "@dendronhq/common-all";
+import { RenderNoteResp } from "@saili/common-all";
 import {
   Comment,
   CommentAuthorInformation,

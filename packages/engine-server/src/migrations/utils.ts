@@ -1,4 +1,4 @@
-import { HierarchyConfig } from "@dendronhq/common-all";
+import { HierarchyConfig } from "@saili/common-all";
 import _ from "lodash";
 import { MigrationChangeSetStatus } from "./types";
 

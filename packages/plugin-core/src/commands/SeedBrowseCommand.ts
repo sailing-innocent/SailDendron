@@ -4,8 +4,8 @@ import {
   getWebEditorViewEntry,
   SeedBrowserMessage,
   SeedBrowserMessageType,
-} from "@dendronhq/common-all";
-import { SeedService } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { SeedService } from "@saili/engine-server";
 import * as vscode from "vscode";
 import { ViewColumn } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";

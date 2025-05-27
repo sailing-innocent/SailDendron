@@ -11,7 +11,7 @@ import {
   OnDidChangeActiveTextEditorMsg,
   SeedBrowserMessageType,
   OnUpdatePreviewHTMLMsg,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   combinedStore,
   createLogger,
@@ -22,7 +22,7 @@ import {
   LOG_LEVEL,
   Provider,
   setLogLevel,
-} from "@dendronhq/common-frontend";
+} from "@saili/common-frontend";
 import { useWorkspaceProps } from "../hooks";
 
 const { useEngineAppSelector } = engineHooks;

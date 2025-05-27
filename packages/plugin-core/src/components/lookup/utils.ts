@@ -15,9 +15,9 @@ import {
   RespV2,
   TransformedQueryString,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { vault2Path } from "@saili/common-server";
+import { WorkspaceUtils } from "@saili/engine-server";
 import _, { orderBy } from "lodash";
 import path from "path";
 import stringSimilarity from "string-similarity";

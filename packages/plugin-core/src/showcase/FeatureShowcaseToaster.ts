@@ -1,5 +1,5 @@
-import { VSCodeEvents } from "@dendronhq/common-all";
-import { MetadataService, ShowcaseEntry } from "@dendronhq/engine-server";
+import { VSCodeEvents } from "@saili/common-all";
+import { MetadataService, ShowcaseEntry } from "@saili/engine-server";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { AnalyticsUtils } from "../utils/analytics";

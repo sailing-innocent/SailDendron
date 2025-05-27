@@ -2,8 +2,8 @@ import {
   EngagementEvents,
   NoteScrolledSource,
   Time,
-} from "@dendronhq/common-all";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { WorkspaceUtils } from "@saili/engine-server";
 import _ from "lodash";
 import { Duration } from "luxon";
 import { TextEditor, TextEditorVisibleRangesChangeEvent, window } from "vscode";

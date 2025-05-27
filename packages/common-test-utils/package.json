@@ -1,5 +1,5 @@
 {
-  "name": "@dendronhq/common-test-utils",
+  "name": "@saili/common-test-utils",
   "private": true,
   "version": "0.124.1",
   "description": "",
@@ -47,9 +47,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@dendronhq/common-all": "^0.124.1",
-    "@dendronhq/common-server": "^0.124.1",
-    "@dendronhq/pods-core": "^0.124.1",
+    "@saili/common-all": "^0.124.1",
+    "@saili/common-server": "^0.124.1",
+    "@saili/pods-core": "^0.124.1",
     "@types/sinon": "^9.0.9",
     "fs-extra": "^9.0.1",
     "jest": "^28.1.0",

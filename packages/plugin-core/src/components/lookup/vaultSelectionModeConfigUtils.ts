@@ -1,5 +1,5 @@
 import { VaultSelectionMode } from "./types";
-import { ConfigUtils } from "@dendronhq/common-all";
+import { ConfigUtils } from "@saili/common-all";
 import { ExtensionProvider } from "../../ExtensionProvider";
 
 /**

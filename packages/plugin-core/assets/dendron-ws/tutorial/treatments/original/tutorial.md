@@ -32,7 +32,7 @@ The tutorial steps take about 10 minutes to complete. Let's get started!
 
 #### Getting Help
 
-- If you get stuck, take a look at our full documentation on our [wiki](https://wiki.dendron.so/). Don't hesitate to reach out to our community of Dendrologists on [Discord](https://discord.com/invite/AE3NRw9) or message us on Twitter at [@dendronhq](https://twitter.com/dendronhq)
+- If you get stuck, take a look at our full documentation on our [wiki](https://wiki.dendron.so/). Don't hesitate to reach out to our community of Dendrologists on [Discord](https://discord.com/invite/AE3NRw9) or message us on Twitter at [@saili](https://twitter.com/dendronhq)
 
 ---
 

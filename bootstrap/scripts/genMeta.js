@@ -27,8 +27,8 @@ async function main() {
     unpublish.push(`npm unpublish --force ${name}`);
   });
   fs.writeJSONSync(getMetaPath(), out);
-  fs.writeFileSync("unpublish.sh", unpublish.join("\n"), { encoding: "utf-8" });
-  fs.chmodSync("unpublish.sh", "700");
+  fs.writeFileSync("unpublish.ps1", unpublish.join("\n"), { encoding: "utf-8" });
+  fs.chmodSync("unpublish.ps1", "700");
 }
 
 main();

@@ -40,7 +40,7 @@ import {
   TagUtils,
   USERS_HIERARCHY_BASE,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import _ from "lodash";
 import type {
   Code,

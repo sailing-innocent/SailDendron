@@ -1,4 +1,4 @@
-import { VSCodeEvents } from "@dendronhq/common-all";
+import { VSCodeEvents } from "@saili/common-all";
 import vscode from "vscode";
 import { AnalyticsUtils } from "../utils/analytics";
 import { WebViewUtils } from "./utils";

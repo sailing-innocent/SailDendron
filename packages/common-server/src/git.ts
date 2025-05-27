@@ -8,7 +8,7 @@ import {
   GitUtils as CommonGitUtils,
   FOLDERS,
   DendronConfig,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 
 
 import fs from "fs-extra";

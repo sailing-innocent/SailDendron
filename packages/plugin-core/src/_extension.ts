@@ -14,18 +14,18 @@ import {
   VSCodeEvents,
   WorkspaceEvents,
   ConfigUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   getDurationMilliseconds,
   getOS,
   initializeSentry,
   SegmentClient,
-} from "@dendronhq/common-server";
+} from "@saili/common-server";
 import {
   HistoryService,
   MetadataService,
   WorkspaceUtils,
-} from "@dendronhq/engine-server";
+} from "@saili/engine-server";
 import * as Sentry from "@sentry/node";
 import fs from "fs-extra";
 import os from "os";

@@ -3,7 +3,7 @@ import {
   DendronError,
   ERROR_STATUS,
   ProcFlavor,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 // @ts-ignore
 import rehypePrism from "@mapbox/rehype-prism";
 // @ts-ignore

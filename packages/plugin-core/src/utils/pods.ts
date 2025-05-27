@@ -3,8 +3,8 @@ import {
   NoteProps,
   NoteUtils,
   PodConflictResolveOpts,
-} from "@dendronhq/common-all";
-import { PodItemV4 } from "@dendronhq/pods-core";
+} from "@saili/common-all";
+import { PodItemV4 } from "@saili/pods-core";
 import fs from "fs-extra";
 import _ from "lodash";
 import open from "open";

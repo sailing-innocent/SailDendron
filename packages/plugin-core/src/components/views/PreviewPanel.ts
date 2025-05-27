@@ -13,16 +13,16 @@ import {
   memoize,
   DendronError,
   ConfigUtils,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { DConfig } from "@saili/common-server";
+import { WorkspaceUtils } from "@saili/engine-server";
 import {
   DendronASTTypes,
   Image,
   makeImageUrlFullPath,
   MDUtilsV5,
   visit,
-} from "@dendronhq/unified";
+} from "@saili/unified";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { IDendronExtension } from "../../dendronExtensionInterface";

@@ -15,7 +15,7 @@ import {
   PodConflictResolveOpts,
   stringifyError,
   Time,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import axios from "axios";
 import _ from "lodash";
 

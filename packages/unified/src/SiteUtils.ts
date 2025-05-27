@@ -19,7 +19,7 @@ import {
   NoteUtils,
   UseVaultBehavior,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 
 import _ from "lodash";
 

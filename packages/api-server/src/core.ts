@@ -1,4 +1,4 @@
-import { createLogger, DLogger, LogLvl } from "@dendronhq/common-server";
+import { createLogger, DLogger, LogLvl } from "@saili/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 

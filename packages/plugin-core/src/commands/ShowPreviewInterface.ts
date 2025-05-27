@@ -1,4 +1,4 @@
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@saili/common-all";
 import { Uri } from "vscode";
 
 export type TogglePreviewCommandOpts = Uri;

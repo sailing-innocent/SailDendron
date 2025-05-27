@@ -12,14 +12,14 @@ import {
   WorkspaceEvents,
   DuplicateNoteError,
   errorsList,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   getDurationMilliseconds,
   note2File,
   schemaModuleOpts2File,
   vault2Path,
-} from "@dendronhq/common-server";
-import { DoctorActionsEnum, DoctorService } from "@dendronhq/engine-server";
+} from "@saili/common-server";
+import { DoctorActionsEnum, DoctorService } from "@saili/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

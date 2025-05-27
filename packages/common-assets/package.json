@@ -1,5 +1,5 @@
 {
-  "name": "@dendronhq/common-assets",
+  "name": "@saili/common-assets",
   "private": true,
   "version": "0.124.1",
   "main": "index.js",

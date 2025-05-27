@@ -5,13 +5,13 @@ import {
   DVault,
   Time,
   ConfigUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   createFileWatcher,
   createLogger,
   DConfig,
   DLogger,
-} from "@dendronhq/common-server";
+} from "@saili/common-server";
 import fs, { FSWatcher } from "fs-extra";
 import _ from "lodash";
 import { DendronEngineClient } from "../engineClient";

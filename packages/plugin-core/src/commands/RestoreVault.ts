@@ -1,5 +1,5 @@
-import { Time, VaultUtils } from "@dendronhq/common-all";
-import { SnapshotImportPod } from "@dendronhq/pods-core";
+import { Time, VaultUtils } from "@saili/common-all";
+import { SnapshotImportPod } from "@saili/pods-core";
 import fs, { readdirSync } from "fs-extra";
 import path from "path";
 import { window } from "vscode";

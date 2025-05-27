@@ -32,7 +32,7 @@ import {
   SchemaModuleProps,
   WriteNoteResp,
   WriteSchemaResp,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 
 export interface IEngineAPIService {
   trustedWorkspace: boolean;

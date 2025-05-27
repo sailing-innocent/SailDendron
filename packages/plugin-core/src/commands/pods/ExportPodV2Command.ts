@@ -2,7 +2,7 @@ import {
   getAllExportPods,
   PodClassEntryV4,
   PodExportScope,
-} from "@dendronhq/pods-core";
+} from "@saili/pods-core";
 import { PodCommandFactory } from "../../components/pods/PodCommandFactory";
 import { PodUIControls } from "../../components/pods/PodControls";
 import { DENDRON_COMMANDS } from "../../constants";

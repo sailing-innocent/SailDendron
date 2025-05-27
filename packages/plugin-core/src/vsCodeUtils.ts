@@ -8,8 +8,8 @@ import {
   Point,
   Position,
   VSRange,
-} from "@dendronhq/common-all";
-import { goUpTo, resolvePath, tmpDir } from "@dendronhq/common-server";
+} from "@saili/common-all";
+import { goUpTo, resolvePath, tmpDir } from "@saili/common-server";
 import _ from "lodash";
 import _md from "markdown-it";
 import os from "os";

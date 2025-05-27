@@ -1,10 +1,10 @@
-import { assertUnreachable, DendronError } from "@dendronhq/common-all";
+import { assertUnreachable, DendronError } from "@saili/common-all";
 import {
   ExportPodConfigurationV2,
   PodExportScope,
   PodV2ConfigManager,
   PodV2Types,
-} from "@dendronhq/pods-core";
+} from "@saili/pods-core";
 import path from "path";
 import { CodeCommandInstance } from "../../commands/base";
 import { AirtableExportPodCommand } from "../../commands/pods/AirtableExportPodCommand";

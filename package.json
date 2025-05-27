@@ -106,7 +106,7 @@
     "hooks:pre-push": "node ./hooks/pre-push.js",
     "gen:meta": "node ./bootstrap/scripts/genMeta.js",
     "package": "npx lerna run package --scope 'sail-dendron'",
-    "backend:updateDendronDeps": "node bootstrap/backend/updateDendronhqDeps.js",
+    "backend:updateDendronDeps": "node bootstrap/backend/updateDendronDeps.js",
     "stash:unstaged": "git stash save -k 'pre-linting-stash'",
     "stash:pop": "git stash && git stash pop stash@{1} && git read-tree stash && git stash drop",
     "test": "cross-env LOG_LEVEL=error yarn jest",

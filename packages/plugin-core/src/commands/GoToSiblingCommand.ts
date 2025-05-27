@@ -7,8 +7,8 @@ import {
   NoteUtils,
   ReducedDEngine,
   RespV3,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
+} from "@saili/common-all";
+import { DConfig } from "@saili/common-server";
 import _ from "lodash";
 import path from "path";
 import { window } from "vscode";

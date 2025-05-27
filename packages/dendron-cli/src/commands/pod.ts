@@ -4,7 +4,7 @@ import {
   DendronError,
   PodConflictResolveOpts,
   RespV3,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   HTMLPublishPod,
   JSONPublishPod,
@@ -13,7 +13,7 @@ import {
   PodClassEntryV4,
   PodKind,
   PodUtils,
-} from "@dendronhq/pods-core";
+} from "@saili/pods-core";
 import _ from "lodash";
 import path from "path";
 import prompts from "prompts";

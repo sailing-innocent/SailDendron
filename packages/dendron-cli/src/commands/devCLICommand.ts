@@ -8,25 +8,25 @@ import {
   NoteUtils,
   stringifyError,
   TimeUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   DConfig,
   readYAML,
   SegmentClient,
   TelemetryStatus,
-} from "@dendronhq/common-server";
+} from "@saili/common-server";
 import {
   MigrationChangeSetStatus,
   MigrationService,
   MigrationUtils,
   MIGRATION_ENTRIES,
   WorkspaceService,
-} from "@dendronhq/engine-server";
+} from "@saili/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
 import yargs from "yargs";
-import { CLIAnalyticsUtils, setupEngine } from "..";
+import { setupEngine } from "..";
 import {
   BuildUtils,
   ExtensionType,
@@ -51,9 +51,6 @@ export enum DevCommands {
   PREP_PLUGIN = "prep_plugin",
   PACKAGE_PLUGIN = "package_plugin",
   INSTALL_PLUGIN = "install_plugin",
-  ENABLE_TELEMETRY = "enable_telemetry",
-  DISABLE_TELEMETRY = "disable_telemetry",
-  SHOW_TELEMETRY = "show_telemetry",
   SHOW_MIGRATIONS = "show_migrations",
   RUN_MIGRATION = "run_migration",
 }
@@ -374,18 +371,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
           await BuildUtils.installPluginLocally(currentVersion);
           return { error: null };
         }
-        case DevCommands.ENABLE_TELEMETRY: {
-          this.enableTelemetry();
-          return { error: null };
-        }
-        case DevCommands.DISABLE_TELEMETRY: {
-          this.disableTelemetry();
-          return { error: null };
-        }
-        case DevCommands.SHOW_TELEMETRY: {
-          CLIAnalyticsUtils.showTelemetryMessage();
-          return { error: null };
-        }
         case DevCommands.SHOW_MIGRATIONS: {
           this.showMigrations();
           return { error: null };
@@ -604,25 +589,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
     return true;
   }
 
-  enableTelemetry() {
-    const reason = TelemetryStatus.ENABLED_BY_CLI_COMMAND;
-    SegmentClient.enable(reason);
-    CLIAnalyticsUtils.track(CLIEvents.CLITelemetryEnabled, { reason });
-    const message = [
-      "Telemetry is enabled.",
-      "Thank you for helping us improve Dendron 🌱",
-    ].join("\n");
-    this.print(message);
-  }
-
-  disableTelemetry() {
-    const reason = TelemetryStatus.DISABLED_BY_CLI_COMMAND;
-    CLIAnalyticsUtils.track(CLIEvents.CLITelemetryDisabled, { reason });
-    SegmentClient.disable(reason);
-    const message = "Telemetry is disabled.";
-    this.print(message);
-  }
-
   showMigrations() {
     const headerMessage = [
       "",
@@ -687,11 +653,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
         const event = _.isUndefined(change.error)
           ? CLIEvents.CLIMigrationSucceeded
           : CLIEvents.CLIMigrationFailed;
-
-        CLIAnalyticsUtils.track(
-          event,
-          MigrationUtils.getMigrationAnalyticProps(change)
-        );
 
         if (change.error) {
           this.print("Migration failed.");

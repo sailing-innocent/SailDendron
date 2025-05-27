@@ -1,5 +1,5 @@
-import { assertUnreachable } from "@dendronhq/common-all";
-import { ShowcaseEntry } from "@dendronhq/engine-server";
+import { assertUnreachable } from "@saili/common-all";
+import { ShowcaseEntry } from "@saili/engine-server";
 import * as vscode from "vscode";
 import { showMeHowView } from "../views/ShowMeHowView";
 import {

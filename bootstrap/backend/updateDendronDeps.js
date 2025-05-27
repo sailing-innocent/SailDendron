@@ -7,8 +7,8 @@ const { getMetaPath } = require("../scripts/utils");
 DENDRON_BASE = "../dendron"
 
 const ALL_DEPENDENCIES = {
-    "@dendronhq/worker-build-site": ["dendron-cli", "dendron-11ty", "engine-server", "common-server"],
-    "@dendronhq/integ-utils": ["common-server"]
+    "@saili/worker-build-site": ["dendron-cli", "dendron-11ty", "engine-server", "common-server"],
+    "@saili/integ-utils": ["common-server"]
 }
 
 function getPackagesDirPath() {

@@ -1,9 +1,9 @@
-import { VaultUtils } from "@dendronhq/common-all";
+import { VaultUtils } from "@saili/common-all";
 import {
   getAllImportPods,
   MarkdownImportPod,
   podClassEntryToPodItemV4,
-} from "@dendronhq/pods-core";
+} from "@saili/pods-core";
 import vscode from "vscode";
 import { PickerUtilsV2 } from "../../components/lookup/utils";
 import { DENDRON_COMMANDS } from "../../constants";

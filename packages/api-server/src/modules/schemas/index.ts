@@ -7,7 +7,7 @@ import {
   SchemaReadRequest,
   SchemaWriteRequest,
   WriteSchemaResp,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import { getWSEngine } from "../../utils";
 
 export class SchemaController {

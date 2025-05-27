@@ -10,8 +10,8 @@ import {
   Time,
   VSCodeEvents,
   WorkspaceSettings,
-} from "@dendronhq/common-all";
-import { DConfig, readMD } from "@dendronhq/common-server";
+} from "@saili/common-all";
+import { DConfig, readMD } from "@saili/common-server";
 import {
   DEPRECATED_PATHS,
   DoctorActionsEnum,
@@ -20,7 +20,7 @@ import {
   MigrationChangeSetStatus,
   MigrationUtils,
   WorkspaceService,
-} from "@dendronhq/engine-server";
+} from "@saili/engine-server";
 import _ from "lodash";
 import { Duration } from "luxon";
 import _md from "markdown-it";

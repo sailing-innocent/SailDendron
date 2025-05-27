@@ -13,8 +13,8 @@ import {
   NoteProps,
   NoteUtils,
   OnDidChangeActiveTextEditorMsg,
-} from "@dendronhq/common-all";
-import { MetadataService, WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { MetadataService, WorkspaceUtils } from "@saili/engine-server";
 import _ from "lodash";
 import path from "path";
 import * as vscode from "vscode";

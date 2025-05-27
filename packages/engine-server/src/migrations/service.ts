@@ -4,8 +4,8 @@ import {
   InstallStatus,
   WorkspaceSettings,
   ConfigUtils,
-} from "@dendronhq/common-all";
-import { createDisposableLogger, DLogger } from "@dendronhq/common-server";
+} from "@saili/common-all";
+import { createDisposableLogger, DLogger } from "@saili/common-server";
 import _ from "lodash";
 import semver from "semver";
 import { WorkspaceService } from "../workspace";

@@ -1,5 +1,5 @@
-import { DendronError } from "@dendronhq/common-all";
-import { WorkspaceService } from "@dendronhq/engine-server";
+import { DendronError } from "@saili/common-all";
+import { WorkspaceService } from "@saili/engine-server";
 import _ from "lodash";
 import yargs from "yargs";
 import { CLICommand, CommandCommonProps } from "./base";

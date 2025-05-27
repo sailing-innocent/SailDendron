@@ -1,4 +1,4 @@
-import { NotePropsByIdDict, NotePropsMeta } from "@dendronhq/common-all";
+import { NotePropsByIdDict, NotePropsMeta } from "@saili/common-all";
 import _ from "lodash";
 
 export class HierarchyUtils {

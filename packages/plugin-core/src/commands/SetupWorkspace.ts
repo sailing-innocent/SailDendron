@@ -4,9 +4,9 @@ import {
   DVault,
   ErrorFactory,
   WorkspaceType,
-} from "@dendronhq/common-all";
-import { resolveTilde } from "@dendronhq/common-server";
-import { WorkspaceService, WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { resolveTilde } from "@saili/common-server";
+import { WorkspaceService, WorkspaceUtils } from "@saili/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

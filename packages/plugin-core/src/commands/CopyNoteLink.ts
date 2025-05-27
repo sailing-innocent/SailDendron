@@ -8,9 +8,9 @@ import {
   NotePropsMeta,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { DConfig, isInsidePath } from "@dendronhq/common-server";
-import { AnchorUtils } from "@dendronhq/unified";
+} from "@saili/common-all";
+import { DConfig, isInsidePath } from "@saili/common-server";
+import { AnchorUtils } from "@saili/unified";
 import _ from "lodash";
 import path from "path";
 import { Disposable, TextEditor, window } from "vscode";

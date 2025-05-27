@@ -1,5 +1,5 @@
-import { createLogger } from "@dendronhq/common-server";
-import { CodeConfigChanges } from "@dendronhq/engine-server";
+import { createLogger } from "@saili/common-server";
+import { CodeConfigChanges } from "@saili/engine-server";
 import _ from "lodash";
 import { Extension, extensions, window } from "vscode";
 import { DENDRON_COMMANDS } from "../constants";

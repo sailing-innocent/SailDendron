@@ -1,4 +1,4 @@
-import { DVault, URI, VaultUtilsV2 } from "@dendronhq/common-all";
+import { DVault, URI, VaultUtilsV2 } from "@saili/common-all";
 //TODO: Move file to common
 /**
  * Check if path is in workspace

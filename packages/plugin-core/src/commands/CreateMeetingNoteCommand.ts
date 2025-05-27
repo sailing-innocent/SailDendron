@@ -4,8 +4,8 @@ import {
   SchemaCreationUtils,
   SchemaToken,
   SchemaUtils,
-} from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
+} from "@saili/common-all";
+import { vault2Path } from "@saili/common-server";
 import * as fs from "fs-extra";
 import path from "path";
 import * as vscode from "vscode";

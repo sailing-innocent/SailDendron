@@ -7,7 +7,7 @@ import {
   TreeUtils,
   URI,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import path from "path";
 import { getAllFiles } from "./files";
 import { vault2Path } from "./filesv2";

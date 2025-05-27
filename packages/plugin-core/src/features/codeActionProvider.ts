@@ -1,9 +1,9 @@
 import {
   ContextualUIEvents,
   LookupSelectionTypeEnum,
-} from "@dendronhq/common-all";
-import { DoctorActionsEnum } from "@dendronhq/engine-server";
-import { BAD_FRONTMATTER_CODE } from "@dendronhq/unified";
+} from "@saili/common-all";
+import { DoctorActionsEnum } from "@saili/engine-server";
+import { BAD_FRONTMATTER_CODE } from "@saili/unified";
 import isUrl from "is-url";
 import _ from "lodash";
 import {

@@ -20,6 +20,7 @@ yarn-error.*
 proto.ts
 packages/common-server/proto/amplify.ts
 unpublish.sh
+unpublish.ps1
 workspaces
 tmp
 storage/.verdaccio-db.json

@@ -1,11 +1,11 @@
-import { WorkspaceType } from "@dendronhq/common-all";
+import { WorkspaceType } from "@saili/common-all";
 import {
   MIGRATION_ENTRIES,
   MigrationChangeSetStatus,
   Migrations,
   MigrationService,
   WorkspaceService,
-} from "@dendronhq/engine-server";
+} from "@saili/engine-server";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { DENDRON_COMMANDS } from "../constants";

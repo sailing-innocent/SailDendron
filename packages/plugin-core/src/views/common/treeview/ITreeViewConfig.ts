@@ -1,4 +1,4 @@
-import { TreeViewItemLabelTypeEnum } from "@dendronhq/common-all";
+import { TreeViewItemLabelTypeEnum } from "@saili/common-all";
 
 /**
  * Configuration for the note tree view

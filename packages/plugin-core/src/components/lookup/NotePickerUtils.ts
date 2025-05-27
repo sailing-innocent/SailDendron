@@ -8,9 +8,9 @@ import {
   NoteProps,
   NoteQuickInput,
   TransformedQueryString,
-} from "@dendronhq/common-all";
-import { getDurationMilliseconds } from "@dendronhq/common-server";
-import { LinkUtils } from "@dendronhq/unified";
+} from "@saili/common-all";
+import { getDurationMilliseconds } from "@saili/common-server";
+import { LinkUtils } from "@saili/unified";
 import _ from "lodash";
 import path from "path";
 import { ExtensionProvider } from "../../ExtensionProvider";

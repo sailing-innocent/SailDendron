@@ -2,7 +2,7 @@ import {
   extractNoteChangeEntryCounts,
   NoteUtils,
   RefactoringCommandUsedPayload,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import _ from "lodash";
 import { DENDRON_COMMANDS } from "../constants";
 import { ExtensionProvider } from "../ExtensionProvider";

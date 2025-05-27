@@ -13,18 +13,18 @@ async function run() {
   };
 
   console.log("building all...");
-  $(`npx lerna run build --scope @dendronhq/common-all`);
+  $(`npx lerna run build --scope @saili/common-all`);
   $(
-    `npx lerna run build --parallel --scope "@dendronhq/{unified,common-server}"`
+    `npx lerna run build --parallel --scope "@saili/{unified,common-server}"`
   );
-  $(`npx lerna run build --scope @dendronhq/dendron-viz `);
-  $(`npx lerna run build --scope @dendronhq/engine-server `);
-  $(`npx lerna run build --scope @dendronhq/pods-core `);
+  $(`npx lerna run build --scope @saili/dendron-viz `);
+  $(`npx lerna run build --scope @saili/engine-server `);
+  $(`npx lerna run build --scope @saili/pods-core `);
   $(
-    `npx lerna run build --parallel --scope "@dendronhq/{common-test-utils,api-server,common-assets}"`
+    `npx lerna run build --parallel --scope "@saili/{common-test-utils,api-server,common-assets}"`
   );
   $(
-    `npx lerna run build --parallel --scope "@dendronhq/{common-frontend,dendron-cli}"`
+    `npx lerna run build --parallel --scope "@saili/{common-frontend,dendron-cli}"`
   );
   $(`npx lerna run build --scope "@saili/dendron-plugin-views"`);
   $(`npx lerna run build --scope "sail-dendron"`);

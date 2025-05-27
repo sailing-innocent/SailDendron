@@ -1,4 +1,4 @@
-import { ShowcaseEntry } from "@dendronhq/engine-server";
+import { ShowcaseEntry } from "@saili/engine-server";
 
 /**
  * Where the message is being displayed.

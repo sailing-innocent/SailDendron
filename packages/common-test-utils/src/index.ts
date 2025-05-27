@@ -11,7 +11,7 @@ import {
   SchemaUtils,
   WorkspaceOpts,
   WorkspaceVault,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   note2File,
   resolvePath,
@@ -19,7 +19,7 @@ import {
   schemaModuleProps2File,
   tmpDir,
   vault2Path,
-} from "@dendronhq/common-server";
+} from "@saili/common-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

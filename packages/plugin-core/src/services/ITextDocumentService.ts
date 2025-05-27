@@ -1,4 +1,4 @@
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@saili/common-all";
 import { Disposable, TextDocument, TextDocumentChangeEvent } from "vscode";
 
 /**

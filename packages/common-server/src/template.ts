@@ -8,7 +8,7 @@ import {
   SchemaUtils,
   Time,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import Handlebars, { HelperOptions } from "handlebars";
 import _ from "lodash";
 

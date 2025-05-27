@@ -1,4 +1,4 @@
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@saili/common-all";
 import Unified, { Transformer } from "unified";
 import { Node } from "unist";
 import visit from "unist-util-visit";

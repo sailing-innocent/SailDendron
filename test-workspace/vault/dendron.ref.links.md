@@ -121,7 +121,7 @@ If the header is capitalized that also should work since they are case insensiti
 
 ## Confuses hashtag/usertags
 
-[@dendronhq](https://twitter.com/dendronhq)
+[@saili](https://twitter.com/dendronhq)
 
 [#dendron](https://twitter.com/hashtag/dendron)
 

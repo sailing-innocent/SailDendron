@@ -1,4 +1,4 @@
-import { getSlugger } from "@dendronhq/common-all";
+import { getSlugger } from "@saili/common-all";
 import * as Sentry from "@sentry/node";
 import _ from "lodash";
 import vscode from "vscode";

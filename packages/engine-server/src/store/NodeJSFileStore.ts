@@ -7,9 +7,9 @@ import {
   IFileStore,
   RespV3,
   URI,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import _ from "lodash";
-import { getAllFiles } from "@dendronhq/common-server";
+import { getAllFiles } from "@saili/common-server";
 
 export class NodeJSFileStore implements IFileStore {
   /**

@@ -10,7 +10,7 @@ import {
   NoteProps,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   ExportPodFactory,
   ExportPodV2,
@@ -18,7 +18,7 @@ import {
   PodExportScope,
   PodUtils,
   RunnablePodConfigV2,
-} from "@dendronhq/pods-core";
+} from "@saili/pods-core";
 import _ from "lodash";
 import path from "path";
 import * as vscode from "vscode";

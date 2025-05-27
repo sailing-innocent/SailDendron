@@ -14,8 +14,8 @@ import {
   TAGS_HIERARCHY,
   USERS_HIERARCHY,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { DConfig, getDurationMilliseconds } from "@dendronhq/common-server";
+} from "@saili/common-all";
+import { DConfig, getDurationMilliseconds } from "@saili/common-server";
 import {
   AnchorUtils,
   DendronASTDest,
@@ -27,7 +27,7 @@ import {
   ProcFlavor,
   UserTagUtils,
   USERTAG_REGEX_LOOSE,
-} from "@dendronhq/unified";
+} from "@saili/unified";
 import _ from "lodash";
 import {
   CancellationToken,

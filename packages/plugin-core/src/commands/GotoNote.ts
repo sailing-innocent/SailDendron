@@ -10,12 +10,12 @@ import {
   NotePropsMeta,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   FileExtensionUtils,
   findNonNoteFile,
   TemplateUtils,
-} from "@dendronhq/common-server";
+} from "@saili/common-server";
 import _ from "lodash";
 import path from "path";
 import { Position, Selection, Uri, window } from "vscode";

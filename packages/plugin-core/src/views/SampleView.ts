@@ -1,4 +1,4 @@
-import { DendronTreeViewKey, DMessage } from "@dendronhq/common-all";
+import { DendronTreeViewKey, DMessage } from "@saili/common-all";
 import * as vscode from "vscode";
 import { WebViewUtils } from "./utils";
 

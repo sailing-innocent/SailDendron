@@ -24,6 +24,6 @@ We've created a helpful tutorial for newcomers [here](https://wiki.dendron.so/no
 
 ## Join the Community
 
-Dendron is not just a note taking tool - it's an entire community of awesome people care about knowledge management.  Join us on [discord](https://discord.gg/AE3NRw9) to ask questions or just to hang out. We also do a weekly [community call](https://wiki.dendron.so/notes/1eec6c7b-242e-4102-93f1-fc285702ecd2.html) to talk about latest updates. If you use twitter, you can follow us at [@dendronhq](https://twitter.com/dendronhq).
+Dendron is not just a note taking tool - it's an entire community of awesome people care about knowledge management.  Join us on [discord](https://discord.gg/AE3NRw9) to ask questions or just to hang out. We also do a weekly [community call](https://wiki.dendron.so/notes/1eec6c7b-242e-4102-93f1-fc285702ecd2.html) to talk about latest updates. If you use twitter, you can follow us at [@saili](https://twitter.com/dendronhq).
 
 

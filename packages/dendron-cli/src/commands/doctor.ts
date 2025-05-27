@@ -1,5 +1,5 @@
-import { NoteProps } from "@dendronhq/common-all";
-import { DoctorService, DoctorActionsEnum } from "@dendronhq/engine-server";
+import { NoteProps } from "@saili/common-all";
+import { DoctorService, DoctorActionsEnum } from "@saili/engine-server";
 // @ts-ignore
 import _ from "lodash";
 import yargs from "yargs";

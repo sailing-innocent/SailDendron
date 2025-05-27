@@ -1,6 +1,6 @@
-import { DendronError, DHookType, IDendronError } from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
-import { HookUtils } from "@dendronhq/engine-server";
+import { DendronError, DHookType, IDendronError } from "@saili/common-all";
+import { DConfig } from "@saili/common-server";
+import { HookUtils } from "@saili/engine-server";
 import fs from "fs-extra";
 import path from "path";
 import { Uri } from "vscode";

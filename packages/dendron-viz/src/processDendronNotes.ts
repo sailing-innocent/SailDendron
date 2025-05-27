@@ -3,7 +3,7 @@ import {
   DNodeUtils,
   DVault,
   NoteProps,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import * as nodePath from "path";
 import { shouldExcludePath } from "./shouldExcludePath";
 import { FileType } from "./types";

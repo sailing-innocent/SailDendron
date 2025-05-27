@@ -3,8 +3,8 @@ import {
   ConfigureUIMessageEnum,
   DendronEditorViewKey,
   getWebEditorViewEntry,
-} from "@dendronhq/common-all";
-import { DConfig } from "@dendronhq/common-server";
+} from "@saili/common-all";
+import { DConfig } from "@saili/common-server";
 import * as vscode from "vscode";
 import { ConfigureCommand } from "../../commands/ConfigureCommand";
 import { WebViewUtils } from "../../views/utils";

@@ -1,6 +1,6 @@
-import { DendronError, ERROR_STATUS, VaultUtils } from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
+import { DendronError, ERROR_STATUS, VaultUtils } from "@saili/common-all";
+import { vault2Path } from "@saili/common-server";
+import { WorkspaceUtils } from "@saili/engine-server";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

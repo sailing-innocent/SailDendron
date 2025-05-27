@@ -1,4 +1,4 @@
-import { LogLvl } from "@dendronhq/common-server";
+import { LogLvl } from "@saili/common-server";
 import express from "express";
 import { Socket } from "net";
 import { configureLogger, getLogger } from "./core";

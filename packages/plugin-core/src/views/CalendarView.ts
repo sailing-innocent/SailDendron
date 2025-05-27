@@ -9,8 +9,8 @@ import {
   ConfigUtils,
   VaultUtils,
   OnDidChangeActiveTextEditorMsg,
-} from "@dendronhq/common-all";
-import { WorkspaceUtils } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { WorkspaceUtils } from "@saili/engine-server";
 import _ from "lodash";
 import * as vscode from "vscode";
 

@@ -1,8 +1,8 @@
 /**
  * This file is used by {@link startServerProcess} to start the dendron engine in a separate process
  */
-import { ServerUtils } from "@dendronhq/api-server";
-import { stringifyError } from "@dendronhq/common-all";
+import { ServerUtils } from "@saili/api-server";
+import { stringifyError } from "@saili/common-all";
 
 (async () => {
   try {

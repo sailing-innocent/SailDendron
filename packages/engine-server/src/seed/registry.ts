@@ -1,5 +1,5 @@
-import { SeedRegistryDict, SEED_REGISTRY } from "@dendronhq/common-all";
-import { readYAML } from "@dendronhq/common-server";
+import { SeedRegistryDict, SEED_REGISTRY } from "@saili/common-all";
+import { readYAML } from "@saili/common-server";
 
 type SeedCommandOpts = {
   id: string;

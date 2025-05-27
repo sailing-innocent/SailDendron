@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { DendronError } from "@dendronhq/common-all";
+import { DendronError } from "@saili/common-all";
 import { Eat } from "remark-parse";
 import Unified, { Plugin } from "unified";
 import { DendronASTDest, DendronASTTypes, ExtendedImage } from "../types";

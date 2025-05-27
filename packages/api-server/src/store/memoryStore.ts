@@ -1,4 +1,4 @@
-import { DendronError, DEngine } from "@dendronhq/common-all";
+import { DendronError, DEngine } from "@saili/common-all";
 import _ from "lodash";
 
 const STORE: any = {};

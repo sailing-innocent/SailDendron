@@ -19,13 +19,13 @@ import {
   ProcFlavor,
   ValidateFnameResp,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import {
   createDisposableLogger,
   DConfig,
   isSelfContainedVaultFolder,
   pathForVaultRoot,
-} from "@dendronhq/common-server";
+} from "@saili/common-server";
 import throttle from "@jcoreio/async-throttle";
 import fs from "fs-extra";
 import _ from "lodash";
@@ -37,7 +37,7 @@ import {
   LinkUtils,
   RemarkUtils,
   DendronASTDest,
-} from "@dendronhq/unified";
+} from "@saili/unified";
 
 export enum DoctorActionsEnum {
   FIX_FRONTMATTER = "fixFrontmatter",

@@ -1,5 +1,5 @@
-import { VSCodeEvents } from "@dendronhq/common-all";
-import { SegmentClient } from "@dendronhq/common-server";
+import { VSCodeEvents } from "@saili/common-all";
+import { SegmentClient } from "@saili/common-server";
 
 /**
  * Simple script to fire an uninstall analytics event during the

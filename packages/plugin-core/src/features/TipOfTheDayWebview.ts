@@ -1,5 +1,5 @@
-import { VSCodeEvents } from "@dendronhq/common-all";
-import { MetadataService } from "@dendronhq/engine-server";
+import { VSCodeEvents } from "@saili/common-all";
+import { MetadataService } from "@saili/engine-server";
 import _md from "markdown-it";
 import * as vscode from "vscode";
 import {

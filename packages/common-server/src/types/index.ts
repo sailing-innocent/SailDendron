@@ -1,4 +1,4 @@
-import { NoteProps } from "@dendronhq/common-all";
+import { NoteProps } from "@saili/common-all";
 import execa from "execa";
 import axios from "axios";
 import _ from "lodash";

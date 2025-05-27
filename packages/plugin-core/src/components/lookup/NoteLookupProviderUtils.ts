@@ -1,6 +1,6 @@
-import { DendronError } from "@dendronhq/common-all";
-import { DLogger } from "@dendronhq/common-server";
-import { HistoryService } from "@dendronhq/engine-server";
+import { DendronError } from "@saili/common-all";
+import { DLogger } from "@saili/common-server";
+import { HistoryService } from "@saili/engine-server";
 import { ILookupControllerV3 } from "./LookupControllerV3Interface";
 import { NoteLookupProviderChangeStateResp } from "./LookupProviderV3Interface";
 

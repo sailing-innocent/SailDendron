@@ -8,9 +8,9 @@ import {
   SchemaUtils,
   Time,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { vault2Path } from "@dendronhq/common-server";
-import { MetadataService } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { vault2Path } from "@saili/common-server";
+import { MetadataService } from "@saili/engine-server";
 import * as fs from "fs-extra";
 import _ from "lodash";
 import path from "path";

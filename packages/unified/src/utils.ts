@@ -6,7 +6,7 @@ import {
   getStage,
   DendronConfig,
   NoteProps,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 // @ts-ignore
 // @ts-ignore
 import _ from "lodash";

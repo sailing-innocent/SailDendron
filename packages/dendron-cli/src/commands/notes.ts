@@ -7,9 +7,9 @@ import {
   NoteProps,
   NoteUtils,
   VaultUtils,
-} from "@dendronhq/common-all";
-import { TemplateUtils } from "@dendronhq/common-server";
-import { MarkdownPublishPod } from "@dendronhq/pods-core";
+} from "@saili/common-all";
+import { TemplateUtils } from "@saili/common-server";
+import { MarkdownPublishPod } from "@saili/pods-core";
 import _ from "lodash";
 import yargs from "yargs";
 import { CLICommand, CommandCommonProps } from "./base";

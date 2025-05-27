@@ -10,11 +10,11 @@ import {
   ReducedDEngine,
   RespV3,
   VaultUtils,
-} from "@dendronhq/common-all";
+} from "@saili/common-all";
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
-import { AnchorUtils, LinkUtils } from "@dendronhq/unified";
+import { AnchorUtils, LinkUtils } from "@saili/unified";
 
 export function openPortFile({ fpath }: { fpath: string }): number {
   return _.toInteger(_.trim(fs.readFileSync(fpath, { encoding: "utf8" })));

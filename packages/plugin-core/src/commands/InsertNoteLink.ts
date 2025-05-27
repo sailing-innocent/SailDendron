@@ -4,8 +4,8 @@ import {
   InsertNoteLinkAliasModeEnum,
   NoteProps,
   NoteUtils,
-} from "@dendronhq/common-all";
-import { HistoryEvent } from "@dendronhq/engine-server";
+} from "@saili/common-all";
+import { HistoryEvent } from "@saili/engine-server";
 import _ from "lodash";
 import * as vscode from "vscode";
 import { MultiSelectBtn } from "../components/lookup/buttons";

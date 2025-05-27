@@ -1,5 +1,5 @@
-import { DendronError } from "@dendronhq/common-all";
-import { getAllExportPods } from "@dendronhq/pods-core";
+import { DendronError } from "@saili/common-all";
+import { getAllExportPods } from "@saili/pods-core";
 import yargs from "yargs";
 import { CLICommand, CommandCommonProps } from "./base";
 import { enrichPodArgs, PodCLIOpts, setupPodArgs } from "./pod";
