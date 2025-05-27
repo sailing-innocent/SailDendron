@@ -114,8 +114,7 @@
     "test:cli:update-snapshots": "yarn test:cli -u"
   },
   "packages": [
-    "packages/*",
-    "vendor/*"
+    "packages/*"
   ],
   "useWorkspaces": false,
   "lint-staged": {
@@ -139,11 +138,11 @@
     "webpack": "^5.74.0"
   },
   "resolutions": {
-    "trim": "0.0.3",
+    "trim": "1.0.1",
     "d3-color": "3.1.0"
   },
   "overrides": {
-    "trim": "0.0.3",
+    "trim": "1.0.1",
     "d3-color": "3.1.0"
   }
 }
