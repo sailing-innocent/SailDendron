@@ -1,6 +1,6 @@
 {
   "name": "@saili/common-frontend",
-  "version": "0.124.1",
+  "version": "0.124.2",
   "description": "common-frontend",
   "license": "Apache 2.0",
   "repository": {
@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "@aws-amplify/core": "^4.0.2",
-    "@saili/common-all": "^0.124.1",
     "@reduxjs/toolkit": "^1.5.1",
+    "@saili/common-all": "^0.124.2",
     "lodash": "^4.17.20",
     "querystring": "^0.2.1",
     "react": "^18.3.1",

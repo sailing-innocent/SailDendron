@@ -1,6 +1,6 @@
 {
   "name": "@saili/engine-server",
-  "version": "0.124.1",
+  "version": "0.124.2",
   "description": "dendron-engine",
   "license": "Apache 2.0",
   "repository": {
@@ -37,11 +37,11 @@
   "dependencies": {
     "@babel/preset-typescript": "7.24.7",
     "@babel/types": "7.25.6",
-    "@saili/common-all": "^0.124.1",
-    "@saili/common-server": "^0.124.1",
-    "@saili/unified": "^0.124.1",
     "@jcoreio/async-throttle": "^1.4.3",
     "@mapbox/rehype-prism": "^0.5.0",
+    "@saili/common-all": "^0.124.2",
+    "@saili/common-server": "^0.124.2",
+    "@saili/unified": "^0.124.2",
     "@typescript-eslint/eslint-plugin": "^8.8.0",
     "@typescript-eslint/parser": "^8.8.0",
     "axios": "^0.21.1",

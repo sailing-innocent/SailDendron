@@ -1,6 +1,6 @@
 {
   "name": "@saili/dendron-cli",
-  "version": "0.124.1",
+  "version": "0.124.2",
   "description": "dendron-cli",
   "license": "Apache 2.0",
   "repository": {
@@ -41,13 +41,13 @@
     "watch": "yarn compile --watch"
   },
   "dependencies": {
-    "@saili/api-server": "^0.124.1",
-    "@saili/common-all": "^0.124.1",
-    "@saili/common-server": "^0.124.1",
-    "@saili/dendron-viz": "^0.124.1",
-    "@saili/engine-server": "^0.124.1",
-    "@saili/pods-core": "^0.124.1",
     "@jcoreio/async-throttle": "^1.3.2",
+    "@saili/api-server": "^0.124.2",
+    "@saili/common-all": "^0.124.2",
+    "@saili/common-server": "^0.124.2",
+    "@saili/dendron-viz": "^0.124.2",
+    "@saili/engine-server": "^0.124.2",
+    "@saili/pods-core": "^0.124.2",
     "@types/prompts": "^2.0.14",
     "clipboardy": "2.3.0",
     "execa": "^9.4.0",
