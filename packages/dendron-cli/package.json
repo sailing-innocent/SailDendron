@@ -45,7 +45,6 @@
     "@saili/api-server": "^0.124.3",
     "@saili/common-all": "^0.124.3",
     "@saili/common-server": "^0.124.3",
-    "@saili/dendron-viz": "^0.124.3",
     "@saili/engine-server": "^0.124.3",
     "@saili/pods-core": "^0.124.3",
     "@types/prompts": "^2.0.14",
