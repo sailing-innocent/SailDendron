@@ -4,7 +4,7 @@
     "displayName": "sail-dendron",
     "description": "Sailing-Innocent's vscode extension based on Dendron",
     "publisher": "SalingInnocent",
-    "version": "0.124.2",
+    "version": "0.124.3",
     "sponsor": {
         "url": "https://accounts.dendron.so/account/subscribe"
     },
@@ -1561,11 +1561,11 @@
         "webpack-merge": "^5.8.0"
     },
     "dependencies": {
-        "@saili/api-server": "^0.124.2",
-        "@saili/common-all": "^0.124.2",
-        "@saili/common-server": "^0.124.2",
-        "@saili/engine-server": "^0.124.2",
-        "@saili/pods-core": "^0.124.2",
+        "@saili/api-server": "^0.124.3",
+        "@saili/common-all": "^0.124.3",
+        "@saili/common-server": "^0.124.3",
+        "@saili/engine-server": "^0.124.3",
+        "@saili/pods-core": "^0.124.3",
         "@sentry/integrations": "7.11.1",
         "@sentry/node": "7.11.1",
         "@types/vscode": "1.77.0",
@@ -1595,7 +1595,7 @@
         "vscode-uri": "3.0.3"
     },
     "repository": {
-        "url": "https://github.com/dendronhq/dendron.git",
+        "url": "https://e.coding.net/sailing-innocents/create/SailDendron.git",
         "type": "git"
     },
     "capabilities": {

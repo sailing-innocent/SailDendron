@@ -17,7 +17,7 @@ import {
   Calendar
 } from "antd";
 import _ from "lodash";
-import { DendronProps } from "../types";
+import { DendronProps, DendronComponent } from "../types";
 import { postVSCodeMessage } from "../utils/vscode";
 import generateCalendar, { SelectInfo } from "antd/lib/calendar/generateCalendar";
 import dayjs, { Dayjs } from "dayjs";
@@ -59,7 +59,7 @@ const getMonthData = (value: Dayjs) => {
   }
 };
 
-export default function DendronCalendarPanel({}: DendronProps) {
+const DendronCalendarPanel: DendronComponent = (props: DendronProps) => {
   // -- init
   const ctx = "CalenderView";
   const logger = createLogger("calendarView");
@@ -162,3 +162,5 @@ export default function DendronCalendarPanel({}: DendronProps) {
     </>
   )
 }
+
+export default DendronCalendarPanel;

@@ -213,7 +213,7 @@ export class BuildUtils {
       description,
       main: "./dist/extension.js",
       repository: {
-        url: "https://github.com/dendronhq/dendron.git",
+        url: "https://e.coding.net/sailing-innocents/create/SailDendron.git",
         type: "git",
       },
       version,
@@ -392,10 +392,10 @@ export class BuildUtils {
     // copy assets from plugin view
 
     // plugin view css is not built yet
-    // fs.copySync(
-    //   path.join(pluginViewsRoot, "build", "static", "css"),
-    //   path.join(pluginStaticPath, "css")
-    // );
+    fs.copySync(
+      path.join(pluginViewsRoot, "build", "static", "css"),
+      path.join(pluginStaticPath, "css")
+    );
     fs.copySync(
       path.join(pluginViewsRoot, "build", "static", "js"),
       path.join(pluginStaticPath, "js")
@@ -408,7 +408,6 @@ export class BuildUtils {
     return { staticPath: pluginStaticPath };
   }
 
-  // ^gxyyk2p87a5z
   static async syncStaticAssetsToNextjsTemplate() {
     // all assets are stored here
     const commonAssetsRoot = path.join(

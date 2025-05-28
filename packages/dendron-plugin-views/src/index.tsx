@@ -1,6 +1,7 @@
 import { renderOnDOM } from "./bootstrap";
 const VALID_NAMES = [
   "DendronCalendarPanel",
+  "DendronNotePreview"
 ];
 
 const elem = window.document.getElementById("root")!;

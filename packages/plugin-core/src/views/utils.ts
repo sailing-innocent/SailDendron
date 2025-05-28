@@ -100,34 +100,34 @@ export class WebViewUtils {
         )
         .toString();
     });
-    const temp = name + jsSrc + cssSrc + port + wsRoot + initialTheme;
-    // This is a temporary variable to prevent unused variable error
-    if (temp) {}
 
-    // const out = WebViewCommonUtils.genVSCodeHTMLIndex({
-    //   jsSrc: panel.webview.asWebviewUri(jsSrc).toString(),
-    //   cssSrc: panel.webview.asWebviewUri(cssSrc).toString(),
-    //   // Need to use `asExternalUri` to make sure port forwarding is set up
-    //   // correctly in remote workspaces
-    //   url: (
-    //     await vscode.env.asExternalUri(
-    //       vscode.Uri.parse(APIUtils.getLocalEndpoint(port))
-    //     )
-    //   )
-    //     .toString()
-    //     // Slice of trailing slash
-    //     .slice(undefined, -1),
-    //   wsRoot,
-    //   browser: false,
-    //   // acquireVsCodeApi() Documentation: This function can only be invoked once per session.
-    //   // You must hang onto the instance of the VS Code API returned by this method,
-    //   // and hand it out to any other functions that need to use it.
-    //   acquireVsCodeApi: `const vscode = acquireVsCodeApi(); window.vscode = vscode;`,
-    //   themeMap: themeMap as WebViewThemeMap,
-    //   initialTheme,
-    //   name,
-    // });
-    const out = "<!DOCTYPE html>\n<body>\n Hello World</body>\n</html>";
+    // const temp = name + jsSrc + cssSrc + port + wsRoot + initialTheme;
+    // if (temp) {}
+
+    const out = WebViewCommonUtils.genVSCodeHTMLIndex({
+      jsSrc: panel.webview.asWebviewUri(jsSrc).toString(),
+      cssSrc: panel.webview.asWebviewUri(cssSrc).toString(),
+      // Need to use `asExternalUri` to make sure port forwarding is set up
+      // correctly in remote workspaces
+      url: (
+        await vscode.env.asExternalUri(
+          vscode.Uri.parse(APIUtils.getLocalEndpoint(port))
+        )
+      )
+        .toString()
+        // Slice of trailing slash
+        .slice(undefined, -1),
+      wsRoot,
+      browser: false,
+      // acquireVsCodeApi() Documentation: This function can only be invoked once per session.
+      // You must hang onto the instance of the VS Code API returned by this method,
+      // and hand it out to any other functions that need to use it.
+      acquireVsCodeApi: `const vscode = acquireVsCodeApi(); window.vscode = vscode;`,
+      themeMap: themeMap as WebViewThemeMap,
+      initialTheme,
+      name,
+    });
+    // const out = "<!DOCTYPE html>\n<body>\n Hello World</body>\n</html>";
     return out;
   }
 
