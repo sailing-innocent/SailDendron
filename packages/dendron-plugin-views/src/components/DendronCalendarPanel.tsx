@@ -144,7 +144,7 @@ const DendronCalendarPanel: DendronComponent = (props: DendronProps) => {
 
   return (
     <>
-      <div className="calendar">
+      <div className="vscode-calendar-view">
         <Calendar
           onSelect={onSelect}
           onPanelChange={onPanelChange}
