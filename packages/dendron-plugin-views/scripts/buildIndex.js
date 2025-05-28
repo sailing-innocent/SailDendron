@@ -4,7 +4,8 @@ const path = require("path");
 
 // Compile Dendron `index.html` template
 let theme = process.env.THEME || "light";
-let name = process.env.REACT_APP_VIEW_NAME;
+// let name = process.env.REACT_APP_VIEW_NAME;
+let name = process.env.VIEW_NAME || "DendronCalendarPanel";
 
 
 const out = WebViewCommonUtils.genVSCodeHTMLIndex({

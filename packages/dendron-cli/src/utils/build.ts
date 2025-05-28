@@ -396,6 +396,7 @@ export class BuildUtils {
       path.join(pluginViewsRoot, "build", "static", "css"),
       path.join(pluginStaticPath, "css")
     );
+    
     fs.copySync(
       path.join(pluginViewsRoot, "build", "static", "js"),
       path.join(pluginStaticPath, "js")
