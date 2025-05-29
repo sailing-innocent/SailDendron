@@ -1,4 +1,7 @@
 import { renderOnDOM } from "./bootstrap";
+import "./styles/scss/main-plugin.scss";
+// import "./index.css";
+
 const VALID_NAMES = [
   "DendronCalendarPanel",
   "DendronNotePreview"

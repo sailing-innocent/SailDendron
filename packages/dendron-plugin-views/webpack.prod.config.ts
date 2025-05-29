@@ -33,6 +33,14 @@ const config: Configuration = {
           },
         },
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader', // js -> style node
+          'css-loader', // css -> js module
+          'sass-loader', // sass -> css
+        ],
+      },
     ],
   },
   resolve: {

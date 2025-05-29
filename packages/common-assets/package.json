@@ -1,7 +1,7 @@
 {
   "name": "@saili/common-assets",
   "private": true,
-  "version": "0.124.3",
+  "version": "0.124.4",
   "main": "index.js",
   "license": "Apache 2.0",
   "scripts": {
@@ -9,7 +9,6 @@
     "build": "node scripts/buildStyles.js && gulp less js",
     "buildCI": "yarn build"
   },
-  "gitHead": "4ba39ff9fcec3bd1f0ba4fbd663cb3b49449609b",
   "devDependencies": {
     "autoprefixer": "10.2.5",
     "gulp": "4.0.2",

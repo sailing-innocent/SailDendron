@@ -355,8 +355,6 @@ export class BuildUtils {
     );
 
     const commonAssetsBuildRoot = path.join(commonAssetsRoot, "build");
-    // const commonAssetsStylesRoot = path.join(commonAssetsRoot, "styles");
-
     // destination for assets
     const pluginAssetPath = path.join(this.getPluginRootPath(), "assets");
     const pluginStaticPath = path.join(pluginAssetPath, "static");
@@ -390,22 +388,11 @@ export class BuildUtils {
     );
 
     // copy assets from plugin view
-
-    // plugin view css is not built yet
-    fs.copySync(
-      path.join(pluginViewsRoot, "build", "static", "css"),
-      path.join(pluginStaticPath, "css")
-    );
-    
     fs.copySync(
       path.join(pluginViewsRoot, "build", "static", "js"),
       path.join(pluginStaticPath, "js")
     );
-    // fs.copySync(
-    //   path.join(commonAssetsStylesRoot, "scss"),
-    //   path.join(pluginViewsRoot, "src", "styles", "scss")
-    // );
-
+  
     return { staticPath: pluginStaticPath };
   }
 

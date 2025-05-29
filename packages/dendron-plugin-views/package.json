@@ -1,14 +1,14 @@
 {
   "name": "@saili/dendron-plugin-views",
-  "version": "0.124.3",
+  "version": "0.124.4",
   "scripts": {
     "start": "webpack serve --config webpack.dev.config.ts",
     "build": "webpack --config webpack.prod.config.ts"
   },
   "dependencies": {
-    "@saili/common-all": "^0.124.3",
-    "@saili/common-frontend": "^0.124.3",
-    "@saili/common-server": "^0.124.3",
+    "@saili/common-all": "^0.124.4",
+    "@saili/common-frontend": "^0.124.4",
+    "@saili/common-server": "^0.124.4",
     "antd": "^5.21.3",
     "dayjs": "^1.11.13",
     "mermaid": "^11.2.1",
@@ -29,8 +29,12 @@
     "@types/react-dom": "^18.3.0",
     "@types/webpack-dev-server": "^4.7.2",
     "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.0",
     "process": "^0.11.10",
+    "sass": "^1.89.0",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
     "typescript": "^5.6.2",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",

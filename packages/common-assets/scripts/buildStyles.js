@@ -56,7 +56,9 @@ const buildAll = async () => {
   // --- Read
   // Read all stylesheets and builds theme map
   console.log("reading all styles...");
+  
   const antdThemes = filesToThemeMap(path.join(cssRoot, "antd"));
+
   const prismThemes = filesToThemeMap(path.join(cssRoot, "prism"));
   const katex = fs.readFileSync(path.join(cssRoot, "katex.min.css"), {
     encoding: "utf-8",
