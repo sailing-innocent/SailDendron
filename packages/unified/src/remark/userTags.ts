@@ -17,19 +17,20 @@ const GOOD_MIDDLE_CHARACTER = `[^#@|\\[\\]\\s${PUNCTUATION_MARKS}]`;
 /** Can have period in the end */
 const GOOD_END_CHARACTER = `[^#@|\\[\\]\\s${PUNCTUATION_MARKS}]`;
 export const USERTAG_REGEX = new RegExp(
-  // Avoid matching it if there's a non-whitespace character before (like foo@example.com)
-  `^(?<!\\S)(?<tagSymbol>@)(?<tagContents>` +
-    `${GOOD_MIDDLE_CHARACTER}*` +
-    `${GOOD_END_CHARACTER}` +
-    `)(?<tagSymbolEnd>})`
+  // Avoid matching it if there's a non-whitespace character before
+  `^(?<!\\S)(?<tagSymbol>\\\\cite\\{)(?<tagContents>` +
+    // Match one or more valid characters, OR empty content
+    `(?:${GOOD_MIDDLE_CHARACTER}+)?` +
+    `)(?<tagSymbolEnd>\\})`
 );
-/** Same as `USERTAG_REGEX`, except that that it doesn't have to be at the start of the string. */
+
 export const USERTAG_REGEX_LOOSE = new RegExp(
-  // Avoid matching it if there's a non-whitespace character before (like foo@example.com)
-  `(?<!\\S)(?<tagSymbol>\\cite{)(?<userTagContents>` +
+  // Avoid matching it if there's a non-whitespace character before
+  `(?<!\\S)(?<tagSymbol>\\\\cite\\{)(?<userTagContents>` +
+    // Match one or more valid characters, OR empty content
     `${GOOD_MIDDLE_CHARACTER}*` +
     `${GOOD_END_CHARACTER}` +
-    `)(?<tagSymbolEnd>})`
+    `)(?<tagSymbolEnd>\\})`
 );
 
 export class UserTagUtils {

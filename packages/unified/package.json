@@ -26,6 +26,7 @@
     "prepublishOnly": "yarn build",
     "prebuild": "yarn clean",
     "build": "yarn compile",
+    "test": "jest",
     "buildCI": "yarn compile",
     "compile": "tsc -p tsconfig.build.json",
     "watch": "yarn compile --watch"
@@ -63,9 +64,12 @@
     "vscode-uri": "3.0.3"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@types/mdast": "^3.0.10",
     "@types/unist": "^2.0.6",
-    "rimraf": "^2.6.2"
+    "jest": "^29.7.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^29.3.4"
   },
   "engines": {
     "node": ">=14.0.0"

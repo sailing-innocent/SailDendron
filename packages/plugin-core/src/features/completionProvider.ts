@@ -627,7 +627,7 @@ export const activate = (context: ExtensionContext) => {
       "[", // for wikilinks and references
       "#", // for hashtags
       // "@", // for user tags
-      ZDOCS_TAG_PREFIX, // for zdoc cite
+      "\\", // for zdoc cite
       "" // for new levels in the hieirarchy
     )
   );
