@@ -315,8 +315,14 @@ export async function getReferenceAtPosition({
       );
       if (rangeForUserTag) {
         const docText = document.getText(rangeForUserTag);
-        const match = docText.match(USERTAG_REGEX_LOOSE);
+        USERTAG_REGEX_LOOSE.lastIndex = 0;
+        // const match = docText.match(USERTAG_REGEX_LOOSE);
+        const match = USERTAG_REGEX_LOOSE.exec(docText);
         if (_.isNull(match)) return null;
+
+        // console.log("Found user tag loose: ", match[0]);
+        // console.log("Found user tag contents: ", match?.groups?.userTagContents);
+        
         return {
           range: rangeForUserTag,
           label: match[0],

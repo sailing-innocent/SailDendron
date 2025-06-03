@@ -16,23 +16,24 @@ import { PUNCTUATION_MARKS } from "./hashtag";
 const GOOD_MIDDLE_CHARACTER = `[^#@|\\[\\]\\s${PUNCTUATION_MARKS}]`;
 /** Can have period in the end */
 const GOOD_END_CHARACTER = `[^#@|\\[\\]\\s${PUNCTUATION_MARKS}]`;
+
 export const USERTAG_REGEX = new RegExp(
   // Avoid matching it if there's a non-whitespace character before
   `^(?<!\\S)(?<tagSymbol>\\\\cite\\{)(?<tagContents>` +
-    // Match one or more valid characters, OR empty content
+    // Match one or more valid characters inside braces
     `(?:${GOOD_MIDDLE_CHARACTER}+)?` +
-    `)(?<tagSymbolEnd>\\})`
+    `)\\}`
 );
 
 export const USERTAG_REGEX_LOOSE = new RegExp(
   // Avoid matching it if there's a non-whitespace character before
   `(?<!\\S)(?<tagSymbol>\\\\cite\\{)(?<userTagContents>` +
-    // Match one or more valid characters, OR empty content
+    // Match one or more valid characters inside braces
     `${GOOD_MIDDLE_CHARACTER}*` +
     `${GOOD_END_CHARACTER}` +
-    `)(?<tagSymbolEnd>\\})`
+    `)\\}`,
+  'g'
 );
-
 export class UserTagUtils {
   static extractTagFromMatch(match: RegExpMatchArray | null) {
     if (match && match.groups) {
@@ -94,6 +95,7 @@ function attachParser(proc: Unified.Processor) {
     if (enableUserTags === false) return;
     const match = USERTAG_REGEX.exec(value);
     if (match && match.groups?.tagContents) {
+      // console.log("Found user tag", match[0]);
       return eat(match[0])({
         type: DendronASTTypes.USERTAG,
         // @ts-ignore
