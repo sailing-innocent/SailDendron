@@ -362,6 +362,11 @@ export const DENDRON_MENUS = {
 };
 
 export const DENDRON_COMMANDS: { [key: string]: CommandEntry } = {
+  // --- zotero 
+  ZOTERO_CITATION_PICK: {
+    key: "dendron.zotero.citationPick",
+    title: `${CMD_PREFIX} Zotero: Pick Citation`,
+  },
   // --- backlinks panel buttons
   BACKLINK_SORT_BY_LAST_UPDATED: {
     key: "dendron.backlinks.sortByLastUpdated",
@@ -477,7 +482,7 @@ export const DENDRON_COMMANDS: { [key: string]: CommandEntry } = {
     title: `${CMD_PREFIX} Go to Note`,
     when: `${DendronContext.PLUGIN_ACTIVE} && shellExecutionSupported`,
     keybindings: {
-      key: "ctrl+enter",
+      key: "ctrl+k g",
       when: "editorFocus",
     },
   },

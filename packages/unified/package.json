@@ -1,6 +1,6 @@
 {
   "name": "@saili/unified",
-  "version": "0.124.4",
+  "version": "0.124.6",
   "description": "Unified parser utilities for Dendron",
   "license": "Apache 2.0",
   "repository": {
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@dendronhq/remark-mermaid": "^0.4.0",
-    "@saili/common-all": "^0.124.4",
+    "@saili/common-all": "^0.124.6",
     "hast-util-parse-selector": "^2.2.4",
     "hast-util-select": "^4.0.0",
     "mdast": "^3.0.0",

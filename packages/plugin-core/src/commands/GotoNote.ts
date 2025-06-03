@@ -327,8 +327,8 @@ export class GotoNoteCommand extends BasicCommand<
             await client.writeNote(note);
 
             // check if we should send meeting note telemetry.
-            const type = qs.startsWith("user.") ? "userTag" : "general";
-            maybeSendMeetingNoteTelemetry(type);
+            // const type = qs.startsWith("source.zdoc.") ? "userTag" : "general";
+            // maybeSendMeetingNoteTelemetry(type);
           } else {
             // should not create note if fname is invalid.
             // let the user know and exit early.

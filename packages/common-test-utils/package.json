@@ -1,7 +1,7 @@
 {
   "name": "@saili/common-test-utils",
   "private": true,
-  "version": "0.124.4",
+  "version": "0.124.6",
   "description": "",
   "license": "Apache 2.0",
   "repository": {
@@ -47,9 +47,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@saili/common-all": "^0.124.4",
-    "@saili/common-server": "^0.124.4",
-    "@saili/pods-core": "^0.124.4",
+    "@saili/common-all": "^0.124.6",
+    "@saili/common-server": "^0.124.6",
+    "@saili/pods-core": "^0.124.6",
     "@types/sinon": "^9.0.9",
     "fs-extra": "^9.0.1",
     "jest": "^28.1.0",

@@ -4,7 +4,7 @@
     "displayName": "sail-dendron",
     "description": "Sailing-Innocent's vscode extension based on Dendron",
     "publisher": "SalingInnocent",
-    "version": "0.124.4",
+    "version": "0.124.6",
     "sponsor": {
         "url": "https://accounts.dendron.so/account/subscribe"
     },
@@ -129,6 +129,18 @@
             "Other"
         ],
         "commands": [
+            {
+                "command": "dendron.zotero.CitationPicker",
+                "title": "Zotero Citation Picker"
+            },
+            {
+                "command": "dendron.zotero.openInZotero",
+                "title": "Open in Zotero"
+            },
+            {
+                "command": "dendron.zotero.openPDFZotero",
+                "title": "Open PDF from Zotero"
+            },
             {
                 "command": "dendron.backlinks.sortByLastUpdated",
                 "title": "Sort by Last Updated"
@@ -1352,12 +1364,24 @@
         },
         "keybindings": [
             {
+                "command": "dendron.zotero.CitationPicker",
+                "key": "alt+shift+z"
+            },
+            {
+                "command": "dendron.zotero.openInZotero",
+                "key": "ctrl+shift+z"
+            },
+            {
+                "command": "dendron.zotero.openPDFZotero",
+                "key": "ctrl+alt+shift+z"
+            },
+            {
                 "command": "dendron.goto",
                 "when": "editorFocus"
             },
             {
                 "command": "dendron.gotoNote",
-                "key": "ctrl+enter",
+                "key": "ctrl+k g",
                 "when": "editorFocus"
             },
             {
@@ -1532,6 +1556,7 @@
         "@types/node": "^13.11.0",
         "@types/open": "^6.2.1",
         "@types/open-graph-scraper": "^4.7.0",
+        "@types/request-promise": "^4.1.51",
         "@types/semver": "^7.3.1",
         "@types/string-similarity": "^4.0.0",
         "@types/webpack-env": "^1.17.0",
@@ -1561,11 +1586,11 @@
         "webpack-merge": "^5.8.0"
     },
     "dependencies": {
-        "@saili/api-server": "^0.124.4",
-        "@saili/common-all": "^0.124.4",
-        "@saili/common-server": "^0.124.4",
-        "@saili/engine-server": "^0.124.4",
-        "@saili/pods-core": "^0.124.4",
+        "@saili/api-server": "^0.124.6",
+        "@saili/common-all": "^0.124.6",
+        "@saili/common-server": "^0.124.6",
+        "@saili/engine-server": "^0.124.6",
+        "@saili/pods-core": "^0.124.6",
         "@sentry/integrations": "7.11.1",
         "@sentry/node": "7.11.1",
         "@types/vscode": "1.77.0",
@@ -1582,6 +1607,7 @@
         "path-browserify": "1.0.1",
         "process": "0.11.10",
         "query-string": "7.0.1",
+        "request-promise": "^4.2.6",
         "semver": "7.3.2",
         "stream-browserify": "3.0.0",
         "stream-http": "3.2.0",

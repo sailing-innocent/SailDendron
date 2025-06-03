@@ -79,6 +79,9 @@ import { CreateScratchNoteKeybindingTip } from "./showcase/CreateScratchNoteKeyb
 import semver from "semver";
 import _ from "lodash";
 import { GotoNoteCommand } from "./commands/GotoNote";
+import { activate as z_activate, deactivate as z_deactivate } from "./commands/Zotero";
+import { showZoteroPicker } from "./commands/Zotero";
+import requestPromise from 'request-promise';
 
 const MARKDOWN_WORD_PATTERN = new RegExp("([\\w\\.]+)");
 // === Main
@@ -87,6 +90,9 @@ const MARKDOWN_WORD_PATTERN = new RegExp("([\\w\\.]+)");
 export function activate(
   context: vscode.ExtensionContext
 ): vscode.ExtensionContext {
+  // Zotero Feature
+  z_activate(context);
+
   const stage = getStage();
   // override default word pattern
   vscode.languages.setLanguageConfiguration("markdown", {
@@ -477,6 +483,7 @@ export function deactivate() {
     getExtension().deactivate();
   }
   togglePluginActiveContext(false);
+  z_deactivate();
 }
 
 async function showWelcomeOrWhatsNew({

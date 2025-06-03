@@ -1,6 +1,6 @@
 {
   "name": "@saili/dendron-viz",
-  "version": "0.124.4",
+  "version": "0.124.6",
   "description": "dendron-viz",
   "license": "Apache 2.0",
   "repository": {
@@ -32,8 +32,8 @@
     "watch": "yarn copyNonTSFiles && yarn compile --watch"
   },
   "dependencies": {
-    "@saili/common-all": "^0.124.4",
-    "@saili/engine-server": "^0.124.4",
+    "@saili/common-all": "^0.124.6",
+    "@saili/engine-server": "^0.124.6",
     "d3": "^7.6.1",
     "lodash": "^4.17.21",
     "micromatch": "^4.0.4",
