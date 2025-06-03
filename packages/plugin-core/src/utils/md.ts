@@ -11,7 +11,7 @@ import {
   NotePropsMeta,
   NoteUtils,
   TAGS_HIERARCHY,
-  USERS_HIERARCHY,
+  ZDOCS_HIERARCHY,
 } from "@saili/common-all";
 import { WorkspaceUtils } from "@saili/engine-server";
 import {
@@ -320,7 +320,7 @@ export async function getReferenceAtPosition({
         return {
           range: rangeForUserTag,
           label: match[0],
-          ref: `${USERS_HIERARCHY}${match.groups!.userTagContents}`,
+          ref: `${ZDOCS_HIERARCHY}${match.groups!.userTagContents}`,
           refText: docText,
           refType: "usertag",
         };

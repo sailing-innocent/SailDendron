@@ -12,8 +12,9 @@ import {
   NoteProps,
   NotePropsMeta,
   TAGS_HIERARCHY,
-  USERS_HIERARCHY,
+  ZDOCS_HIERARCHY,
   VaultUtils,
+  ZDOCS_TAG_PREFIX,
 } from "@saili/common-all";
 import { DConfig, getDurationMilliseconds } from "@saili/common-server";
 import {
@@ -149,7 +150,7 @@ async function provideCompletionsForTag({
       break;
     }
     case "usertag": {
-      prefix = USERS_HIERARCHY;
+      prefix = ZDOCS_HIERARCHY;
       tagValue = UserTagUtils.extractTagFromMatch(found) || "";
       break;
     }
@@ -625,7 +626,8 @@ export const activate = (context: ExtensionContext) => {
 
       "[", // for wikilinks and references
       "#", // for hashtags
-      "@", // for user tags
+      // "@", // for user tags
+      ZDOCS_TAG_PREFIX, // for zdoc cite
       "" // for new levels in the hieirarchy
     )
   );

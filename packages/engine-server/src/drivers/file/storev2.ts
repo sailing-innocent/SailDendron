@@ -48,7 +48,7 @@ import {
   stringifyError,
   TAGS_HIERARCHY,
   TimeUtils,
-  USERS_HIERARCHY,
+  ZDOCS_HIERARCHY,
   USER_MESSAGES,
   VaultUtils,
   WriteNoteResp,
@@ -900,10 +900,10 @@ export class FileStorage implements DStore {
           alias = undefined;
         }
         // for user tag links, we'll have to regenerate the alias
-        if (link.type !== "ref" && newLoc.fname.startsWith(USERS_HIERARCHY)) {
-          const fnameWithoutTag = newLoc.fname.slice(USERS_HIERARCHY.length);
+        if (link.type !== "ref" && newLoc.fname.startsWith(ZDOCS_HIERARCHY)) {
+          const fnameWithoutTag = newLoc.fname.slice(ZDOCS_HIERARCHY.length);
           alias = `@${fnameWithoutTag}`;
-        } else if (oldLink.from.fname.startsWith(USERS_HIERARCHY)) {
+        } else if (oldLink.from.fname.startsWith(ZDOCS_HIERARCHY)) {
           // If this used to be a user tag but no longer is, the alias is like `@foo.bar` and no longer makes sense.
           alias = undefined;
         }

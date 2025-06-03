@@ -3,6 +3,15 @@ import { UserTag } from "../types";
 import { Decorator } from "./utils";
 import { DecorationWikilink, linkedNoteType } from "./wikilinks";
 
+import {
+  ConfigUtils,
+  DendronConfig,
+  ReducedDEngine,
+  TaskNoteUtils,
+  VaultUtils,
+  VSRange,
+} from "@saili/common-all";
+
 export const decorateUserTag: Decorator<UserTag, DecorationWikilink> = async (
   opts
 ) => {

@@ -7,16 +7,6 @@
 
 import * as vscode from 'vscode';
 import requestPromise from 'request-promise';
-// import { IDendronExtension } from '../dendronExtensionInterface';
-// import { GotoNoteCommand } from "./GotoNote";
-// import { DNodeUtils } from '@saili/common-all';
-// import { USERS_HIERARCHY } from '@saili/common-all';
-
-// interface ZoteroItem {
-//     id: string;
-//     title: string;
-// }
-
 
 export async function showZoteroPicker(): Promise<void> {
   try {

@@ -69,7 +69,7 @@ import {
   stringifyError,
   TAGS_HIERARCHY,
   URI,
-  USERS_HIERARCHY,
+  ZDOCS_HIERARCHY,
   VaultUtils,
   WorkspaceOpts,
   WriteNoteResp,
@@ -1343,12 +1343,10 @@ export class DendronEngineV3 extends EngineV3Base implements DEngine {
           // And if this used to be a frontmatter tag, the alias being undefined will force it to be removed because a frontmatter tag can't point to something outside of tags hierarchy.
           alias = undefined;
         }
-        // for user tag links, we'll have to regenerate the alias.
-        // added link.type !==ref check because syntax like !@john doesn't work as a note ref
-        if (link.type !== "ref" && newLoc.fname.startsWith(USERS_HIERARCHY)) {
-          const fnameWithoutTag = newLoc.fname.slice(USERS_HIERARCHY.length);
+        if (link.type !== "ref" && newLoc.fname.startsWith(ZDOCS_HIERARCHY)) {
+          const fnameWithoutTag = newLoc.fname.slice(ZDOCS_HIERARCHY.length);
           alias = `@${fnameWithoutTag}`;
-        } else if (oldLink.from.fname.startsWith(USERS_HIERARCHY)) {
+        } else if (oldLink.from.fname.startsWith(ZDOCS_HIERARCHY)) {
           // If this used to be a user tag but no longer is, the alias is like `@foo.bar` and no longer makes sense.
           alias = undefined;
         }

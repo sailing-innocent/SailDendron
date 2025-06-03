@@ -38,7 +38,7 @@ import {
   TAGS_HIERARCHY,
   TAGS_HIERARCHY_BASE,
   TagUtils,
-  USERS_HIERARCHY_BASE,
+  ZDOCS_HIERARCHY_BASE,
   VaultUtils,
 } from "@saili/common-all";
 import _ from "lodash";
@@ -84,6 +84,8 @@ import {
 } from "../types";
 import { MDUtilsV5, ProcFlavor, ProcMode } from "../utilsv5";
 import { getFrontmatterTags, parseFrontmatter } from "../yaml";
+
+import {ZDOCS_TAG_PREFIX, ZDOCS_TAG_SUFFIX} from "@saili/common-all";
 
 const toString = require("mdast-util-to-string");
 
@@ -758,7 +760,7 @@ export class LinkUtils {
           return link.from.alias;
         }
         if (this.isUserTagLink(link.from)) {
-          return link.from.alias;
+          return "\\cite{" + link.from.alias + "}";
         }
         const ref = link.type === "ref" ? "!" : "";
         const vaultPrefix =
@@ -849,8 +851,9 @@ export class LinkUtils {
   static isUserTagLink(link: DNoteLoc): link is DNoteLoc & { alias: string } {
     return (
       link.alias !== undefined &&
-      link.alias.startsWith("@") &&
-      link.fname.startsWith(USERS_HIERARCHY_BASE)
+      // link.alias.startsWith("@") &&
+      link.alias.startsWith(ZDOCS_TAG_PREFIX) &&
+      link.fname.startsWith(ZDOCS_HIERARCHY_BASE)
     );
   }
 

@@ -114,9 +114,10 @@ export const TAGS_HIERARCHY_BASE = "tags";
 /** Notes under this hierarchy are considered tags, for example `${TAGS_HIERARCHY}foo` is a tag note. */
 export const TAGS_HIERARCHY = `${TAGS_HIERARCHY_BASE}.`;
 
-export const USERS_HIERARCHY_BASE = "source.zdoc";
-/** Notes under this hierarchy are considered users, for example `${USERS_HIERARCHY}Hamilton` is a user note. */
-export const USERS_HIERARCHY = `${USERS_HIERARCHY_BASE}.`;
+export const ZDOCS_HIERARCHY_BASE = "source.zdoc";
+export const ZDOCS_HIERARCHY = `${ZDOCS_HIERARCHY_BASE}.`;
+export const ZDOCS_TAG_PREFIX = "\\cite{";
+export const ZDOCS_TAG_SUFFIX = "}";
 
 export type VaultRemoteSource = "local" | "remote";
 

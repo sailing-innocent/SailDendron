@@ -24,7 +24,7 @@ import { VSCodeUtils } from "../vsCodeUtils";
 import { WSUtils } from "../WSUtils";
 import { BasicCommand } from "./base";
 
-import { USERS_HIERARCHY_BASE, TAGS_HIERARCHY_BASE} from "@saili/common-all";
+import { ZDOCS_HIERARCHY_BASE, TAGS_HIERARCHY_BASE} from "@saili/common-all";
 
 type CommandOpts = {
   range: Range;
@@ -284,7 +284,7 @@ export class ConvertLinkCommand extends BasicCommand<
       }
       case "wiki": {
         let tagType;
-        if (ref.startsWith(USERS_HIERARCHY_BASE)) {
+        if (ref.startsWith(ZDOCS_HIERARCHY_BASE)) {
           tagType = "usertag";
         } else if (ref.startsWith(TAGS_HIERARCHY_BASE)) {
           tagType = "hashtag";
