@@ -489,7 +489,6 @@ export class MDUtilsV5 {
   }
 
   /**
-   * Equivalent to running {@link procRemarkParse({mode: ProcMode.NO_DATA})}
    *
    * Warning! When using a no-data parser, any user configuration will not be
    * available. Avoid using it unless you are sure that the user configuration
@@ -506,10 +505,6 @@ export class MDUtilsV5 {
       withConfig
     );
   }
-
-  /**
-   * Equivalent to running {@link procRemarkParse({mode: ProcMode.FULL})}
-   */
   static procRemarkParseFull(
     opts: Omit<ProcOptsV5, "mode" | "parseOnly">,
     data: ProcDataFullOptsV5
@@ -539,3 +534,5 @@ export const getRefId = ({ link, id }: { link: DNoteRefLink; id: string }) => {
   const slug = getSlugger();
   return slug.slug([id, anchorStart, anchorEnd, anchorStartOffset].join("-"));
 };
+
+  

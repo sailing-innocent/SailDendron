@@ -115,6 +115,7 @@ export class PreviewPanel implements PreviewProxy, vscode.Disposable {
       const webViewAssets = WebViewUtils.getJsAndCss();
       const initialTheme =
         ConfigUtils.getPreview(this._ext.getDWorkspace().config).theme || "";
+      Logger.info("Initial theme for preview: " + initialTheme);
       const html = await WebViewUtils.getWebviewContent({
         ...webViewAssets,
         name,
