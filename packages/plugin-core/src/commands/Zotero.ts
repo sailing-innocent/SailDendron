@@ -21,7 +21,7 @@ export async function showZoteroPicker(): Promise<void> {
       const parsedResult = JSON.parse(result);
       console.log('Zotero citation fetched:', parsedResult);
       console.log('Zotero citation fetched:', parsedResult[0]);
-      Logger.info('Zotero citation fetched [LOG_INFO]: %j', parsedResult);
+      Logger.info(`Zotero citation fetched [LOG_INFO]: ${result}`);
 
       // Uncomment if you want to insert the ID into the active editor
 

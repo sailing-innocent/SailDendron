@@ -29,6 +29,7 @@ export const CONSTANTS = {
   DENDRON_CONFIG_FILE: "dendron.yml",
   DENDRON_LOCAL_CONFIG_FILE: "dendronrc.yml",
   DENDRON_SEED_CONFIG: "seed.yml",
+  SRC_DELIMITER: "src://",
   DENDRON_DELIMETER: "dendron://",
   DENDRON_USER_FILE: ".dendron.user",
   DENDRON_CACHE_FILE: ".dendron.cache.json",

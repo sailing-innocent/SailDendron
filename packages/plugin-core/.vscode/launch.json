@@ -23,8 +23,7 @@
       "env": {
         "STAGE": "dev",
         "VSCODE_DEBUGGING_EXTENSION": "dendron",
-        "LOG_LEVEL": "debug",
-				"LOG_DST": "${workspaceFolder}/dst-debug.log",
+        "LOG_LEVEL": "debug"
 			},
     },
     {

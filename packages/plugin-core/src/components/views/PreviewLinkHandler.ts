@@ -29,14 +29,6 @@ import { IPreviewLinkHandler, LinkType } from "./IPreviewLinkHandler";
  */
 export class PreviewLinkHandler implements IPreviewLinkHandler {
   private _ext: IDendronExtension;
-  /**
-   * set of tutorial note ids that we will allow tracking of link clicked events.
-   * TODO: consolidate tracking of tutorial ids to a central place
-   * TODO: this logic is specific to the tutorial workspace
-   *       add a way to register callbacks to the link handler in the future
-   */
-  private _trackAllowedIds = ExtensionUtils.getTutorialIds();
-
   constructor(ext: IDendronExtension) {
     this._ext = ext;
   }

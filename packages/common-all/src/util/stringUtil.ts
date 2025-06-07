@@ -9,6 +9,11 @@ export function levenshteinDistance(s1: string, s2: string): number {
 }
 
 export function parseDendronURI(linkString: string) {
+  if (linkString.startsWith(CONSTANTS.SRC_DELIMITER)) {
+    return {
+      link: linkString.replace(CONSTANTS.SRC_DELIMITER, "http://175.27.233.235:4399/content?content="),
+    }
+  }
   if (linkString.startsWith(CONSTANTS.DENDRON_DELIMETER)) {
     const [vaultName, link] = linkString
       .split(CONSTANTS.DENDRON_DELIMETER)[1]

@@ -86,17 +86,15 @@ export class Logger {
     }
     fs.ensureFileSync(logPath);
     const conf = workspace.getConfiguration();
-    const logLevel = conf.get<LogLvl>(CONFIG.LOG_LEVEL.key) || "info";
     setEnv("LOG_DST", logPath);
-    setEnv("LOG_LEVEL", logLevel);
     Logger.logPath = logPath;
     // this.logger = createLogger("dendron", logPath);
     this.logger = createDisposableLogger("dendron", logPath, {
-      lvl: logLevel,
+      lvl: level,
     });
 
     this.level = level;
-    Logger.info({ ctx, msg: "logger config done", logLevel });
+    Logger.info({ ctx, msg: "logger config done", level });
   }
 
   private static _level: LogLvl = "debug";
