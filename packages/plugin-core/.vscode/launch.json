@@ -14,9 +14,6 @@
         "--disable-extensions",
         "--extensionDevelopmentPath=${workspaceFolder}"
       ],
-      "outFiles": [
-        "${workspaceFolder:plugin-core}/out/**/*.js"
-      ],
       "skipFiles": [
         "<node_internals>/**/*.js",
         "${workspaceFolder}/**/node_modules/mocha/**/*.js",
@@ -26,8 +23,9 @@
       "env": {
         "STAGE": "dev",
         "VSCODE_DEBUGGING_EXTENSION": "dendron",
-        "LOG_LEVEL": "debug"
-      }
+        "LOG_LEVEL": "debug",
+				"LOG_DST": "${workspaceFolder}/dst-debug.log",
+			},
     },
     {
       "name": "Run Extension - webpack",
@@ -38,14 +36,12 @@
         "--extensionDevelopmentPath=${workspaceFolder}",
         "--disable-extensions"
       ],
-      "outFiles": [
-        "${workspaceFolder:plugin-core}/dist/*.js"
-      ],
       "env": {
         "VSCODE_DEBUGGING_EXTENSION": "dendron",
         "LOG_LEVEL": "debug"
       }
     },
+
     {
       "name": "Extension Integ Tests",
       "type": "extensionHost",
@@ -58,7 +54,10 @@
       ],
       "env": {
         "TEST_TO_RUN": "",
-        "STAGE": "test"
+        "STAGE": "test",
+        "VSCODE_DEBUGGING_EXTENSION": "dendron",
+        "LOG_LEVEL": "debug",
+				"LOG_DST": "${workspaceFolder}/dst-debug.log",
       },
       "skipFiles": [
         "<node_internals>/**/*.js",
@@ -112,28 +111,5 @@
         "${workspaceFolder}/out/src/test/**/*.js"
       ]
     },
-    // {
-    //   "name": "Run Performance Test - File",
-    //   "type": "extensionHost",
-    //   "request": "launch",
-    //   "runtimeExecutable": "${execPath}",
-    //   "args": [
-    //     "--disable-extensions",
-    //     "--extensionDevelopmentPath=${workspaceFolder}",
-    //     "--extensionTestsPath=${workspaceFolder}/out/src/test/perf-test/index"
-    //   ],
-    //   "env": {
-    //     "STAGE": "test",
-    //     "TEST_TO_RUN": "${fileBasenameNoExtension}"
-    //   },
-    //   "skipFiles": [
-    //     "<node_internals>/**/*.js",
-    //     "${workspaceFolder}/**/node_modules/mocha/**/*.js",
-    //     "**/extensionHostProcess.js"
-    //   ],
-    //   "outFiles": [
-    //     "${workspaceFolder}/out/src/test/**/*.js"
-    //   ]
-    // },
   ]
 }

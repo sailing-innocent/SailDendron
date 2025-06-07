@@ -15,6 +15,7 @@
       "node",
       "jest"
     ],
+    "outDir": "out",
     // --- checks
     "noUnusedLocals": false,
     "noUnusedParameters": true,

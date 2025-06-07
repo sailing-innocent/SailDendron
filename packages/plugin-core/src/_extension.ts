@@ -1,19 +1,19 @@
 import "reflect-metadata"; // This needs to be the topmost import for tsyringe to work
 
 import {
+  ConfigUtils,
   CONSTANTS,
   DWorkspaceV2,
   getStage,
   GLOBAL_STATE_KEYS,
+  GRAPH_THEME_TEST,
   GraphEvents,
   GraphThemeEnum,
   GraphThemeTestGroups,
-  GRAPH_THEME_TEST,
   InstallStatus,
   isDisposable,
   VSCodeEvents,
   WorkspaceEvents,
-  ConfigUtils,
 } from "@saili/common-all";
 import {
   getDurationMilliseconds,
@@ -28,11 +28,14 @@ import {
 } from "@saili/engine-server";
 import * as Sentry from "@sentry/node";
 import fs from "fs-extra";
+import _ from "lodash";
 import os from "os";
 import path from "path";
+import semver from "semver";
 import * as vscode from "vscode";
 import { ALL_COMMANDS } from "./commands";
 import { ConfigureWithUICommand } from "./commands/ConfigureWithUICommand";
+import { GotoNoteCommand } from "./commands/GotoNote";
 import { GoToSiblingCommand } from "./commands/GoToSiblingCommand";
 import { ReloadIndexCommand } from "./commands/ReloadIndex";
 import { SeedAddCommand } from "./commands/SeedAddCommand";
@@ -42,14 +45,15 @@ import {
 } from "./commands/SeedBrowseCommand";
 import { SeedRemoveCommand } from "./commands/SeedRemoveCommand";
 import { ShowNoteGraphCommand } from "./commands/ShowNoteGraph";
+import { ShowSchemaGraphCommand } from "./commands/ShowSchemaGraph";
 import { TogglePreviewCommand } from "./commands/TogglePreview";
 import { TogglePreviewLockCommand } from "./commands/TogglePreviewLock";
-import { ShowSchemaGraphCommand } from "./commands/ShowSchemaGraph";
+import { activate as z_activate, deactivate as z_deactivate } from "./commands/Zotero";
 import { ConfigureUIPanelFactory } from "./components/views/ConfigureUIPanelFactory";
 import { NoteGraphPanelFactory } from "./components/views/NoteGraphViewFactory";
 import { PreviewPanelFactory } from "./components/views/PreviewViewFactory";
 import { SchemaGraphViewFactory } from "./components/views/SchemaGraphViewFactory";
-import { DendronContext, DENDRON_COMMANDS } from "./constants";
+import { DENDRON_COMMANDS, DendronContext } from "./constants";
 import { codeActionProvider } from "./features/codeActionProvider";
 import { completionProvider } from "./features/completionProvider";
 import DefinitionProvider from "./features/DefinitionProvider";
@@ -59,11 +63,12 @@ import setupRecentWorkspacesTreeView from "./features/RecentWorkspacesTreeview";
 import ReferenceHoverProvider from "./features/ReferenceHoverProvider";
 import ReferenceProvider from "./features/ReferenceProvider";
 import RenameProvider from "./features/RenameProvider";
-import { KeybindingUtils } from "./KeybindingUtils";
 import { setupLocalExtContainer } from "./injection-providers/setupLocalExtContainer";
+import { KeybindingUtils } from "./KeybindingUtils";
 import { Logger } from "./logger";
 import { StateService } from "./services/stateService";
 import { Extensions } from "./settings";
+import { CreateScratchNoteKeybindingTip } from "./showcase/CreateScratchNoteKeybindingTip";
 import { FeatureShowcaseToaster } from "./showcase/FeatureShowcaseToaster";
 import { AnalyticsUtils, sentryReportingCallback } from "./utils/analytics";
 import { ExtensionUtils } from "./utils/ExtensionUtils";
@@ -75,13 +80,6 @@ import { DendronExtension, getDWorkspace, getExtension } from "./workspace";
 import { TutorialInitializer } from "./workspace/tutorialInitializer";
 import { WorkspaceActivator } from "./workspace/workspaceActivator";
 import { WSUtils } from "./WSUtils";
-import { CreateScratchNoteKeybindingTip } from "./showcase/CreateScratchNoteKeybindingTip";
-import semver from "semver";
-import _ from "lodash";
-import { GotoNoteCommand } from "./commands/GotoNote";
-import { activate as z_activate, deactivate as z_deactivate } from "./commands/Zotero";
-import { showZoteroPicker } from "./commands/Zotero";
-import requestPromise from 'request-promise';
 
 const MARKDOWN_WORD_PATTERN = new RegExp("([\\w\\.]+)");
 // === Main
@@ -90,6 +88,7 @@ const MARKDOWN_WORD_PATTERN = new RegExp("([\\w\\.]+)");
 export function activate(
   context: vscode.ExtensionContext
 ): vscode.ExtensionContext {
+  
   // Zotero Feature
   z_activate(context);
 

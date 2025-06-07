@@ -2,6 +2,7 @@ import {
   DEngineClient,
   DNoteAnchorBasic,
   ErrorFactory,
+  isSrcUri,
   isVSCodeCommandUri,
   isWebUri,
   NotePropsMeta,
@@ -46,43 +47,17 @@ export class PreviewLinkHandler implements IPreviewLinkHandler {
     data: { id?: string | undefined; href?: string | undefined };
   }) {
     const ctx = "PreviewLinkHandler.onLinkClicked";
+    Logger.info(ctx)
+    Logger.info(data?.href)
     // If href is missing, something is wrong with our link handler. Just let the VSCode's default handle it.
     if (!data.href) return LinkType.UNKNOWN;
     // First check if it's a web URL.
 
     if (isWebUri(data.href)) {
-      // There's nothing to do then, the default handler opens them automatically.
-      // If we try to open it too, it will open twice.
-
-      // track the link if it comes from a tutorial
-      // TODO: this logic is specific to the tutorial workspace
-      //       add a way to register callbacks to the link handler in the future
-      if (data.id && this._trackAllowedIds.has(data.id)) {
-        AnalyticsUtils.track(TutorialEvents.TutorialPreviewLinkClicked, {
-          LinkType: LinkType.WEBSITE,
-          href: data.href,
-        });
-        // some questions signal intent
-        if (data.href.endsWith("98f6d928-3f61-49fb-9c9e-70c27d25f838")) {
-          AnalyticsUtils.identify({ teamIntent: true });
-        }
-      }
       return LinkType.WEBSITE;
     }
 
     if (isVSCodeCommandUri(data.href)) {
-      // If it's a command uri, do nothing.
-      // Let VSCode handle them.
-
-      // but track the command uri if it comes from a tutorial
-      // TODO: this logic is specific to the tutorial workspace
-      //       add a way to register callbacks to the link handler in the future
-      if (data.id && this._trackAllowedIds.has(data.id)) {
-        AnalyticsUtils.track(TutorialEvents.TutorialPreviewLinkClicked, {
-          LinkType: LinkType.COMMAND,
-          href: data.href,
-        });
-      }
       return LinkType.COMMAND;
     }
 

@@ -173,6 +173,9 @@ function wikiTransform(trimmedQuery: string): TransformedQueryString {
     transformed = transformed.slice(transformed.lastIndexOf("/") + 1);
   }
 
+  console.log(
+    `Transformed wiki link query: ${transformed} from original query: ${trimmedQuery}`)
+
   return {
     originalQuery: trimmedQuery,
     queryString: transformed,

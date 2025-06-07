@@ -4,7 +4,7 @@
     "displayName": "sail-dendron",
     "description": "Sailing-Innocent's vscode extension based on Dendron",
     "publisher": "SalingInnocent",
-    "version": "0.124.6",
+    "version": "0.124.7",
     "sponsor": {
         "url": "https://accounts.dendron.so/account/subscribe"
     },
@@ -1518,8 +1518,6 @@
         "webpack:dev:watch": "yarn webpack --watch",
         "webpack:prod": "webpack --config webpack.prod.js",
         "watch": "yarn compile --watch",
-        "buildCI": "yarn rimraf out && yarn compile",
-        "build": "yarn compile",
         "build:dev": "yarn webpack",
         "build:prod": "yarn webpack:prod && yarn package-web",
         "compile": "tsc -p tsconfig.build.json ",
@@ -1586,11 +1584,11 @@
         "webpack-merge": "^5.8.0"
     },
     "dependencies": {
-        "@saili/api-server": "^0.124.6",
-        "@saili/common-all": "^0.124.6",
-        "@saili/common-server": "^0.124.6",
-        "@saili/engine-server": "^0.124.6",
-        "@saili/pods-core": "^0.124.6",
+        "@saili/api-server": "^0.124.7",
+        "@saili/common-all": "^0.124.7",
+        "@saili/common-server": "^0.124.7",
+        "@saili/engine-server": "^0.124.7",
+        "@saili/pods-core": "^0.124.7",
         "@sentry/integrations": "7.11.1",
         "@sentry/node": "7.11.1",
         "@types/vscode": "1.77.0",

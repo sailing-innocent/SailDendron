@@ -3,9 +3,10 @@ import {
   IDendronError,
   setEnv,
 } from "@saili/common-all";
-import { createLogger } from "@saili/common-server";
+import { createDisposableLogger } from "@saili/common-server";
 import * as Sentry from "@sentry/node";
 
+import { LogLvl } from '@saili/common-server';
 import fs from "fs-extra";
 import _ from "lodash";
 import path from "path";
@@ -20,7 +21,6 @@ import {
 import { CONFIG, DENDRON_CHANNEL_NAME } from "./constants";
 import { FileItem } from "./external/fileutils/FileItem";
 
-export type TraceLevel = "debug" | "info" | "warn" | "error" | "fatal";
 const levels = ["debug", "info", "warn", "error", "fatal"];
 export type LogPayload = Partial<{
   ctx: string;
@@ -65,13 +65,15 @@ const openFileInEditor = async (
 
 export class Logger {
   static output: OutputChannel | undefined;
-  static logger: ReturnType<typeof createLogger> | undefined;
+  static logger: ReturnType<typeof createDisposableLogger>| undefined;
   static logPath?: string;
 
-  static configure(context: ExtensionContext, level: TraceLevel) {
+  static configure(context: ExtensionContext, level: LogLvl = "debug") {
     const ctx = "Logger:configure";
-    fs.ensureDirSync(context.logPath);
-    const logPath = path.join(context.logPath, "dendron.log");
+    fs.ensureDirSync(context.logUri.fsPath);
+    console.log(
+      `Logger:configure: logPath=${context.logUri.fsPath}, level=${level}`)
+    const logPath = path.join(context.logUri.fsPath, "dendron.log");
     if (fs.existsSync(logPath)) {
       try {
         fs.moveSync(logPath, `${logPath}.old`, { overwrite: true });
@@ -84,16 +86,20 @@ export class Logger {
     }
     fs.ensureFileSync(logPath);
     const conf = workspace.getConfiguration();
-    const logLevel = conf.get<string>(CONFIG.LOG_LEVEL.key) || "info";
+    const logLevel = conf.get<LogLvl>(CONFIG.LOG_LEVEL.key) || "info";
     setEnv("LOG_DST", logPath);
     setEnv("LOG_LEVEL", logLevel);
     Logger.logPath = logPath;
-    this.logger = createLogger("dendron", logPath);
+    // this.logger = createLogger("dendron", logPath);
+    this.logger = createDisposableLogger("dendron", logPath, {
+      lvl: logLevel,
+    });
+
     this.level = level;
     Logger.info({ ctx, msg: "logger config done", logLevel });
   }
 
-  private static _level: TraceLevel = "debug";
+  private static _level: LogLvl = "debug";
 
   /**
    * Shortcut to check if logger is set to debug
@@ -102,7 +108,7 @@ export class Logger {
     return Logger.level === "debug";
   }
 
-  static cmpLevel(lvl: TraceLevel): boolean {
+  static cmpLevel(lvl: LogLvl): boolean {
     return levels.indexOf(lvl) >= levels.indexOf(Logger.level || "debug");
   }
 
@@ -111,7 +117,7 @@ export class Logger {
    * @param lvl1
    * @param lvl2
    */
-  static cmpLevels(lvl1: TraceLevel, lvl2: TraceLevel): boolean {
+  static cmpLevels(lvl1: LogLvl, lvl2: LogLvl): boolean {
     return levels.indexOf(lvl1) >= levels.indexOf(lvl2);
   }
 
@@ -119,7 +125,7 @@ export class Logger {
     return this._level;
   }
 
-  static set level(value: TraceLevel) {
+  static set level(value: LogLvl) {
     this._level = value;
     this.output =
       this.output || window.createOutputChannel(DENDRON_CHANNEL_NAME);
@@ -186,7 +192,7 @@ export class Logger {
 
   static log = (
     payload: LogPayload,
-    lvl: TraceLevel,
+    lvl: LogLvl,
     _opts?: { show?: boolean }
   ) => {
     if (Logger.cmpLevel(lvl)) {
@@ -202,7 +208,8 @@ export class Logger {
         };
         stringMsg = customStringify(payloadWithErrorAsPlainObject);
       }
-      Logger.logger?.[lvl](payload);
+      // Logger.logger?.[TraceLevel](payload);
+      Logger.logger?.logger[lvl](payload);
       Logger.output?.appendLine(lvl + ": " + stringMsg);
       const shouldShow = true;
       if (shouldShow || Logger.cmpLevels(lvl, "error")) {

@@ -16,6 +16,12 @@ export function isWebUri(uri: string): boolean {
   return false;
 }
 
+export function isSrcUri(uri: string): boolean {
+  const scheme = uri.match(uriRegex)?.groups?.scheme;
+  if (scheme === "src") return true;
+  return false;
+}
+
 /**
  * Given a uri, determine if it is a [command uri](https://code.visualstudio.com/api/extension-guides/command#command-uris)
  * Command uris have the following scheme

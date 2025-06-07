@@ -1,7 +1,7 @@
 {
   "name": "@saili/common-assets",
   "private": true,
-  "version": "0.124.6",
+  "version": "0.124.7",
   "main": "index.js",
   "license": "Apache 2.0",
   "scripts": {

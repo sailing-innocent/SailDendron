@@ -5,8 +5,9 @@
  * @date 2025-06-03
  */
 
-import * as vscode from 'vscode';
 import requestPromise from 'request-promise';
+import * as vscode from 'vscode';
+import { Logger } from '../logger';
 
 export async function showZoteroPicker(): Promise<void> {
   try {
@@ -18,8 +19,9 @@ export async function showZoteroPicker(): Promise<void> {
 
     if (result) {
       const parsedResult = JSON.parse(result);
-      console.log('Zotero citation fetched: %j', parsedResult);
-      console.log('Zotero citation fetched: %j', parsedResult[0]);
+      console.log('Zotero citation fetched:', parsedResult);
+      console.log('Zotero citation fetched:', parsedResult[0]);
+      Logger.info('Zotero citation fetched [LOG_INFO]: %j', parsedResult);
 
       // Uncomment if you want to insert the ID into the active editor
 
@@ -29,11 +31,11 @@ export async function showZoteroPicker(): Promise<void> {
             editor.selections.forEach(selection => {
               editBuilder.delete(selection);
               if (parsedResult.length == 1) {
-                editBuilder.insert(selection.start, `@${parsedResult[0].id}: ${parsedResult[0].title}`);
+                editBuilder.insert(selection.start, `${parsedResult[0].title} \\cite{${parsedResult[0].id}}`);
               }
               else{
                 parsedResult.forEach((item: any) => {
-                  editBuilder.insert(selection.start, `- @${item.id}: ${item.title}\n`);
+                  editBuilder.insert(selection.start, `- ${item.title} \\cite{${item.id}}\n`);
                 })
               }
             });

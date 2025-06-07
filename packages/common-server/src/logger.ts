@@ -1,10 +1,9 @@
 // import pino from "pino";
 
 import { Disposable, env } from "@saili/common-all";
-import _ from "lodash";
 import pino from "pino";
 
-export type LogLvl = "debug" | "info" | "error";
+export type LogLvl = "debug" | "info" | "error"| "warn" | "fatal";
 
 export class Logger {
   public name: string;
@@ -82,7 +81,7 @@ export type DLogger = {
   //fatal: (msg: any) => void;
 };
 
-export { createLogger, createDisposableLogger, pino };
+export { createDisposableLogger, createLogger, pino };
 
 export function logAndThrow(logger: Logger, msg: any): never {
   logger.error(msg);
