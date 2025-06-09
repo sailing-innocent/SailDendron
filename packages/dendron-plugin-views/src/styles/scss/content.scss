@@ -7,7 +7,6 @@
 
 .main-content {
   line-height: $content-line-height;
-
   /* to protect the layout to break from long words */
   overflow-wrap: break-word;
 
@@ -97,7 +96,7 @@
         position: absolute;
         margin-left: -1.4em;
         color: $grey-dk-000;
-        content: none;
+        content: "*";
       }
     }
   }
@@ -172,7 +171,8 @@
     position: relative;
     margin-top: 1.5em;
     margin-bottom: 0.25em;
-
+    color: $body-heading-color;
+    
     &:first-child {
       margin-top: $sp-2;
     }

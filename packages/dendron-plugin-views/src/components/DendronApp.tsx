@@ -25,8 +25,8 @@ import {
 } from "@saili/common-frontend";
 import { useWorkspaceProps } from "../hooks";
 import _ from "lodash";
-import { Layout } from "antd";
-const { Content } = Layout;
+// import { Layout } from "antd";
+// const { Content } = Layout;
 
 const { useEngineAppSelector } = engineHooks;
 import { postVSCodeMessage, useVSCodeMessage } from "../utils/vscode";
@@ -209,15 +209,9 @@ export type DendronAppProps = {
 function DendronApp(props: DendronAppProps) {
   return (
     <Provider store={combinedStore}>
-      <Layout
-        style={{
-          padding: props.opts.padding,
-        }}
-      >
-        <Content>
-          <DendronVSCodeApp {...props} />
-        </Content>
-      </Layout>
+      {/* <Content> */}
+        <DendronVSCodeApp {...props} />
+      {/* </Content> */}
     </Provider>
   );
 }

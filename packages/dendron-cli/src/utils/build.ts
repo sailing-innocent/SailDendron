@@ -357,7 +357,7 @@ export class BuildUtils {
     const commonAssetsBuildRoot = path.join(commonAssetsRoot, "build");
     // destination for assets
     const pluginAssetPath = path.join(this.getPluginRootPath(), "assets");
-    const pluginStaticPath = path.join(pluginAssetPath, "static");
+    const pluginStaticPath = path.join(pluginAssetPath, "static"); // final output static path
     const pluginViewsRoot = path.join(
       this.getLernaRoot(),
       "packages",

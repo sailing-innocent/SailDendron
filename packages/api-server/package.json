@@ -1,6 +1,6 @@
 {
   "name": "@saili/api-server",
-  "version": "0.124.7",
+  "version": "0.124.8",
   "description": "",
   "license": "Apache 2.0",
   "repository": {
@@ -56,10 +56,10 @@
     "access": "public"
   },
   "dependencies": {
-    "@saili/common-all": "^0.124.7",
-    "@saili/common-server": "^0.124.7",
-    "@saili/engine-server": "^0.124.7",
-    "@saili/unified": "^0.124.7",
+    "@saili/common-all": "^0.124.8",
+    "@saili/common-server": "^0.124.8",
+    "@saili/engine-server": "^0.124.8",
+    "@saili/unified": "^0.124.8",
     "@sentry/integrations": "7.11.1",
     "@sentry/node": "7.11.1",
     "cors": "^2.8.5",

@@ -1,12 +1,12 @@
 {
   "name": "@saili/common-assets",
   "private": true,
-  "version": "0.124.7",
+  "version": "0.124.8",
   "main": "index.js",
   "license": "Apache 2.0",
   "scripts": {
     "watch": "echo nop",
-    "build": "node scripts/buildStyles.js && gulp less js",
+    "build": "node scripts/buildStyles.js",
     "buildCI": "yarn build"
   },
   "devDependencies": {
