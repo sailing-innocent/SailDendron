@@ -2,7 +2,7 @@
 id: ILP9zHbwAltPWMfvIXtds
 title: Preview
 desc: ''
-updated: 1749477942546
+updated: 1749646179672
 created: 1638194914915
 ---
 
@@ -33,3 +33,6 @@ This is a Test `>` special HTML Chars like:
 '>', '<' & '&'
 ```
 
+## KaTeX
+
+$\frac{1}{2}$

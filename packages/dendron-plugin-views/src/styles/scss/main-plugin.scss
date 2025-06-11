@@ -18,7 +18,6 @@ hr {
 // content.scss
 
 .main-content {
-
   h1,
   h2,
   h3,
@@ -30,6 +29,8 @@ hr {
 
 }
 
+// FIX FOR KATEX SPECIFIC ISSUE
+[aria-hidden="true"] { display: none; }
 // main.scss
 
 .vscode-light {

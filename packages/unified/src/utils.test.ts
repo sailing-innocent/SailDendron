@@ -28,7 +28,7 @@ describe('Simple Use for Unified', () => {
             traits: [],
             vault: dvault,
             data: {}, // Add appropriate mock data if needed
-            body: "[[World|src://world]]"  // Add appropriate mock body if needed
+            body: "[[World|src://world]] $\\frac{1}{2}$"  // Add appropriate mock body if needed
         }
         const flavor = ProcFlavor.REGULAR;
         const config: DendronConfig = genDefaultDendronConfig();
