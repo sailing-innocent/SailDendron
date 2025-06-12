@@ -486,7 +486,6 @@ export class DevCLICommand extends CLICommand<CommandOpts, CommandOutput> {
   async syncAssets() {
     this.print("sync static...");
     const { staticPath } = await BuildUtils.syncStaticAssets();
-    await BuildUtils.syncStaticAssetsToNextjsTemplate();
     return { staticPath };
   }
 

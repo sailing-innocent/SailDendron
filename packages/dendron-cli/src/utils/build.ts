@@ -357,7 +357,7 @@ export class BuildUtils {
     const commonAssetsBuildRoot = path.join(commonAssetsRoot, "build");
     // destination for assets
     const pluginAssetPath = path.join(this.getPluginRootPath(), "assets");
-    const pluginStaticPath = path.join(pluginAssetPath, "static"); // final output static path
+    const pluginStaticPath = path.join(pluginAssetPath, "static"); // final output static path plugin-core/assets/static
     const pluginViewsRoot = path.join(
       this.getLernaRoot(),
       "packages",
@@ -394,17 +394,6 @@ export class BuildUtils {
     );
   
     return { staticPath: pluginStaticPath };
-  }
-
-  static async syncStaticAssetsToNextjsTemplate() {
-    // all assets are stored here
-    const commonAssetsRoot = path.join(
-      this.getLernaRoot(),
-      "packages",
-      "common-assets"
-    );
-    // deprecated
-    // destination for assets
   }
 
   static removeDevDepsFromPkgJson({

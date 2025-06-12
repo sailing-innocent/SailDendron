@@ -27,10 +27,9 @@ async function run() {
     `npx lerna run build --parallel --scope "@saili/{common-frontend,dendron-cli}"`
   );
   $(`npx lerna run build --scope "@saili/dendron-plugin-views"`);
+  $(`npx yarn dendron dev sync_assets --fast`); // sync assets for dev
   $(`npx lerna run build:prod --scope "sail-dendron"`);
-  $(`npx yarn dendron dev sync_assets --fast`);
   console.log("done");
-
 }
 
 run();

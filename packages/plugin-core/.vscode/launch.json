@@ -21,7 +21,7 @@
         "**/extensionHostProcess.js"
       ],
       "env": {
-        "STAGE": "dev",
+        "STAGE": "prod",
         "VSCODE_DEBUGGING_EXTENSION": "dendron",
         "LOG_LEVEL": "debug"
 			},
@@ -36,6 +36,7 @@
         "--disable-extensions"
       ],
       "env": {
+        "STAGE": "prod",
         "VSCODE_DEBUGGING_EXTENSION": "dendron",
         "LOG_LEVEL": "debug"
       }
