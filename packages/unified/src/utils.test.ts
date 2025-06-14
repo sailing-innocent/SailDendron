@@ -10,6 +10,8 @@ describe('Simple Use for Unified', () => {
         const dvault: DVault = {
             fsPath: "/test/dvault",
         }
+        let md = "[[World|src://world]] $\\frac{1}{2}$"
+        md = "# Header \n some content \n\n ## Subheader \n\n" + md;
         const note: NoteProps = {
             id: "test-id",
             fname: "test",
@@ -28,7 +30,7 @@ describe('Simple Use for Unified', () => {
             traits: [],
             vault: dvault,
             data: {}, // Add appropriate mock data if needed
-            body: "[[World|src://world]] $\\frac{1}{2}$"  // Add appropriate mock body if needed
+            body: md  // Add appropriate mock body if needed
         }
         const flavor = ProcFlavor.REGULAR;
         const config: DendronConfig = genDefaultDendronConfig();

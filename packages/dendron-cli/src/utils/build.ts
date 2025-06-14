@@ -354,10 +354,10 @@ export class BuildUtils {
       "common-assets"
     );
 
-    const commonAssetsBuildRoot = path.join(commonAssetsRoot, "build");
+    const commonAssetsBuildRoot = path.join(commonAssetsRoot, "build"); // comon-assets/build
     // destination for assets
-    const pluginAssetPath = path.join(this.getPluginRootPath(), "assets");
-    const pluginStaticPath = path.join(pluginAssetPath, "static"); // final output static path plugin-core/assets/static
+    const pluginAssetPath = path.join(this.getPluginRootPath(), "assets"); // plugin-core/assets
+    const pluginStaticPath = path.join(pluginAssetPath, "static"); // plugin-core/assets/static
     const pluginViewsRoot = path.join(
       this.getLernaRoot(),
       "packages",

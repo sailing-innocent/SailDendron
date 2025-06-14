@@ -19,7 +19,12 @@ const DendronNotePreview: DendronComponent = (props: DendronProps)=>{
     previewHTML: props.ide.previewHTML,
   });
   if (!noteRenderedBody) {
-    return <div>Loading...</div>;
+    // return <div>Loading...</div>;
+    return <>
+    <h1 id="test-note">Test Note</h1>
+      <h1 id="header">Header</h1>
+      <p> some content </p>
+      <h2 id="subheader">Subheader</h2></>
   }
   return <>
     <DendronNote noteContent={noteRenderedBody} />
