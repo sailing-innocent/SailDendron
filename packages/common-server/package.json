@@ -1,6 +1,6 @@
 {
   "name": "@saili/common-server",
-  "version": "0.124.9",
+  "version": "0.125.0",
   "description": "common-server",
   "license": "Apache 2.0",
   "repository": {
@@ -36,7 +36,7 @@
     "watch": "yarn compile --watch"
   },
   "dependencies": {
-    "@saili/common-all": "^0.124.9",
+    "@saili/common-all": "^0.125.0",
     "@sentry/integrations": "7.11.1",
     "@sentry/node": "7.11.1",
     "ajv": "^8.6.0",

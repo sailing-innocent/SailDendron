@@ -1,6 +1,6 @@
 {
   "name": "@saili/pods-core",
-  "version": "0.124.9",
+  "version": "0.125.0",
   "description": "pods-core",
   "license": "Apache 2.0",
   "repository": {
@@ -55,10 +55,10 @@
     "@instantish/martian": "1.0.3",
     "@notionhq/client": "^0.1.9",
     "@octokit/graphql": "^4.6.4",
-    "@saili/common-all": "^0.124.9",
-    "@saili/common-server": "^0.124.9",
-    "@saili/engine-server": "^0.124.9",
-    "@saili/unified": "^0.124.9",
+    "@saili/common-all": "^0.125.0",
+    "@saili/common-server": "^0.125.0",
+    "@saili/engine-server": "^0.125.0",
+    "@saili/unified": "^0.125.0",
     "@types/airtable": "^0.10.1",
     "airtable": "^0.11.1",
     "ajv": "^8.6.0",
