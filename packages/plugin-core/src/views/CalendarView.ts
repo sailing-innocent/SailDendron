@@ -63,24 +63,45 @@ export class CalendarView implements vscode.WebviewViewProvider {
           data: msg.data,
         });
         const { id, fname } = msg.data;
+        if (!fname) {
+          Logger.warn({
+            ctx: `${ctx}:onSelect`,
+            msg: "fname is required",
+          });
+          return;
+        }
         // make sure ext type DendronExtension
+        // eslint-disable-next-line no-cond-assign
+        if (id) {
+          const note = (await this._extension.getEngine().getNoteMeta(id)).data;
+          if (note) {
+            // const ext = this._extension;
+            // const config = ext.workspaceService!.config;
+            // const journalConfig = ConfigUtils.getJournal(config);
+            // const maybeDailyVault = journalConfig.dailyVault;
+            // const vault = maybeDailyVault
+            // ? VaultUtils.getVaultByName({
+            //     vaults: this._extension.getEngine().vaults,
+            //     vname: maybeDailyVault,
+            //   })
+            // : undefined;
 
-        const ext = this._extension;
-        const config = ext.workspaceService!.config;
-        const journalConfig = ConfigUtils.getJournal(config);
-        const maybeDailyVault = journalConfig.dailyVault;
-        const vault = maybeDailyVault
-        ? VaultUtils.getVaultByName({
-            vaults: this._extension.getEngine().vaults,
-            vname: maybeDailyVault,
-          })
-        : undefined;
+            // await new GotoNoteCommand(this._extension).execute({
+            //   qs: fname,
+            //   vault: vault,
+            // });
+            await new GotoNoteCommand(this._extension).execute({
+              qs: note.fname,
+              vault: note.vault,
+            });
+          }
+        } else {
+          // if id is not provided, we assume that the user clicked on a date
+          await new CreateDailyJournalCommand(this._extension).execute({
+            fname,
+          });
+        }
 
-        await new GotoNoteCommand(this._extension).execute({
-          qs: fname,
-          vault: vault,
-        });
-    
         break;
       }
       case CalendarViewMessageType.onGetActiveEditor: {
